@@ -17,7 +17,6 @@ END
 
 EXECUTE UDP_MostrarClientes 
 
-GO
 CREATE OR ALTER pROCEDURE UDP_BuscarClientes
    @buscador  nvarchar(max)
 as 
@@ -39,7 +38,7 @@ begin
 end 
 
 EXEC UDP_BuscarClientes 'c'
-GO
+
 
 -- udp para obtener datos
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
@@ -55,7 +54,7 @@ BEGIN
 END
 
 EXEC UDP_ObtenerDatos_Cliente 2
-GO
+
 
 --
 Create or Alter Procedure UDP_EditarClientes
@@ -79,7 +78,7 @@ begin
 	 where [Cliente_Id]=@id
 end 
 
-go
+
 Create or Alter Procedure UDP_InsertCliente
    @Nombre                      nvarchar(250),
    @Apellido                    nvarchar(250),
@@ -97,7 +96,7 @@ begin
 end 
 
 EXEC UDP_InsertCliente 'Angie', 'Campos', '0512-2003-00736', 's', 'F', '95887062',2,1
-go
+
 
 Create or Alter Procedure UDP_EliminarCliente     
     @idAeliminar  int ,
@@ -109,7 +108,7 @@ begin
    Where	[Cliente_Id]=@idAeliminar
 
 end 
-go
+
 
 
 
@@ -133,7 +132,7 @@ SELECT       Empleado_Id,
 end 
 
 EXEC UDP_MostrarEmpleados
-go
+
 
 cREATE OR aLTER pROCEDURE UDP_BuscarEmpleados
       @buscador    nvarchar(max)
@@ -159,7 +158,7 @@ begin
 end
 
 EXEC UDP_BuscarEmpleados 'Es'
-go
+
 
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
@@ -181,7 +180,7 @@ begin
       [Empleado_Puesto]=@puesto,[Empleado_UsuarioModificacionId]=@usuariomodifica,[Empleado_FechaModificacion]=GETDATE()
       WHERE [Empleado_Id]=@id 
 end 
-go
+
 Create or Alter Procedure UDP_EliminarEmpleado
 
       @idaEliminar   int ,
@@ -193,7 +192,7 @@ begin
 	 where	[Empleado_Id] = @idaEliminar 
 end
  EXEC UDP_EliminarEmpleado 7, 1
-go
+
 ----------------UDP'S  Producto--------------- 
 Create or alter procedure UDP_MostrarProducto
 as
@@ -211,7 +210,7 @@ begin
    WHERE	[Estado] = 1
 end 
 EXEC UDP_MostrarProducto
-go
+
 Create or Alter procedure UDP_BuscarProducto
     @buscador     nvarchar(250)
 as 
@@ -228,9 +227,9 @@ begin
    from  [dbo].[tbl_Producto]
    Where pro_ID like '%'+@buscador+'%' or pro_Descripción like'%'+@buscador+'%' or pro_FechaIngreso like '%'+@buscador+'%' 
 end 
-go
 
-CREATE PROCEDURE UDP_ObtenerDatosProductos
+
+CREATE or alter PROCEDURE UDP_ObtenerDatosProductos
 		@ID INT
 AS
 BEGIN
@@ -239,9 +238,9 @@ BEGIN
 END
 
 EXEC UDP_ObtenerDatosProductos 1
-go
 
-go
+
+
 Create Or Alter Procedure UDP_EditarProducto
        @id                int, 
 	   @descripcion       nvarchar(250),
@@ -255,7 +254,7 @@ begin
 	     [FechaModificacion] = GETDATE() , [Accion] = 'M'
 	WHERE [pro_ID] = @id
 end 
-go
+
 Create or Alter Procedure UDP_InsertarProducto
        @descripcion     nvarchar(250),
 	   @fecha           date, 
@@ -268,7 +267,7 @@ begin
 end 
 
 
-go
+
 CREATE OR ALTER Procedure  UDP_EliminarProducto 
       @idAusar   int,
 	  @UsuModi   int
@@ -278,7 +277,7 @@ Begin
 	  SET	 [Estado]=0, [UsuarioModificacion] = @UsuModi, [Accion] = 'E' , [FechaModificacion] = GETDATE()
 	  WHERE  [pro_ID]=@idAusar
 end 
-go
+
 
 --------UDP's TipoDeTrabjo
 
@@ -286,24 +285,24 @@ Create or alter procedure  UDP_MostrarTipoDeTrabajo
 as 
 begin 
     SELECT	tipo_ID, 
-			tipo_Descripcion
+			tipo_Descripción
     FROM	[dbo].[tbl_TipoDeTrabajo]
 	WHERE	[Estado] = 1
 end
 
 EXEC UDP_MostrarTipoDeTrabajo
-go
+
 
 Create or Alter Procedure UDP_BuscarTipoDeTrabajo
     @buscador    nvarchar(250)
 as
 begin
       SELECT tipo_ID, 
-			tipo_Descripcion
+			tipo_Descripción
       fROM  [dbo].[tbl_TipoDeTrabajo]
-	  Where tipo_Descripcion like '%'+@buscador+'%' and   [Estado]  = 1
+	  Where tipo_Descripción like '%'+@buscador+'%' and   [Estado]  = 1
 end 
-go
+
 
 Create or Alter Procedure UDP_EditarTipoDeTrabajo
      @id              int, 
@@ -312,14 +311,14 @@ Create or Alter Procedure UDP_EditarTipoDeTrabajo
 as
 begin 
      Update [dbo].[tbl_TipoDeTrabajo]
-	 set	[tipo_Descripcion] = @descripcion, [UsuarioModificacion] = @usuario, [FechaModificacion] = GETDATE(),
+	 set	[tipo_Descripción] = @descripcion, [UsuarioModificacion] = @usuario, [FechaModificacion] = GETDATE(),
 			[Accion] = 'M'
 	 from	[dbo].[tbl_TipoDeTrabajo]
 	 Where	[tipo_ID]=@id
 end 
 
 
-go
+
 Create or Alter Procedure UDP_insertTipoDeTrabajo
        @descripcion       nvarchar(250),
        @usuariocreacion   int
@@ -329,7 +328,7 @@ begin
 	 VALUES(@descripcion,@usuariocreacion,null,getdate(),null,1,'C')
 end 
 
-go
+
 Create or Alter Procedure UDP_EliminarTipoDeTrabajo
         @id int ,
 		@UsuarioModi INT
@@ -340,5 +339,8 @@ begin
 	 where	[tipo_ID]=@id 	 
 end 
 
+Select EstadoCivil_ID,EstadoCivil_Descripcion from  [dbo].[tbl_EstadoCivil]
 
+select [Departamento_ID],[Departamento_Descripcion] from [dbo].[tbl_Departamentos]
 
+select [Ciudad_Id],[Ciudad_Descripcion] from [dbo].[tbl_Ciudades] where[Ciudad_DepartamentoId] =
