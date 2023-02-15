@@ -36,7 +36,11 @@
                     <label id ="lb1" text ="*" Visible ="false" runat ="server" ForeColor = "Red"></label>
                     <input type="text" class="form-control" placeholder="Buscar" required="" id ="txtbuscar" runat ="server">
                 </div>
-          
+        
+        
+
+
+        <div>
          <button type="submit" class="btn btn-primary block full-width m-b" id="btnbuscar" runat ="server" onserverclick="btnbuscar_ServerClick">Buscar</button>
         </div>
 
@@ -45,7 +49,10 @@
         <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat ="server" onserverclick="btnnuevo_ServerClick">Nuevo</button>
         </div>
    
-    
+        
+        <div>
+        <button type="submit" class="btn btn-primary block full-width m-b" id="volver" runat ="server" onserverclick="volver_ServerClick">Volver</button>
+        </div>
 
 
 

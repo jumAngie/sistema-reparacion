@@ -30,5 +30,15 @@ namespace SistemaReparaciónDePC
 
             cli.CargarGriv(gvCliente, txtbuscar.Value);
         }
+
+        protected void btnnuevo_ServerClick(object sender, EventArgs e)
+        {
+
+        }
+        protected void volver_ServerClick(object sender, EventArgs e)
+        {
+            txtbuscar.Value = "";
+            cli.CargarGriv(gvCliente,txtbuscar.Value);
+        }
     }
 }
