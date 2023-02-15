@@ -150,3 +150,7 @@ C:\Users\LAB01\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\De
 C:\Users\LAB01\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.csproj.CopyComplete
 C:\Users\LAB01\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.dll
 C:\Users\LAB01\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.pdb
+C:\Users\LAB02\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.csproj.AssemblyReference.cache
+C:\Users\LAB02\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.csproj.CoreCompileInputs.cache
+C:\Users\LAB02\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.dll
+C:\Users\LAB02\Documents\GitHub\sistema-reparacion\SistemaReparaciónDePC\obj\Debug\SistemaReparaciónDePC.pdb
