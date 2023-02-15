@@ -206,11 +206,39 @@ BEGIN
 		SELECT	rep_ID, 
 				T2.tipo_Descripcion AS 'Tipo de Trabajo', 
 				T3.pro_Descripcion	AS	'Producto', 
-				T4.Cliente_Nombre	AS	'Cliente Nombre',
-				rep_Empleado, 
+				T4.Cliente_Nombre + ' ' + Cliente_Apellido  AS	'Cliente',
+				T5.Empleado_Nombre + ' ' + T5. Empleado_Apellido AS 'Técnico Encargado',
 				rep_EstadoReparacion
 		FROM	[dbo].[tbl_Reparacion] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
 		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
 		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
-		ON		T1.rep_Cliente = T4.Cliente_Id		
+		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
+		ON		T1.rep_Empleado = T5.Empleado_ID
+		WHERE	T1.Estado = 1
 END
+
+EXEC UDP_MostarReparación
+GO
+
+---- udp buscar por texto
+CREATE OR ALTER PROCEDURE UDP_BuscarReparación
+		@Texto	NVARCHAR(MAX)
+AS
+BEGIN
+		SELECT	rep_ID, 
+				T2.tipo_Descripcion AS 'Tipo de Trabajo', 
+				T3.pro_Descripcion	AS	'Producto', 
+				T4.Cliente_Nombre + ' ' + Cliente_Apellido  AS	'Cliente',
+				T5.Empleado_Nombre + ' ' + T5. Empleado_Apellido AS 'Técnico Encargado',
+				rep_EstadoReparacion
+		FROM	[dbo].[tbl_Reparacion] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
+		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
+		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
+		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
+		ON		T1.rep_Empleado = T5.Empleado_ID
+		WHERE	T1.Estado = 1 
+		AND 'Cliente' LIKE @Texto + '%'
+		OR	'Técnico Encargado' LIKE @Texto + '%'
+
+END
+
