@@ -46,7 +46,7 @@ CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
 		@ID  INT
 AS
 BEGIN
-		SELECT	[Cliente_Id], [Cliente_Nombre] + [Cliente_Apellido] AS 'Cliente', [Cliente_Identidad],
+		SELECT	[Cliente_Id], [Cliente_Nombre] , [Cliente_Apellido], [Cliente_Identidad],
 				T2.EstadoCivil_Descripcion, [Cliente_Genero],[Cliente_Telefono] ,T3.Ciudad_Descripcion
 		FROM	[dbo].[tbl_Cliente] T1				INNER JOIN [dbo].[tbl_EstadoCivil] T2
 		ON		T1.Cliente_EstadoCivilId = T2.EstadoCivil_ID	INNER JOIN [dbo].[tbl_Ciudades] T3
@@ -95,6 +95,8 @@ begin
    Insert into [dbo].[tbl_Cliente]
    values (@Nombre,@Apellido,@identidad,@EstadoCivil,@genero,@telefono,@ciudad, @usuariocreacion,GEtdate(),null,null,1)
 end 
+
+EXEC UDP_InsertCliente 'Angie', 'Campos', '0512-2003-00736', 's', 'F', '95887062',2,1
 go
 
 Create or Alter Procedure UDP_EliminarCliente     
@@ -129,6 +131,8 @@ SELECT       Empleado_Id,
    			 ON T1.Empleado_CiudadId= T3.Ciudad_Id
 			 Where [Empleado_Estado]=1
 end 
+
+EXEC UDP_MostrarEmpleados
 go
 
 cREATE OR aLTER pROCEDURE UDP_BuscarEmpleados
@@ -153,6 +157,8 @@ begin
 			 or Empleado_Puesto like '%'+@buscador+'%' or T2.EstadoCivil_Descripcion = '%'+@buscador+'%'
 			 or T3.Ciudad_Descripcion like '%'+@buscador+'%'
 end
+
+EXEC UDP_BuscarEmpleados 'Es'
 go
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
@@ -177,14 +183,15 @@ end
 go
 Create or Alter Procedure UDP_EliminarEmpleado
 
-      @idaEliminar   int 
+      @idaEliminar   int ,
+	  @UsuarioModi  int
 as
 begin 
      UPDATE [dbo].[tbl_Empleados]
-	 SET [Empleado_Estado]=0
-	 where [Empleado_Estado] = @idaEliminar 
-
-end 
+	 SET	[Empleado_Estado]= 0 , [Empleado_UsuarioModificacionId] = @UsuarioModi, [Empleado_FechaModificacion]= GETDATE()
+	 where	[Empleado_Id] = @idaEliminar 
+end
+ EXEC UDP_EliminarEmpleado 7, 1
 go
 ----------------UDP'S  Producto--------------- 
 Create or alter procedure UDP_MostrarProducto
@@ -233,7 +240,7 @@ begin
 	     [FechaModificacion] = GETDATE()
 	WHERE [pro_ID] = @id
 end 
-
+go
 Create or Alter Procedure UDP_InsertarProducto
        @descripcion     nvarchar(250),
 	   @fecha           date, 
