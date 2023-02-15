@@ -11,7 +11,7 @@ DEFAULT NULL;
 UPDATE	[dbo].[tbl_EstadoCivil]
 SET		[Accion] = 'C' , [Estado] = 1
 
-GO
+
 ------------------------------------------------------------ CIUDADES ---------------------------------------------------
 
 -- udp para mostrar en el grid
@@ -22,7 +22,7 @@ BEGIN
 END
 
 EXEC UDP_MostrarCiudades
-GO
+
 
 -- udp para insertar ciudades
 CREATE PROCEDURE UDP_InsertarCiudades
@@ -48,7 +48,7 @@ BEGIN
 END
 
 EXEC UDP_InsertarCiudades 'La Lima', 5, 1
-GO
+
 -- udp para buscar ciudades
 CREATE PROCEDURE UDP_BuscarCiudades
 		@TextoBuscar	NVARCHAR(MAX)
@@ -59,7 +59,7 @@ BEGIN
 END
 
 EXEC UDP_BuscarCiudades 'P'
-GO
+
 
 -- udp para Obtener los datos de una Ciudad especifica
 CREATE PROCEDURE UDP_ObtenerDatos_Ciudad
@@ -71,7 +71,7 @@ BEGIN
 END
 
 EXEC UDP_ObtenerDatos_Ciudad 8
-GO
+
 
 --udp para editar los datos de una ciudad especifica
 CREATE PROCEDURE UDP_EditarDatos_Ciudad
@@ -88,7 +88,7 @@ BEGIN
 END
 
 EXEC UDP_EditarDatos_Ciudad 10, 'Trujillo', 9,1
-GO
+
 
 ------------------------------------------------------------ DEPTOS ---------------------------------------------------
 --udp para Mostar deptos
@@ -99,7 +99,7 @@ BEGIN
 END
 
 EXEC UDP_MostarDeptos
-GO
+
 
 -- udp para Buscar Deptos por texto
 CREATE OR ALTER PROCEDURE UDP_BuscarDeptos
@@ -111,7 +111,7 @@ BEGIN
 END
 
 EXEC UDP_BuscarDeptos 'C'
-GO
+
 
 -- udp para Insertar Deptos
 CREATE OR ALTER PROCEDURE UDP_InsertarDeptos
@@ -134,7 +134,7 @@ BEGIN
 END
 
 EXEC UDP_InsertarDeptos 'Valle', 1
-GO
+
 -- Obtener Datos especificos de un registro deptos
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Deptos
 		@ID			INT
@@ -145,7 +145,7 @@ BEGIN
 END
 
 EXEC UDP_ObtenerDatos_Deptos 2
-GO
+
 
 ----- Editar datos especificos
 CREATE OR ALTER PROCEDURE UDP_EditarDatos_Deptos
@@ -161,7 +161,7 @@ BEGIN
 END
 
 EXEC UDP_EditarDatos_Deptos 2 , 'Cortés', 1
-GO
+
 
 
 ------------------------------------------------------------ ESTADO CIVIL ---------------------------------------------------
@@ -174,7 +174,7 @@ BEGIN
 END
 
 EXEC UDP_MostrarEstadoCivil
-GO
+
 
 -- udp para buscar estados civiles por texto
 CREATE OR ALTER PROCEDURE UDP_BuscarEstadoCivil
@@ -186,7 +186,7 @@ BEGIN
 END
 
 EXEC UDP_BuscarEstadoCivil 'C'
-go
+
 --- udp para Obtener Estados Civiles
 CREATE OR ALTER PROCEDURE UDP_ObtenerEstadoCivil
 			@ID	CHAR(1)
@@ -197,7 +197,7 @@ BEGIN
 END
 
 EXEC UDP_ObtenerEstadoCivil 's'
-GO
+
 
 -- udp para Editar Estados Civiles
 CREATE OR ALTER PROCEDURE UDP_EditarEstadosCiviles
@@ -213,7 +213,7 @@ BEGIN
 END
 
 EXEC UDP_EditarEstadosCiviles 'v', 'Viudo(a)', 1
-GO
+
 
 --- UDP PARA INSERTAR ESTADOS CIVILES
 CREATE OR ALTER PROCEDURE UDP_Insertar_EstadosCiviles
@@ -243,7 +243,7 @@ END
 
 EXEC UDP_Insertar_EstadosCiviles 'a', 'Amantes', 2
 
-GO
+
 
 -- udp para borrar estados civiles
 CREATE OR ALTER PROCEDURE UDP_BorrarEstadoCivil
@@ -258,7 +258,7 @@ BEGIN
 END
 
 EXEC UDP_BorrarEstadoCivil 'a', 1
-GO
+
 ------------------------------------------------------------ REPARACIÓN ---------------------------------------------------
 CREATE OR ALTER PROCEDURE UDP_MostarReparación
 AS
@@ -278,7 +278,7 @@ BEGIN
 END
 
 EXEC UDP_MostarReparación
-GO
+
 
 ---- udp buscar por texto
 CREATE OR ALTER PROCEDURE UDP_BuscarReparación
@@ -306,7 +306,103 @@ BEGIN
 END
 
 EXEC UDP_BuscarReparación 'Angel'
-GO
 
--- udp para  insertar reparaciones
 
+-- udp para  insertar reparaciones 
+
+CREATE OR ALTER PROCEDURE UDP_InsertarReparaciones
+		@TipodeTrabajo		INT,
+		@Producto			INT,
+		@Cliente			INT,
+		@Empleado			INT,
+		@EstadoRep			NVARCHAR(MAX),
+		@UsuarioCreacion	INT
+AS
+BEGIN
+	INSERT INTO tbl_Reparación (
+				rep_TipodeTrabajo, 
+				rep_Producto, 
+				rep_Cliente, 
+				rep_Empleado, 
+				rep_EstadoReparacion, 
+				UsuarioCreacion, 
+				UsuarioModificacion, 
+				FechaCreacion, 
+				FechaModificacion, 
+				Estado, 
+				Accion)
+	VALUES (
+			@TipodeTrabajo,
+			@Producto,
+			@Cliente,
+			@Empleado,
+			@EstadoRep,
+			@UsuarioCreacion,
+			NULL,
+			GETDATE(),
+			NULL,
+			1,
+			'C')
+END
+
+EXEC UDP_InsertarReparaciones 1,2,3,1,'Ingresado',1
+
+-- udp para obtener datos de reparacion
+
+CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Reparacion
+		@ID  INT
+AS
+BEGIN
+	SELECT	rep_ID, 
+				T2.tipo_Descripcion AS 'Tipo de Trabajo', 
+				T3.pro_Descripción	AS	'Producto', 
+				T4.Cliente_Nombre + ' ' + Cliente_Apellido  AS	'Cliente',
+				T5.Empleado_Nombre + ' ' + T5. Empleado_Apellido AS 'Técnico Encargado',
+				rep_EstadoReparacion
+		FROM	[dbo].[tbl_Reparación] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
+		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
+		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
+		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
+		ON		T1.rep_Empleado = T5.Empleado_ID
+		WHERE	T1.Estado = 1 AND [rep_ID] = @ID
+END
+
+EXEC UDP_ObtenerDatos_Reparacion 11
+
+
+-- udp para editar datos de la tabla reparacion
+
+CREATE OR ALTER PROCEDURE UDP_EditarReparacion
+		@rep_ID  INT, 
+		@rep_TipodeTrabajo INT, 
+		@rep_Producto INT, 
+		@rep_Cliente  INT, 
+		@rep_Empleado   INT, 
+		@rep_EstadoReparacion NVARCHAR(MAX), 
+		@UsuarioModificacion  INT
+AS
+BEGIN
+	UPDATE tbl_Reparación
+	SET [rep_TipodeTrabajo] = @rep_TipodeTrabajo, [rep_Producto] = @rep_Producto, [rep_Cliente] = @rep_Cliente,
+		[rep_Empleado] = @rep_Empleado, [rep_EstadoReparacion] = @rep_EstadoReparacion, [UsuarioModificacion] = @UsuarioModificacion,
+		[FechaModificacion] = GETDATE() , [Accion] = 'M'
+	WHERE [rep_ID] = @rep_ID
+END
+
+EXEC UDP_EditarReparacion 2,2,2,2,2,'Ingresado', 2
+
+--- udp para elimimar registro de reparacion
+
+CREATE OR ALTER PROCEDURE UDP_EliminarReparacion
+			@ID INT,
+			@UsuModi INT
+AS
+BEGIN
+		UPDATE tbl_Reparación
+		SET		[Estado] = 0, [Accion] = 'E', [UsuarioModificacion] = @UsuModi, [FechaModificacion]=GETDATE()
+		WHERE	[rep_ID] = @ID
+END
+
+EXEC UDP_EliminarReparacion 5,2
+
+------------------------------------------------------------ USUARIOS ---------------------------------------------------
