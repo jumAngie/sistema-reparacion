@@ -5,7 +5,7 @@ VALUES ('Computadora',GETDATE(),1,null,getdate(),null,1,'c'),
 	   ('Tablet',GETDATE(),1,null,getdate(),null,1,'c')
 
 
-INSERT INTO tbl_Reparacion
+INSERT INTO tbl_Reparación
 VALUES (1,1,1,1,'Ingresado',1,null,getdate(),null,1,'C'),
        (2,2,3,2,'En reparacion',1,null,getdate(),null,1,'C'),
 	   (3,3,3,3,'Reparado',1,null,getdate(),null,1,'C'),

@@ -1,3 +1,17 @@
+
+------------ alter tabla estado civil  -------------
+ALTER TABLE tbl_EstadoCivil
+ADD Estado BIT
+DEFAULT NULL;
+
+ALTER TABLE tbl_EstadoCivil
+ADD Accion VARCHAR(1)
+DEFAULT NULL;
+
+UPDATE	[dbo].[tbl_EstadoCivil]
+SET		[Accion] = 'C' , [Estado] = 1
+
+GO
 ------------------------------------------------------------ CIUDADES ---------------------------------------------------
 
 -- udp para mostrar en el grid
@@ -156,6 +170,7 @@ CREATE OR ALTER PROCEDURE UDP_MostrarEstadoCivil
 AS
 BEGIN
 		SELECT [EstadoCivil_ID], [EstadoCivil_Descripcion] FROM [dbo].[tbl_EstadoCivil]
+		WHERE	[Estado] = 1
 END
 
 EXEC UDP_MostrarEstadoCivil
@@ -167,7 +182,7 @@ CREATE OR ALTER PROCEDURE UDP_BuscarEstadoCivil
 AS
 BEGIN
 		SELECT	[EstadoCivil_ID], [EstadoCivil_Descripcion] FROM [dbo].[tbl_EstadoCivil]
-		WHERE	[EstadoCivil_Descripcion] LIKE @Texto + '%'
+		WHERE	[EstadoCivil_Descripcion] LIKE @Texto + '%' AND [Estado] = 1
 END
 
 EXEC UDP_BuscarEstadoCivil 'C'
@@ -193,11 +208,56 @@ AS
 BEGIN
 		UPDATE	[dbo].[tbl_EstadoCivil]
 		SET		[EstadoCivil_Descripcion] = @Descr, [EstadoCivil_UsuarioModificacionId] = @UsuarioMod,
-				[EstadoCivil_FechaModificacion] = GETDATE()
+				[EstadoCivil_FechaModificacion] = GETDATE() , [Accion] = 'M'
 		WHERE	[EstadoCivil_ID] = @ID
 END
 
 EXEC UDP_EditarEstadosCiviles 'v', 'Viudo(a)', 1
+GO
+
+--- UDP PARA INSERTAR ESTADOS CIVILES
+CREATE OR ALTER PROCEDURE UDP_Insertar_EstadosCiviles
+			@ID					CHAR(1),
+			@Descripcion		NVARCHAR(150),
+			@UsuarioCreacion	INT
+AS
+BEGIN
+			INSERT INTO tbl_EstadoCivil(
+								EstadoCivil_ID, 
+								EstadoCivil_Descripcion, 
+								EstadoCivil_UsuarioCreacionID, 
+								EstadoCivil_FechaCreacion,
+								EstadoCivil_UsuarioModificacionId, 
+								EstadoCivil_FechaModificacion, 
+								Estado, 
+								Accion)
+			VALUES  (			@ID,
+								@Descripcion,
+								@UsuarioCreacion,
+								GETDATE(),
+								NULL,
+								NULL,
+								1,
+								'C')
+END
+
+EXEC UDP_Insertar_EstadosCiviles 'a', 'Amantes', 2
+
+GO
+
+-- udp para borrar estados civiles
+CREATE OR ALTER PROCEDURE UDP_BorrarEstadoCivil
+		@ID CHAR(1),
+		@UsuarioMod INT
+AS
+BEGIN
+		UPDATE	[dbo].[tbl_EstadoCivil]
+		SET		[Estado] = 0, [EstadoCivil_UsuarioModificacionId] = @UsuarioMod, [EstadoCivil_FechaModificacion] = GETDATE(),
+				[Accion] = 'E'
+		WHERE	[EstadoCivil_ID] = @ID
+END
+
+EXEC UDP_BorrarEstadoCivil 'a', 1
 GO
 ------------------------------------------------------------ REPARACIÓN ---------------------------------------------------
 CREATE OR ALTER PROCEDURE UDP_MostarReparación
@@ -205,11 +265,11 @@ AS
 BEGIN
 		SELECT	rep_ID, 
 				T2.tipo_Descripcion AS 'Tipo de Trabajo', 
-				T3.pro_Descripcion	AS	'Producto', 
+				T3.pro_Descripción	AS	'Producto', 
 				T4.Cliente_Nombre + ' ' + Cliente_Apellido  AS	'Cliente',
 				T5.Empleado_Nombre + ' ' + T5. Empleado_Apellido AS 'Técnico Encargado',
 				rep_EstadoReparacion
-		FROM	[dbo].[tbl_Reparacion] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
+		FROM	[dbo].[tbl_Reparación] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
 		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
 		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
 		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
@@ -227,11 +287,11 @@ AS
 BEGIN
 		SELECT	rep_ID, 
 				T2.tipo_Descripcion AS 'Tipo de Trabajo', 
-				T3.pro_Descripcion	AS	'Producto', 
+				T3.pro_Descripción	AS	'Producto', 
 				T4.Cliente_Nombre + ' ' + Cliente_Apellido  AS	'Cliente',
 				T5.Empleado_Nombre + ' ' + T5. Empleado_Apellido AS 'Técnico Encargado',
 				rep_EstadoReparacion
-		FROM	[dbo].[tbl_Reparacion] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
+		FROM	[dbo].[tbl_Reparación] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
 		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
 		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
 		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
@@ -239,7 +299,7 @@ BEGIN
 		WHERE	T1.Estado = 1 
 		AND  T4.Cliente_Nombre LIKE		@Texto + '%' OR T4.Cliente_Apellido LIKE @Texto + '%'
 		OR	 T2.tipo_Descripcion LIKE	@Texto + '%'
-		OR	 T3.pro_Descripcion LIKE	@Texto + '%'
+		OR	 T3.pro_Descripción LIKE	@Texto + '%'
 		OR	 rep_EstadoReparacion LIKE  @Texto + '%'
 		OR	 T5.Empleado_Nombre LIKE    @Texto + '%'
 		OR   T5.Empleado_Apellido LIKE  @Texto + '%'
@@ -247,3 +307,6 @@ END
 
 EXEC UDP_BuscarReparación 'Angel'
 GO
+
+-- udp para  insertar reparaciones
+
