@@ -22,14 +22,14 @@ CREATE OR ALTER pROCEDURE UDP_BuscarClientes
    @buscador  nvarchar(max)
 as 
 begin 
-    SELECT Cliente_Id, 
-          Cliente_Nombre, 
-		  Cliente_Apellido, 
-		  Cliente_Identidad, 
-		  T2.EstadoCivil_Descripcion,
-		  Cliente_Genero,
-		  Cliente_Telefono, 
-		  T3.Ciudad_Descripcion
+    SELECT	Cliente_Id, 
+			Cliente_Nombre, 
+			Cliente_Apellido, 
+			Cliente_Identidad, 
+			T2.EstadoCivil_Descripcion,
+			Cliente_Genero,
+			Cliente_Telefono, 
+			T3.Ciudad_Descripcion
 		  FROM [dbo].[tbl_Cliente] T1
 		  INNER JOIN [dbo].[tbl_EstadoCivil] T2 ON T1.Cliente_EstadoCivilId = T2.EstadoCivil_ID
 		  INNER JOIN [dbo].[tbl_Ciudades] T3 ON T1.Cliente_CiudadId = T3.Ciudad_Id   
@@ -252,7 +252,7 @@ as
 begin 
      Update [dbo].[tbl_Producto]
 	 Set pro_Descripción = @descripcion, pro_FechaIngreso=@Fecha,UsuarioModificacion=@Usumodificacion, 
-	     [FechaModificacion] = GETDATE()
+	     [FechaModificacion] = GETDATE() , [Accion] = 'M'
 	WHERE [pro_ID] = @id
 end 
 go
@@ -285,20 +285,25 @@ go
 Create or alter procedure  UDP_MostrarTipoDeTrabajo
 as 
 begin 
-    SELECT tipo_ID, 
-	       tipo_Descripción
-    fROM  [dbo].[tbl_TipoDeTrabajo]
-end 
+    SELECT	tipo_ID, 
+			tipo_Descripcion
+    FROM	[dbo].[tbl_TipoDeTrabajo]
+	WHERE	[Estado] = 1
+end
+
+EXEC UDP_MostrarTipoDeTrabajo
+go
 
 Create or Alter Procedure UDP_BuscarTipoDeTrabajo
     @buscador    nvarchar(250)
 as
 begin
       SELECT tipo_ID, 
-	       tipo_Descripción
+			tipo_Descripcion
       fROM  [dbo].[tbl_TipoDeTrabajo]
-	  Where tipo_Descripción like '%'+@buscador+'%'   
+	  Where tipo_Descripcion like '%'+@buscador+'%' and   [Estado]  = 1
 end 
+go
 
 Create or Alter Procedure UDP_EditarTipoDeTrabajo
      @id              int, 
@@ -307,11 +312,14 @@ Create or Alter Procedure UDP_EditarTipoDeTrabajo
 as
 begin 
      Update [dbo].[tbl_TipoDeTrabajo]
-	 set [tipo_Descripción] = @descripcion,[UsuarioModificacion] = @usuario
-	 from [dbo].[tbl_TipoDeTrabajo]
-	 Where [tipo_ID]=@id
+	 set	[tipo_Descripcion] = @descripcion, [UsuarioModificacion] = @usuario, [FechaModificacion] = GETDATE(),
+			[Accion] = 'M'
+	 from	[dbo].[tbl_TipoDeTrabajo]
+	 Where	[tipo_ID]=@id
 end 
 
+
+go
 Create or Alter Procedure UDP_insertTipoDeTrabajo
        @descripcion       nvarchar(250),
        @usuariocreacion   int
@@ -321,14 +329,15 @@ begin
 	 VALUES(@descripcion,@usuariocreacion,null,getdate(),null,1,'C')
 end 
 
-
+go
 Create or Alter Procedure UDP_EliminarTipoDeTrabajo
-        @id int 
+        @id int ,
+		@UsuarioModi INT
 as
 begin 
      Update [dbo].[tbl_TipoDeTrabajo]
-	 set [Estado]=0
-	 where [tipo_ID]=@id 	 
+	 set	[Estado]=0 , [FechaModificacion] = GETDATE(), [UsuarioModificacion] = @UsuarioModi, [Accion] = 'E'
+	 where	[tipo_ID]=@id 	 
 end 
 
 
