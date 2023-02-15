@@ -2529,6 +2529,7 @@
     <Content Include="Content\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\plugins\toastr\toastr.js.map" />
     <Content Include="Home.aspx" />
+    <Content Include="InsertarClientes.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="PaginaMaster.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -2609,6 +2610,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarClientes.aspx.cs">
+      <DependentUpon>InsertarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarClientes.aspx.designer.cs">
+      <DependentUpon>InsertarClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>

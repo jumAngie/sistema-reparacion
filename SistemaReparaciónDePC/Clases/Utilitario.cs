@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace SistemaReparaciónDePC.Clases
 {
@@ -21,5 +22,24 @@ namespace SistemaReparaciónDePC.Clases
             con.Close();
             return ds;
         }   
+        
+        public void cargarDDL(string sql,string value, DropDownList ddl)
+        {
+            DataSet ds = ObtenerDatos(sql, "Tabla");
+            ddl.DataValueField = ds.Tables["Tabla"].Columns[0].ColumnName;
+            ddl.DataTextField = ds.Tables["Tabla"].Columns[1].ColumnName;
+            ddl.DataSource = ds.Tables["Tabla"];
+
+
+            if (value != null || value != "")
+            {
+                ddl.SelectedValue = value;
+            }
+
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("seleccione una opcion", "0"));
+
+        }
+       
     }
 }
