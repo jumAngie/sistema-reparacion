@@ -160,6 +160,18 @@ end
 
 EXEC UDP_BuscarEmpleados 'Es'
 go
+
+CREATE PROCEDURE UDP_ObtenerDatosProductos
+		@ID INT
+AS
+BEGIN
+		SELECT [pro_Descripción], [pro_FechaIngreso] FROM [dbo].[tbl_Producto]
+		WHERE  [pro_ID] = @ID
+END
+
+EXEC UDP_ObtenerDatosProductos 1
+go
+
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
 	  @Nombre       nvarchar(250),
@@ -206,7 +218,8 @@ begin
 		   FechaModificacion,
 		   Estado,
 		   Accion
-   from  [dbo].[tbl_Producto]
+   from		[dbo].[tbl_Producto]
+   WHERE	[Estado] = 1
 end 
 go
 Create or Alter procedure UDP_BuscarProducto
