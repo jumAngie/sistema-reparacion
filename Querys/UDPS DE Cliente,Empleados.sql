@@ -234,10 +234,56 @@ Begin
 end 
 
 
+--------UDP's TipoDeTrabjo
+
+Create or alter procedure  UDP_MostrarTipoDeTrabajo
+as 
+begin 
+    SELECT tipo_ID, 
+	       tipo_Descripción
+    fROM  [dbo].[tbl_TipoDeTrabajo]
+end 
+
+Create or Alter Procedure UDP_BuscarTipoDeTrabajo
+    @buscador    nvarchar(250)
+as
+begin
+      SELECT tipo_ID, 
+	       tipo_Descripción
+      fROM  [dbo].[tbl_TipoDeTrabajo]
+	  Where tipo_Descripción like '%'+@buscador+'%'   
+end 
+
+Create or Alter Procedure UDP_EditarTipoDeTrabajo
+     @id              int, 
+	 @descripcion     nvarchar(250),
+	 @usuario         int 
+as
+begin 
+     Update [dbo].[tbl_TipoDeTrabajo]
+	 set [tipo_Descripción] = @descripcion,[UsuarioModificacion] = @usuario
+	 from [dbo].[tbl_TipoDeTrabajo]
+	 Where [tipo_ID]=@id
+end 
+
+Create or Alter Procedure UDP_insertTipoDeTrabajo
+       @descripcion       nvarchar(250),
+       @usuariocreacion   int
+as
+begin 
+     insert into tbl_TipoDeTrabajo
+	 VALUES(@descripcion,@usuariocreacion,null,getdate(),null,1,'C')
+end 
 
 
-
-
+Create or Alter Procedure UDP_EliminarTipoDeTrabajo
+        @id int 
+as
+begin 
+     Update [dbo].[tbl_TipoDeTrabajo]
+	 set [Estado]=0
+	 where [tipo_ID]=@id 	 
+end 
 
 
 
