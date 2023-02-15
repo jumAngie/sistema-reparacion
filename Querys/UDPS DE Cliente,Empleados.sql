@@ -161,17 +161,6 @@ end
 EXEC UDP_BuscarEmpleados 'Es'
 go
 
-CREATE PROCEDURE UDP_ObtenerDatosProductos
-		@ID INT
-AS
-BEGIN
-		SELECT [pro_Descripción], [pro_FechaIngreso] FROM [dbo].[tbl_Producto]
-		WHERE  [pro_ID] = @ID
-END
-
-EXEC UDP_ObtenerDatosProductos 1
-go
-
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
 	  @Nombre       nvarchar(250),
@@ -221,6 +210,7 @@ begin
    from		[dbo].[tbl_Producto]
    WHERE	[Estado] = 1
 end 
+EXEC UDP_MostrarProducto
 go
 Create or Alter procedure UDP_BuscarProducto
     @buscador     nvarchar(250)
@@ -238,6 +228,18 @@ begin
    from  [dbo].[tbl_Producto]
    Where pro_ID like '%'+@buscador+'%' or pro_Descripción like'%'+@buscador+'%' or pro_FechaIngreso like '%'+@buscador+'%' 
 end 
+go
+
+CREATE PROCEDURE UDP_ObtenerDatosProductos
+		@ID INT
+AS
+BEGIN
+		SELECT [pro_Descripción], [pro_FechaIngreso] FROM [dbo].[tbl_Producto]
+		WHERE  [pro_ID] = @ID
+END
+
+EXEC UDP_ObtenerDatosProductos 1
+go
 
 go
 Create Or Alter Procedure UDP_EditarProducto
@@ -262,18 +264,21 @@ Create or Alter Procedure UDP_InsertarProducto
 as
 begin 
      insert into [dbo].[tbl_Producto]
-	 values(@descripcion,@fecha,@usuariocreacion,null,GETDATE(),null,1,'u')
+	 values(@descripcion,@fecha,@usuariocreacion,null,GETDATE(),null,1,'C')
 end 
 
+
+go
 CREATE OR ALTER Procedure  UDP_EliminarProducto 
-      @idAusar   int 
+      @idAusar   int,
+	  @UsuModi   int
 as 
 Begin 
       Update [dbo].[tbl_Producto]
-	  set [Estado]=0
-	  where [pro_ID]=@idAusar
+	  SET	 [Estado]=0, [UsuarioModificacion] = @UsuModi, [Accion] = 'E' , [FechaModificacion] = GETDATE()
+	  WHERE  [pro_ID]=@idAusar
 end 
-
+go
 
 --------UDP's TipoDeTrabjo
 
