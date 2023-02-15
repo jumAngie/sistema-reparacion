@@ -406,3 +406,35 @@ END
 EXEC UDP_EliminarReparacion 5,2
 
 ------------------------------------------------------------ USUARIOS ---------------------------------------------------
+SELECT * FROM tbl_Usuarios
+
+-- udp para mostrar los usuarios
+CREATE OR ALTER PROCEDURE UDP_MostrarUsuarios
+AS
+BEGIN
+ SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado'  FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
+ ON			T1.Usuario_Empleado = T2.Empleado_Id
+ WHERE		[Usuario_Estado] = 1
+END
+
+EXEC UDP_MostrarUsuarios
+
+---- udp para buscar usuarios por texto
+CREATE OR ALTER PROCEDURE UDP_BuscarUsuarios
+		@Texto nvarchar(max)
+AS
+BEGIN
+		 SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado'  FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
+ ON			T1.Usuario_Empleado = T2.Empleado_Id
+ WHERE		[Usuario_Estado] = 1 AND [Usuario_Usuario] LIKE @Texto + '%' OR T2.Empleado_Nombre LIKE @Texto + '%' OR
+			T2.Empleado_Apellido LIKE @Texto + '%'
+END
+
+EXEC UDP_BuscarUsuarios 'E'
+
+--- udp para insertar usuarios
+CREATE OR ALTER PROCEDURE UDP_InsertarUsuarios
+AS
+BEGIN
+	
+END
