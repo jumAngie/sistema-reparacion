@@ -433,8 +433,14 @@ END
 EXEC UDP_BuscarUsuarios 'E'
 
 --- udp para insertar usuarios
-CREATE OR ALTER PROCEDURE UDP_InsertarUsuarios
-AS
-BEGIN
-	
-END
+--CREATE OR ALTER PROCEDURE UDP_InsertarUsuarios
+		DECLARE @Usuario_Usuario			NVARCHAR(255) = 'Angie'
+		--@Usuario_Empleado			INT, 
+		DECLARE @Usuario_Password			NVARCHAR(255) = 'angie'
+--		@Usuario_UsuarioCreacionId	INT
+--AS
+--BEGIN
+	DECLARE @PasswordEncrip VARBINARY(255)
+	SET		@PasswordEncrip = ENCRYPTBYPASSPHRASE(@Usuario_Usuario, @Usuario_Password)
+	PRINT	@PasswordEncrip
+--END
