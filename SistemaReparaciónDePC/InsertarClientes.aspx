@@ -53,7 +53,7 @@
                     <div class="form-group">
                       <asp:Label ID="lblLugar" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                        <label for="Depto">Lugar del Evento (Departamento, Ciudad):</label>
-                      <asp:DropDownList ID="ddlDepartamento"  CssClass="form-control" runat="server"  ></asp:DropDownList>
+                      <asp:DropDownList ID="ddlDepartamento"  CssClass="form-control" runat="server"  OnSelectedindexChanged="ddlDepartamento_SelectedIndexChanged" ></asp:DropDownList>
                       <asp:DropDownList ID="ddlCiudad" CssClass="form-control" runat="server"></asp:DropDownList>
                   </div>
 
