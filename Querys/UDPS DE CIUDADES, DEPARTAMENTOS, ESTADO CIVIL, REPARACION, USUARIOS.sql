@@ -237,8 +237,13 @@ BEGIN
 		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
 		ON		T1.rep_Empleado = T5.Empleado_ID
 		WHERE	T1.Estado = 1 
-		AND 'Cliente' LIKE @Texto + '%'
-		OR	'Técnico Encargado' LIKE @Texto + '%'
-
+		AND  T4.Cliente_Nombre LIKE		@Texto + '%' OR T4.Cliente_Apellido LIKE @Texto + '%'
+		OR	 T2.tipo_Descripcion LIKE	@Texto + '%'
+		OR	 T3.pro_Descripcion LIKE	@Texto + '%'
+		OR	 rep_EstadoReparacion LIKE  @Texto + '%'
+		OR	 T5.Empleado_Nombre LIKE    @Texto + '%'
+		OR   T5.Empleado_Apellido LIKE  @Texto + '%'
 END
 
+EXEC UDP_BuscarReparación 'Angel'
+GO
