@@ -8,23 +8,22 @@
            
            <asp:GridView id ="gvCliente" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvCliente_PageIndexChanging" >                  
            <columns>
-               <asp:BoundField HeaderText="Id Cliente" DataField="Emp_EmpleadoId" />
-               <asp:BoundField HeaderText="Nombres" DataField="Emp_EmpleadoNombre" />
-               <asp:BoundField HeaderText="Apellidos" DataField="Emp_EmpleadoApellido" />
-               <asp:BoundField HeaderText="Identidad" DataField="Emp_Identidad" />
-               <asp:BoundField HeaderText="Estado civil" DataField="Emp_EstadoCivilId" />
-               <asp:BoundField HeaderText="Sexo" DataField="Emp_Genero" />               
-               <asp:BoundField HeaderText="Telefono" DataField="Emp_Telefono" />                 
-               <asp:BoundField HeaderText="Ciudad" DataField="Emp_CiudadId" />
-               <asp:BoundField HeaderText="FechaNac" DataField="Emp_FechaNac" />
+               <asp:BoundField HeaderText="Id Cliente" DataField="Cliente_Id" />
+               <asp:BoundField HeaderText="Nombres" DataField="Cliente_Nombre" />
+               <asp:BoundField HeaderText="Apellidos" DataField="Cliente_Apellido" />
+               <asp:BoundField HeaderText="Identidad" DataField="Cliente_Identidad" />
+               <asp:BoundField HeaderText="Estado civil" DataField="EstadoCivil_Descripcion" />
+               <asp:BoundField HeaderText="Sexo" DataField="Cliente_Genero" />               
+               <asp:BoundField HeaderText="Telefono" DataField="Cliente_Telefono" />                 
+               <asp:BoundField HeaderText="Ciudad" DataField="Ciudad_Descripcion" />               
                <asp:TemplateField HeaderText="Editar">
                     <ItemTemplate>
-                        <a class="fa fa-pencil btn btn-warning" style= "color:black"  onclick="Editar ('<%# Eval("Emp_EmpleadoId")%>')">Editar</a>
+                        <a class="fa fa-pencil btn btn-warning" style= "color:black"  onclick="Editar ('<%# Eval("Cliente_Id")%>')">Editar</a>
                     </ItemTemplate>                    
                 </asp:TemplateField>    
                     <asp:TemplateField HeaderText="Eliminar">
                        <ItemTemplate>
-                        <a class="fa fa-trash btn btn-danger" style= "color:black"  onclick="Eliminar('<%# Eval("Emp_EmpleadoId")%>')">Eliminar</a>
+                        <a class="fa fa-trash btn btn-danger" style= "color:black"  onclick="Eliminar('<%# Eval("Cliente_Id")%>')">Eliminar</a>
                     </Itemtemplate>
                     
               </asp:TemplateField> 

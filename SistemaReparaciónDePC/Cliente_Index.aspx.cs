@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaReparaciónDePC.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,25 @@ namespace SistemaReparaciónDePC
 {
     public partial class Cliente_Index : System.Web.UI.Page
     {
+
+        Cliente cli = new Cliente();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            cli.CargarGriv(gvCliente,txtbuscar.Value);
+        }
 
+        protected void gvCliente_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+            gvCliente.PageIndex = e.NewPageIndex;
+            cli.CargarGriv(gvCliente, txtbuscar.Value);
+        }
+
+        protected void btnbuscar_ServerClick(object sender, EventArgs e)
+        {
+
+            cli.CargarGriv(gvCliente, txtbuscar.Value);
         }
     }
 }
