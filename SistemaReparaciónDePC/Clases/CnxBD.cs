@@ -13,7 +13,7 @@ namespace SistemaReparaciónDePC.Clases
         public void coneccion ()
         {
            
-            con = @"Data Source =DESKTOP-TSV52PA\SQLEXPRESS; Initial catalog=BD_Reparaciones; user = JuanCenteno; password=juancenteno20 ";
+            con = @"data source =DESKTOP-TSV52PA\SQLEXPRESS; initial catalog=BD_Reparaciones; user id=JuanCenteno; password=juancenteno20";
             cnx.ConnectionString = con;
         }
         public SqlConnection Obtenercnx()
@@ -21,14 +21,5 @@ namespace SistemaReparaciónDePC.Clases
             coneccion();
             return cnx;
         }
-
-
-
-
-
-
-
-
-
     }
 }
