@@ -119,4 +119,32 @@ BEGIN
 					NULL)
 END
 
-EXEC UDP_InsertarDeptos ''
+EXEC UDP_InsertarDeptos 'Valle', 1
+GO
+-- Obtener Datos especificos de un registro deptos
+CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Deptos
+		@ID			INT
+AS
+BEGIN
+		SELECT [Departamento_ID], [Departamento_Descripcion] FROM [dbo].[tbl_Departamentos]
+		WHERE	[Departamento_ID] = @ID
+END
+
+EXEC UDP_ObtenerDatos_Deptos 2
+GO
+
+----- Editar datos especificos
+CREATE OR ALTER PROCEDURE UDP_EditarDatos_Deptos
+		@ID			INT,
+		@Descrip	NVARCHAR(150),
+		@UsuarioMod	INT
+AS
+BEGIN
+		UPDATE	[dbo].[tbl_Departamentos]
+		SET		[Departamento_Descripcion] = @Descrip , [Depto_UsuarioModificacionId] = @UsuarioMod,
+				[Depto_FechaModificacion] = GETDATE()
+		WHERE	[Departamento_ID] = @ID
+END
+
+EXEC UDP_EditarDatos_Deptos 2 , 'Cortés', 1
+GO
