@@ -160,6 +160,7 @@
     <Content Include="Content\dist\img\big_inLJJ3Pku.jpg" />
     <Content Include="Content\dist\img\boxed-bg.jpg" />
     <Content Include="Content\dist\img\boxed-bg.png" />
+    <Content Include="Content\dist\img\CLIENTES.png" />
     <Content Include="Content\dist\img\credit\american-express.png" />
     <Content Include="Content\dist\img\credit\cirrus.png" />
     <Content Include="Content\dist\img\credit\mastercard.png" />
@@ -167,6 +168,7 @@
     <Content Include="Content\dist\img\credit\paypal2.png" />
     <Content Include="Content\dist\img\credit\visa.png" />
     <Content Include="Content\dist\img\default-150x150.png" />
+    <Content Include="Content\dist\img\EMPLEADOS.png" />
     <Content Include="Content\dist\img\icons.png" />
     <Content Include="Content\dist\img\logo-v2.png" />
     <Content Include="Content\dist\img\photo1.png" />
@@ -178,6 +180,9 @@
     <Content Include="Content\dist\img\prod-3.jpg" />
     <Content Include="Content\dist\img\prod-4.jpg" />
     <Content Include="Content\dist\img\prod-5.jpg" />
+    <Content Include="Content\dist\img\PRODUCTOS.png" />
+    <Content Include="Content\dist\img\REPARACIONES.png" />
+    <Content Include="Content\dist\img\SERVICIOS.png" />
     <Content Include="Content\dist\img\tech-support-icon-trendy-logo-concept-white-bac-background-web-hosting-collection-suitable-use-apps-mobile-print-133527592.jpg" />
     <Content Include="Content\dist\img\user1-128x128.jpg" />
     <Content Include="Content\dist\img\user2-160x160.jpg" />
@@ -187,6 +192,7 @@
     <Content Include="Content\dist\img\user6-128x128.jpg" />
     <Content Include="Content\dist\img\user7-128x128.jpg" />
     <Content Include="Content\dist\img\user8-128x128.jpg" />
+    <Content Include="Content\dist\img\USUARIOS.png" />
     <Content Include="Content\dist\js\adminlte.js" />
     <Content Include="Content\dist\js\adminlte.min.js" />
     <Content Include="Content\dist\js\demo.js" />
@@ -2533,6 +2539,7 @@
     <Content Include="Home.aspx" />
     <Content Include="InsertarClientes.aspx" />
     <Content Include="LogIn.aspx" />
+    <Content Include="MenuIndex.aspx" />
     <Content Include="PaginaMaster.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2634,6 +2641,13 @@
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuIndex.aspx.cs">
+      <DependentUpon>MenuIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuIndex.aspx.designer.cs">
+      <DependentUpon>MenuIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaMaster.Master.cs">
       <DependentUpon>PaginaMaster.Master</DependentUpon>
