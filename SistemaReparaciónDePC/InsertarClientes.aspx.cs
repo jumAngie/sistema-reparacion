@@ -183,7 +183,7 @@ namespace SistemaReparaciónDePC
             ddlDepartamento.SelectedValue = ds.Tables["T"].Rows[0]["Ciudad_DepartamentoId"].ToString();
 
             cli.ddlmuni(ddlMuni, ddlDepartamento.SelectedValue);
-            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_CiudadId"].ToString();
+            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Empleado_CiudadId"].ToString();
 
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)

@@ -209,6 +209,21 @@
             __doPostBack("Eliminar", id)
         }
     }
+
+    function EditarEmpleado(id) {
+        __doPostBack("EditarEmpleado", id)
+    }
+
+    function EliminarEmpleado(id) {
+        var result = confirm("esta seguro que desea elimnar el registro?");
+        if (result) {
+            alert(id);
+            __doPostBack("EliminarEmpleado", id)
+        }
+    }
+
+
+
 </script>
 
 
