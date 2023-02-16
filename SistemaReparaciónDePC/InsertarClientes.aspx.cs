@@ -202,8 +202,6 @@ namespace SistemaReparaciónDePC
                     ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
                     ds = util.ObtenerDatos(sql, "TUsu");
                     Limpiar();
-
-
                 }
             }
             else
