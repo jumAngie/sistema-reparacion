@@ -195,5 +195,20 @@
 <script src="Content/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="Content/plugins/chart.js/Chart.min.js"></script>
+<script>
+    function Editar(id) {
+        __doPostBack("Editar", id)
+    }
+
+    function Eliminar(id) {
+        var result = confirm("esta seguro que desea elimnar el registro?");
+        if (result) {
+            alert(id);
+            __doPostBack("Eliminar", id)
+        }
+    }
+</script>
+
+
 </body>
 </html>

@@ -12,10 +12,36 @@ namespace SistemaReparaciónDePC
     {
 
         Cliente cli = new Cliente();
-
+        InsertarClientes ins = new InsertarClientes();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if(!IsPostBack)
+            { 
             cli.CargarGriv(gvCliente,txtbuscar.Value);
+            }
+            else
+            {
+                string eventtarget = Request["__EVENTTARGET"];
+                string eventargument = Request["__EVENTARGUMENT"];
+
+                if (eventtarget == "Editar")
+                {
+                    Session["IdCliente_Editar"] = eventargument;
+                    Response.Redirect("InsertarClientes.aspx");
+
+                }
+
+                if (eventtarget == "Eliminar")
+                {
+                    Session["IdCliente_Editar"] = eventargument;
+                    ins.eliminar();
+                    Response.Redirect("Cliente_Index.aspx");
+                }
+            }
+
+
+
         }
 
         protected void gvCliente_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -45,5 +71,9 @@ namespace SistemaReparaciónDePC
         {
             Response.Redirect("InsertarClientes.aspx");
         }
+        
+    
+    
+    
     }
 }
