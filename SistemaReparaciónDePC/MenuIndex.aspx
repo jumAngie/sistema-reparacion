@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6 col-xl-4">
                     <div class="card mb-2 bg-gradient-dark">
-                        <img class="card-img-top" src="Content/dist/img/CLIENTES.png" alt="Clientes">
+                        <img class="card-img-top" id="ImagenClientes" src="Content/dist/img/CLIENTES.png" alt="Clientes" runat="server">
                         <div class="card-img-overlay d-flex flex-column justify-content-end">
                             <a href="Cliente_Index.aspx" style="color: white; text-align: center;">
                                 <h4><strong>Tabla  Clientes</strong></h4>
@@ -75,5 +75,13 @@
               </div>
           </div>
         </div>
-      </div><!--
+      </div>
+<script>
+
+    function Clientes_Página()
+    {
+        location.href= "Home.aspx";
+    }
+    
+</script>
 </asp:Content>

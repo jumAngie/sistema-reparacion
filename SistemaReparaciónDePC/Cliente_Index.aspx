@@ -1,18 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaster.Master" AutoEventWireup="true" CodeBehind="Cliente_Index.aspx.cs" Inherits="SistemaReparaciónDePC.Cliente_Index" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
+    <div class="row">
+    <div class="col-sm-2"></div>
     
+    <div class="col-sm-2"></div>
+    <input type="text" class="form-control" placeholder="Buscar" required="" id="txtbuscar" runat="server">
+    <button type="submit" class="btn btn-secondary block full-width m-b" id="btnbuscar" runat="server" onserverclick="btnbuscar_ServerClick">Buscar</button>
+    <button type="submit" class="btn btn-primary block full-width m-b" id="volver" runat="server" onserverclick="volver_ServerClick">Volver</button>
+    </div>
+   
     <div class="row">
         <div class="col-sm-1"></div>
                   <div class="col-md-2">
-                      <div class="row">
-                          <div class="form-group">
-                              <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat="server" onserverclick="btnnuevo_ServerClick1">Nuevo</button>
-                              <input type="text" class="form-control" placeholder="Buscar" required="" id="txtbuscar" runat="server">
-                              <button type="submit" class="btn btn-secondary block full-width m-b" id="btnbuscar" runat="server" onserverclick="btnbuscar_ServerClick">Buscar</button>
-                              <button type="submit" class="btn btn-primary block full-width m-b" id="volver" runat="server" onserverclick="volver_ServerClick">Volver</button>
-                          </div>
-                      </div>
+                      <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat="server" onserverclick="btnnuevo_ServerClick1" style="width:100px">Nuevo</button>
+
+
+                      <br />
            <asp:GridView id ="gvCliente" Cssclass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvCliente_PageIndexChanging" >                  
            <columns>
                <asp:BoundField HeaderText="Id Cliente" DataField="Cliente_Id" />

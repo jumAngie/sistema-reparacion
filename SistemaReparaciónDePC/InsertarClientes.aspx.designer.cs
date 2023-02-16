@@ -15,6 +15,15 @@ namespace SistemaReparaciónDePC
     {
 
         /// <summary>
+        /// Control Advertencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Advertencia;
+
+        /// <summary>
         /// Control lblNombre.
         /// </summary>
         /// <remarks>
@@ -31,24 +40,6 @@ namespace SistemaReparaciónDePC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtnombre;
-
-        /// <summary>
-        /// Control lblapellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblapellido;
-
-        /// <summary>
-        /// Control txtapellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtapellido;
 
         /// <summary>
         /// Control lblidentidad.
@@ -69,6 +60,24 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtIdentidad;
 
         /// <summary>
+        /// Control lblapellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblapellido;
+
+        /// <summary>
+        /// Control txtapellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtapellido;
+
+        /// <summary>
         /// Control lblEstado.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.DropDownList ddlestadocivil;
 
         /// <summary>
+        /// Control lblSexo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSexo;
+
+        /// <summary>
         /// Control radiof.
         /// </summary>
         /// <remarks>
@@ -103,24 +121,6 @@ namespace SistemaReparaciónDePC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radiom;
-
-        /// <summary>
-        /// Control lbltelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltelefono;
-
-        /// <summary>
-        /// Control txttelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txttelefono;
 
         /// <summary>
         /// Control lblLugar.
@@ -150,13 +150,22 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.DropDownList ddlMuni;
 
         /// <summary>
-        /// Control Advertencia.
+        /// Control lbltelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Advertencia;
+        protected global::System.Web.UI.WebControls.Label lbltelefono;
+
+        /// <summary>
+        /// Control txttelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txttelefono;
 
         /// <summary>
         /// Control btnGuardar.
