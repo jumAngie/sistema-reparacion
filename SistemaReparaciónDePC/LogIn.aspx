@@ -50,7 +50,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-block btn-info btn-lg">Entrar</button>
+                            <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" />
                         </div>
                         <!-- /.col -->
                     </div>
