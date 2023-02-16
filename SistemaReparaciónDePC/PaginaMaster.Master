@@ -21,7 +21,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="Content/dist/img/tech-support-icon-trendy-logo-concept-white-bac-background-web-hosting-collection-suitable-use-apps-mobile-print-133527592.jpg" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__wobble" src="Content/dist/img/logo-v2.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
