@@ -31,7 +31,7 @@ namespace SistemaReparaciónDePC.Clases
         public DataSet cargardatos(string id)
         {
             DataSet ds = new DataSet();
-            string SQL = "EXEC UDP_ObtenerDatos_Cliente '" + int.Parse(id) + "'";
+            string SQL = "UDP_ObtenerDatos_Cliente '" + int.Parse(id) + "'";
             ds = util.ObtenerDatos(SQL, "T");
             return ds;
         }
