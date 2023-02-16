@@ -139,6 +139,9 @@ namespace SistemaReparaciónDePC
             cli.DdlEstado(ddlestadocivil);
             ddlestadocivil.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_EstadoCivilId"].ToString();
 
+           
+            
+            
             if (ds.Tables["T"].Rows[0]["Cliente_Genero"].ToString() == "F")
             {
                 radiof.Checked = true;
