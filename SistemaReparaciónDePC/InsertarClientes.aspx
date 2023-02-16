@@ -24,16 +24,16 @@
                     <input type="text" class="form-control" id="txtapellido" placeholder="Ingrese el Apellido del Empleado" runat="server">
                   </div>
                   <div class="form-group">
-                      <asp:Label ID="Lblidentidad" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
+                      <asp:Label ID="lblidentidad" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                     <label for="exampleInputEmail1">Identidad del Cliente</label>
                     <input type="text" class="form-control" id="txtIdentidad" placeholder="Ingrese la identidad del cliente" runat="server">
                   </div>
                    <div class="form-group">
-                      <asp:Label ID="LblEstado" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
+                      <asp:Label ID="lblEstado" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                        <label for="Deportes">EstadoCivil:</label>
                       <asp:DropDownList ID="ddlestadocivil" CssClass="form-control" runat="server"></asp:DropDownList>                      
                   </div>
-              <div class="form-group">
+              <div class="form-group">                  
                   <label for="sexo">Sexo:</label>
                   <div class="col-sm-6">
                   <label>F</label>
@@ -46,17 +46,20 @@
               </div>
                   
                     <div class="form-group">
-                      <asp:Label ID="lbLtelefono" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
+                      <asp:Label ID="lbltelefono" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                     <label for="exampleInputEmail1">Telefono</label>
                     <input type="text" class="form-control" id="txttelefono" placeholder="Ingrese el telefono del Cliente" runat="server">
                   </div>
                     <div class="form-group">
                       <asp:Label ID="lblLugar" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                        <label for="Depto">Lugar del Evento (Departamento, Ciudad):</label>
-                      <asp:DropDownList ID="ddlDepartamento"  CssClass="form-control" runat="server"  OnSelectedindexChanged="ddlDepartamento_SelectedIndexChanged" ></asp:DropDownList>
-                      <asp:DropDownList ID="ddlCiudad" CssClass="form-control" runat="server"></asp:DropDownList>
+                      <asp:DropDownList ID="ddlDepartamento"  CssClass="form-control" runat="server"  OnSelectedindexChanged="ddlDepartamento_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
+                      <asp:DropDownList ID="ddlMuni" CssClass="form-control" runat="server"></asp:DropDownList>
                   </div>
 
+                    <div class="form-group">
+                         <asp:Label ID="Advertencia" ForeColor="Red" runat="server" Text="No se pudieron ingresar los datos" Visible="false" ></asp:Label>
+                  </div>
 
 
                    <%--                   
@@ -82,10 +85,10 @@
                         <asp:TextBox ID="txtDuracion" CssClass="form-control" runat="server"></asp:TextBox>
                   </div>--%>
                 </div>
-                <div class="card-footer">
-                    <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Guardar" />
-                    <asp:Button ID="btnEditar" CssClass="btn btn-danger" Visible="false" runat="server" Text="Editar" />
-                    <asp:Button ID="btnLimpiar" CssClass="btn btn-warning" runat="server" Text="Limpiar" />
+                <div class="card-footer">                   
+                    <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" onclick="btnGuardar_Click" Text="Guardar" />
+                    <asp:Button ID="btnEditar" CssClass="btn btn-danger" Visible="false"  runat="server" Text="Editar" />
+                    <asp:Button ID="btnLimpiar" CssClass="btn btn-warning" runat="server" OnClick="btnLimpiar_Click" Text="Limpiar" />
                 </div>             
             </div>
         </div>

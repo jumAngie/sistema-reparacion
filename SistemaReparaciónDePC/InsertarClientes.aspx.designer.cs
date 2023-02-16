@@ -51,13 +51,13 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtapellido;
 
         /// <summary>
-        /// Control Lblidentidad.
+        /// Control lblidentidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lblidentidad;
+        protected global::System.Web.UI.WebControls.Label lblidentidad;
 
         /// <summary>
         /// Control txtIdentidad.
@@ -69,13 +69,13 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtIdentidad;
 
         /// <summary>
-        /// Control LblEstado.
+        /// Control lblEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblEstado;
+        protected global::System.Web.UI.WebControls.Label lblEstado;
 
         /// <summary>
         /// Control ddlestadocivil.
@@ -105,13 +105,13 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radiom;
 
         /// <summary>
-        /// Control lbLtelefono.
+        /// Control lbltelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLtelefono;
+        protected global::System.Web.UI.WebControls.Label lbltelefono;
 
         /// <summary>
         /// Control txttelefono.
@@ -141,13 +141,22 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento;
 
         /// <summary>
-        /// Control ddlCiudad.
+        /// Control ddlMuni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMuni;
+
+        /// <summary>
+        /// Control Advertencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Advertencia;
 
         /// <summary>
         /// Control btnGuardar.

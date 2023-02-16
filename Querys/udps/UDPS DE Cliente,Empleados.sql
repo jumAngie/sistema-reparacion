@@ -15,7 +15,7 @@ BEGIN
 		  where Cliente_Estado=1
 END 
 
-EXECUTE UDP_MostrarClientes 
+
 
 CREATE OR ALTER pROCEDURE UDP_BuscarClientes
    @buscador  nvarchar(max)
@@ -339,8 +339,8 @@ begin
 	 where	[tipo_ID]=@id 	 
 end 
 
-Select EstadoCivil_ID,EstadoCivil_Descripcion from  [dbo].[tbl_EstadoCivil]
+--Select EstadoCivil_ID,EstadoCivil_Descripcion from  [dbo].[tbl_EstadoCivil]
 
-select [Departamento_ID],[Departamento_Descripcion] from [dbo].[tbl_Departamentos]
+--select [Departamento_ID],[Departamento_Descripcion] from [dbo].[tbl_Departamentos]
 
-select [Ciudad_Id],[Ciudad_Descripcion] from [dbo].[tbl_Ciudades] where[Ciudad_DepartamentoId] =
+--select [Ciudad_Id],[Ciudad_Descripcion] from [dbo].[tbl_Ciudades] where[Ciudad_DepartamentoId] = 2

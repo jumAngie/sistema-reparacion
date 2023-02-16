@@ -40,5 +40,10 @@ namespace SistemaReparaciónDePC
             txtbuscar.Value = "";
             cli.CargarGriv(gvCliente,txtbuscar.Value);
         }
+
+        protected void btnnuevo_ServerClick1(object sender, EventArgs e)
+        {
+            Response.Redirect("InsertarClientes.aspx");
+        }
     }
 }

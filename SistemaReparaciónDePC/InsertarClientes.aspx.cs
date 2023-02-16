@@ -1,6 +1,7 @@
 ﻿using SistemaReparaciónDePC.Clases;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,11 +11,13 @@ namespace SistemaReparaciónDePC
 {
     public partial class InsertarClientes : System.Web.UI.Page
     {
+        Utilitario util = new Utilitario();
         Cliente cli = new Cliente();
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            if(!IsPostBack)
+           
+
+            if (!IsPostBack)
             {
                 cli.DdlEstado(ddlestadocivil);
                 cli.ddldepto(ddlDepartamento);
@@ -24,7 +27,85 @@ namespace SistemaReparaciónDePC
 
         protected void ddlDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cli.ddlmuni(ddlCiudad, ddlDepartamento.SelectedValue);
+            cli.ddlmuni(ddlMuni,ddlDepartamento.SelectedValue);
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string sexo = "";
+
+            
+            if(txtnombre.Value=="")
+            {
+                lblNombre.Visible = true;  
+            }
+            if (txtapellido.Value == "")
+            {
+                lblapellido.Visible = true;
+            }
+            if (txtIdentidad.Value == "")
+            {
+                lblidentidad.Visible = true;
+            }
+            if (txttelefono.Value == "")
+            {
+                lbltelefono.Visible = true;
+            }
+            if (ddlMuni.SelectedValue == "")
+            {
+               lblLugar.Visible = true;
+            }
+            if (ddlestadocivil.SelectedValue == "")
+            {
+                lblEstado.Visible = true;
+            }
+
+            if (radiof.Checked==true)
+            {
+                sexo = "F";
+            }
+            if(radiom.Checked==true)
+            {
+                sexo = "M";
+            }
+           
+            if(txtnombre.Value!="" && txtapellido.Value!="" && txtIdentidad.Value !="" && txttelefono.Value != "" 
+             && ddlMuni.SelectedValue !="")
+            {       
+                if(radiof.Checked==true || radiom.Checked==true)
+                { 
+                DataSet ds = new DataSet();
+                string sql = "UDP_InsertCliente '" + txtnombre.Value + "','" + txtapellido.Value + "'" +
+                ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
+                ds = util.ObtenerDatos(sql, "TUsu");
+                    Limpiar();
+
+
+                }
+            }
+            else
+            {
+                Advertencia.Visible = true;
+            }       
+        }
+
+        public void Limpiar()
+        {
+            txtnombre.Value = "";
+            txtapellido.Value = "";
+            txtIdentidad.Value = "";
+            txttelefono.Value = "";
+            ddlestadocivil.SelectedValue = "0";
+            ddlDepartamento.SelectedValue = "0";
+            ddlMuni.SelectedValue = "";
+            radiof.Checked = false;
+            radiom.Checked = false;
+           
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

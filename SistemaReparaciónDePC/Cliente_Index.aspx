@@ -46,23 +46,12 @@
 
         
         <div>
-        <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat ="server" onserverclick="btnnuevo_ServerClick">Nuevo</button>
+        <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat ="server" onserverclick="btnnuevo_ServerClick1">Nuevo</button>
         </div>
    
         
         <div>
         <button type="submit" class="btn btn-primary block full-width m-b" id="volver" runat ="server" onserverclick="volver_ServerClick">Volver</button>
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 </asp:Content>
