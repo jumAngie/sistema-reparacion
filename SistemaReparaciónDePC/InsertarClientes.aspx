@@ -87,7 +87,7 @@
                 </div>
                 <div class="card-footer">                   
                     <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" onclick="btnGuardar_Click" Text="Guardar" />
-                    <asp:Button ID="btnEditar" CssClass="btn btn-danger" Visible="false"  runat="server" Text="Editar" />
+                    <asp:Button ID="btnEditar" CssClass="btn btn-danger" Visible="false"  runat="server" OnClick="btnEditar_Click" Text="Editar" />
                     <asp:Button ID="btnLimpiar" CssClass="btn btn-warning" runat="server" OnClick="btnLimpiar_Click" Text="Limpiar" />
                 </div>             
             </div>
