@@ -14,7 +14,35 @@ namespace SistemaReparaciónDePC
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+            
+            if (!IsPostBack)
+            {
+                Session["IdEmpleado_Editar"] = "";
+                emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+            }
+            else
+            {
+                string eventtarget = Request["__EVENTTARGET"];
+                string eventargument = Request["__EVENTARGUMENT"];
+
+                if (eventtarget == "EditarEmpleado")
+                {
+                    Session["IdEmpleado_Editar"] = eventargument;
+                    Response.Redirect("InsertarEmpleados.aspx");
+
+                }
+
+                if (eventtarget == "EliminarEmpleado")
+                {
+                    Session["IdEmpleado_Editar"] = eventargument;
+                    //ins.eliminar();
+                    Response.Redirect("Empleado_Index.aspx");
+                }
+            }
+
+
+
+
 
         }
 

@@ -11,6 +11,7 @@ namespace SistemaReparaciónDePC
 {
     public partial class InsertarEmpleados : System.Web.UI.Page
     {
+        Empleado emp = new Empleado();
         Cliente cli = new Cliente();
         Utilitario util = new Utilitario();
         protected void Page_Load(object sender, EventArgs e)
@@ -19,6 +20,23 @@ namespace SistemaReparaciónDePC
             {
                 cli.DdlEstado(ddlestadocivil);
                 cli.ddldepto(ddlDepartamento);
+
+                if (Session.Count > 0)
+                {
+
+                    string ses = Session["IdEmpleado_Editar"].ToString();
+                    if (ses != "")
+                    {
+                        llenarcampos(ses);
+                        btnEditar.Visible = true;
+                        btnGuardar.Visible = false;
+                    }
+                    else
+                    {
+                        btnEditar.Visible = false;
+                        btnGuardar.Visible = true;
+                    }
+                }
             }
         }
 
@@ -100,6 +118,111 @@ namespace SistemaReparaciónDePC
         {
             Limpiar();
         }
+         
+        public void llenarcampos(string id )
+        {
+            DataSet ds = new DataSet();
+            DataSet dl = new DataSet();
+            ds = emp.cargardatos(id);
+         
+
+            txtnombre.Value = ds.Tables["T"].Rows[0]["Empleado_Nombre"].ToString();
+
+            txtapellido.Value = ds.Tables["T"].Rows[0]["Empleado_Apellido"].ToString();
+
+            txtIdentidad.Value = ds.Tables["T"].Rows[0]["Empleado_Identidad"].ToString();
+
+            txttelefono.Value = ds.Tables["T"].Rows[0]["Empleado_Telefono"].ToString();
+
+
+            emp.DdlEstado(ddlestadocivil);
+            ddlestadocivil.SelectedValue = ds.Tables["T"].Rows[0]["Empleado_EstadoCivilId"].ToString();
+
+
+            if (ds.Tables["T"].Rows[0]["Empleado_Genero"].ToString() == "F")
+            {
+                radiof.Checked = true;
+            }
+            if (ds.Tables["T"].Rows[0]["Empleado_Genero"].ToString() == "M")
+            {
+                radiom.Checked = true;
+            }
+
+            emp.ddldepto(ddlDepartamento);
+            ddlDepartamento.SelectedValue = ds.Tables["T"].Rows[0]["Ciudad_DepartamentoId"].ToString();
+
+            emp.ddlmuni(ddlMuni, ddlDepartamento.SelectedValue);
+            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Empleado_CiudadId"].ToString();
+
+            txtpuesto.Value = ds.Tables["T"].Rows[0]["Empleado_Puesto"].ToString();        
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            string sexo = "";
+          string ideditar =  Session["IdEmpleado_Editar"].ToString();
+
+            if (txtnombre.Value == "")
+            {
+                lblNombre.Visible = true;
+            }
+            if (txtapellido.Value == "")
+            {
+                lblapellido.Visible = true;
+            }
+            if (txtIdentidad.Value == "")
+            {
+                lblidentidad.Visible = true;
+            }
+            if (txttelefono.Value == "")
+            {
+                lbltelefono.Visible = true;
+            }
+            if (ddlMuni.SelectedValue == "")
+            {
+                lblLugar.Visible = true;
+            }
+            if (ddlestadocivil.SelectedValue == "")
+            {
+                lblEstado.Visible = true;
+            }
+            if (txtpuesto.Value == "")
+            {
+                lblPuesto.Visible = true;
+            }
+
+            if (radiof.Checked == true)
+            {
+                sexo = "F";
+            }
+            if (radiom.Checked == true)
+            {
+                sexo = "M";
+            }
+
+            if (txtnombre.Value != "" && txtapellido.Value != "" && txtIdentidad.Value != "" && txttelefono.Value != ""
+             && ddlMuni.SelectedValue != "")
+            {
+                if (radiof.Checked == true || radiom.Checked == true)
+                {
+                    DataSet ds = new DataSet();
+                    string sql = "UDP_EditarEmpleados '" + ideditar + "','" + txtnombre.Value + "','" + txtapellido.Value + "'" +
+                    ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "','" + txtpuesto.Value + "' ,'" + 1 + "' ";
+                    ds = util.ObtenerDatos(sql, "TUsu");
+                    //Limpiar();
+                }
+            }
+        }
+          public  void Eliminar()
+          {
+            DataSet ds = new DataSet();
+            string sql = "UDP_EliminarEmpleado  '" + Session["IdCliente_Editar"].ToString() + "','" + 1 + "' ";
+            ds = util.ObtenerDatos(sql, "TUsu");
+          }
+    
+    
+    
+    
     }
 
 }
