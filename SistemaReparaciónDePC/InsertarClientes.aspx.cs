@@ -69,7 +69,7 @@ namespace SistemaReparaciónDePC
             {
                 lbltelefono.Visible = true;
             }
-            if (ddlMuni.SelectedValue == "")
+            if (ddlDepartamento.SelectedValue == "0")
             {
                lblLugar.Visible = true;
             }
@@ -77,6 +77,7 @@ namespace SistemaReparaciónDePC
             {
                 lblEstado.Visible = true;
             }
+            
             ///
             if (txtnombre.Value != "")
             {
@@ -94,7 +95,7 @@ namespace SistemaReparaciónDePC
             {
                 lbltelefono.Visible = false;
             }
-            if (ddlMuni.SelectedValue != "0")
+            if (ddlDepartamento.SelectedValue != "0")
             {
                 lblLugar.Visible = false;
             }
@@ -116,6 +117,10 @@ namespace SistemaReparaciónDePC
             {
                 lblSexo.Visible = true;
             }
+            if (sexo != "")
+            {
+                lblSexo.Visible = false;
+            }
 
 
             if (txtnombre.Value!="" && txtapellido.Value!="" && txtIdentidad.Value !="" && txttelefono.Value != "" 
@@ -124,10 +129,21 @@ namespace SistemaReparaciónDePC
                 if(radiof.Checked==true || radiom.Checked==true)
                 { 
                 DataSet ds = new DataSet();
-                string sql = "UDP_InsertCliente '" + txtnombre.Value + "','" + txtapellido.Value + "'" +
+                    try
+                    {
+                        string sql = "UDP_InsertCliente '" + txtnombre.Value + "','" + txtapellido.Value + "'" +
                 ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
-                ds = util.ObtenerDatos(sql, "TUsu");
-                    Limpiar();
+                        ds = util.ObtenerDatos(sql, "TUsu");
+                        Advertencia.Visible = false;
+                        Advertencia2.Visible = false;
+                        Limpiar();
+                    }
+                    catch (Exception)
+                    {
+                        Advertencia2.Visible = true;
+                        
+                    }
+                
 
 
                 }
@@ -149,6 +165,16 @@ namespace SistemaReparaciónDePC
             ddlMuni.SelectedValue = "0";
             radiof.Checked = false;
             radiom.Checked = false;
+            Advertencia2.Visible = false;
+            lblapellido.Visible = false;
+            lblNombre.Visible = false;
+            lblEstado.Visible = false;
+            lblidentidad.Visible = false;
+            lblLugar.Visible = false;
+            Advertencia.Visible = false;
+            lblSexo.Visible = false;
+            lbltelefono.Visible = false;
+
            
         }
         public  void llenarcampos(string id)
@@ -183,7 +209,7 @@ namespace SistemaReparaciónDePC
             ddlDepartamento.SelectedValue = ds.Tables["T"].Rows[0]["Ciudad_DepartamentoId"].ToString();
 
             cli.ddlmuni(ddlMuni, ddlDepartamento.SelectedValue);
-            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Empleado_CiudadId"].ToString();
+            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_CiudadId"].ToString();
 
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)

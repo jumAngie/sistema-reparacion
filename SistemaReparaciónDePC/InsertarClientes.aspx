@@ -8,7 +8,7 @@
           <div class="card-header">
             <h3 class="card-title">Datos de : <strong>Clientes</strong></h3><br />
             <asp:Label ID="Advertencia" ForeColor="Red" runat="server" Text="*No se pudieron ingresar los datos" Visible="false" ></asp:Label>
-  
+             
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
                 <i class="fas fa-minus"></i>
@@ -29,8 +29,9 @@
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
-                  <asp:Label ID="lblidentidad" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
+                  <asp:Label ID="lblidentidad" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>     
                     <label for="exampleInputEmail1">Identidad del Cliente</label>
+                    <asp:Label ID="Advertencia2" ForeColor="Red" runat="server" Text="*El ID ya existe" Visible="false" ></asp:Label>
                     <input type="text" class="form-control" id="txtIdentidad" placeholder="Ingrese la identidad del cliente" runat="server">
                 </div>
                 <!-- /.form-group -->
