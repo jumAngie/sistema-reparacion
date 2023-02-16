@@ -1,9 +1,9 @@
-Create DataBase BD_Reparaciones 
-go
-use BD_Reparaciones
+-- **** CREACION DE BD ***** --
+--CREATE DATABASE BD_Reparaciones
+--GO
+--USE	BD_Reparaciones
 
-
-
+-- *** TABLAS E INSERTS ** --
 
 Create table tbl_EstadoCivil
 (
@@ -13,9 +13,7 @@ Create table tbl_EstadoCivil
  EstadoCivil_FechaCreacion			DATE NOT NULL,
  EstadoCivil_UsuarioModificacionId	INT,
  EstadoCivil_FechaModificacion		DATE
- constraint tbl_EstadoCivil_Id_EstadoCivil  primary key(EstadoCivil_ID)
- --CONSTRAINT PK_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY  (UsuarioCreacionID)  REFERENCES tbl_Usuarios(Usuario_UsuarioId),
- --CONSTRAINT PK_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (UsuarioModificacionID)  REFERENCES tbl_Usuarios(Usuario_UsuarioId), 
+ constraint tbl_EstadoCivil_Id_EstadoCivil  primary key(EstadoCivil_ID) 
 )
 
 
@@ -36,8 +34,6 @@ Create table tbl_Departamentos
 	Depto_UsuarioModificacionId	INT,
 	Depto_FechaModificacion		DATE
 	CONSTRAINT PK_db_tblDepartamentos_Depto_DepartamentoId PRIMARY KEY(Departamento_ID)
- --    CONSTRAINT PK_UsuarioDepartamento_tbl_usuario_id_usuarios FOREIGN KEY  (UsuarioCreacionID)  REFERENCES tbl_Usuarios(Usuario_UsuarioId),
- --CONSTRAINT PK_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Depto_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId), 
 )
   
 
@@ -65,8 +61,7 @@ CREATE TABLE tbl_Ciudades(
 	Ciudad_FechaModificacion		DATE 
 	CONSTRAINT PK_db_tblCiudades_Ciu_CiudadId PRIMARY KEY(Ciudad_Id),
 	CONSTRAINT FK_db_tblCiudades_db_tblDepartamentos_Depto_DepartamentoId FOREIGN KEY(Ciudad_DepartamentoId) REFERENCES tbl_Departamentos(Departamento_ID),
- --   CONSTRAINT PK_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(Ciudad_UsuarioCreacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId),
- --CONSTRAINT PK_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Ciudad_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId), 
+
 );
 
 INSERT INTO tbl_Ciudades
@@ -103,8 +98,6 @@ CREATE TABLE tbl_Empleados(
 	CONSTRAINT CK_db_tblEmpleados_Emp_Genero CHECK(Empleado_Genero IN('F','M')),
 );
 
-
-
 INSERT INTO tbl_Empleados
 VALUES ('Diego','Portillo','1804-2005-05689','S','M','9485-6525',1,'Supervisor',1,GETDATE(),NULL,NULL,1),
        ('Alberto','Escobar','1804-2001-05484','S','M','9485-6525',2,'Tecnico',1,GETDATE(),NULL,NULL,1),
@@ -116,6 +109,7 @@ VALUES ('Diego','Portillo','1804-2005-05689','S','M','9485-6525',1,'Supervisor',
 	   ('Antonio','Torrez','1804-1999-00010','S','M','9485-6525',8,'Tecnico',1,GETDATE(),NULL,NULL,1),
 	   ('Angel','Guillen','1804-2002-02568','S','M','9485-6525',10,'Tecnico',1,GETDATE(),NULL,NULL,1),
 	   ('Esdra','Cerna','1804-2006-01025','S','F','9485-6525',1,'Tecnico',1,GETDATE(),NULL,NULL,1)
+
 
 	CREATE TABLE tbl_Usuarios(
 	Usuario_UsuarioId				INT IDENTITY(1,1),
@@ -132,13 +126,6 @@ VALUES ('Diego','Portillo','1804-2005-05689','S','M','9485-6525',1,'Supervisor',
     CONSTRAINT PK_UsuarioID_TblUSARIO PRIMARY KEY(Usuario_UsuarioId),
 	CONSTRAINT FK_tblUsuarios_Usuario_Empleado_tblEmpleado_empleadoID FOREIGN KEY (Usuario_Empleado) REFERENCES tbl_Empleados (empleado_ID)
 )
-
-
-select HASHBYTES('SHA2_512','julian10')
---Admin  Admin123
---Julian  julian10
-
-
 
 Insert into [dbo].[tbl_Usuarios]
 values('Admin',1,'0x7FCF4BA391C48784EDDE599889D6E3F1E47A27DB36ECC050CC92F259BFAC38AFAD2C68A1AE804D77075E8FB722503F3ECA2B2C1006EE6F6C7B7628CB45FFFD1D',1,getdate(),null,null,1,1),
@@ -166,10 +153,6 @@ CREATE TABLE tbl_Cliente(
 	CONSTRAINT UQ_db_tblCliente_Emp_Identidad UNIQUE(Cliente_Identidad),
 	CONSTRAINT CK_db_tblCliente_Emp_Genero CHECK(Cliente_Genero IN('F','M')),
 );
-
-
-
-
 
 
 INSERT INTO tbl_Cliente
@@ -204,8 +187,6 @@ VALUES('Mantenimiento',1,null,GEtdate(),null,1,'C'),
 	  ('Reparacion',1,null,GEtdate(),null,1,'C')
 
 
-
-
 CREATE TABLE tbl_Producto(
 		
 		pro_ID				INT IDENTITY (1,1)		NOT NULL,
@@ -221,7 +202,10 @@ CREATE TABLE tbl_Producto(
   		CONSTRAINT PK_tblProducto_pro_ID PRIMARY KEY (pro_ID)      
 );
 
-
+INSERT INTO dbo.tbl_Producto
+VALUES ('Computadora',GETDATE(),1,null,getdate(),null,1,'c'),
+       ('Telefono',GETDATE(),1,null,getdate(),null,1,'c'),
+	   ('Tablet',GETDATE(),1,null,getdate(),null,1,'c')
 
 CREATE TABLE tbl_Reparación(
 
@@ -245,4 +229,74 @@ CREATE TABLE tbl_Reparación(
         CONSTRAINT FK_tBLReparacion_rep_Cliente_tbl_Cliente_cliente_id              FOREIGN KEY (rep_Cliente)  REFERENCES tbl_Cliente(Cliente_Id)
 );
 
+INSERT INTO tbl_Reparación
+VALUES (1,1,1,1,'Ingresado',1,null,getdate(),null,1,'C'),
+       (2,2,3,2,'En reparacion',1,null,getdate(),null,1,'C'),
+	   (3,3,3,3,'Reparado',1,null,getdate(),null,1,'C'),
+       (2,2,4,4,'En reparacion',1,null,getdate(),null,1,'C'),
+	   (1,3,5,5,'Ingresado',1,null,getdate(),null,1,'C'),
+       (3,1,6,6,'En reparacion',1,null,getdate(),null,1,'C'),
+	   (3,3,4,7,'Reparado',1,null,getdate(),null,1,'C'),
+       (3,2,4,8,'En reparacion',1,null,getdate(),null,1,'C'),	   
+       (3,3,6,9,'En reparacion',1,null,getdate(),null,1,'C'),
+	   (3,3,4,10,'Reparado',1,null,getdate(),null,1,'C')
 
+-- *** CONSTRAINTS **** -
+ALTER TABLE [dbo].[tbl_Empleados]
+ADD CONSTRAINT PK_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(Empleado_UsuarioCreacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+ALTER TABLE [dbo].[tbl_Empleados]
+ADD CONSTRAINT PK_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Empleado_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+ alter table [dbo].[tbl_EstadoCivil]
+add  CONSTRAINT PK_tblEstadoCivil_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY  (EstadoCivil_UsuarioCreacionID )  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+alter table [dbo].[tbl_EstadoCivil]
+add  CONSTRAINT PK_tblEstadoCivil_UsuarioModificacionID_tbl_usuario_id_usuarios FOREIGN KEY  (EstadoCivil_UsuarioModificacionId) REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+alter table tbl_Departamentos
+add CONSTRAINT PK_UsuarioDepartamento_tbl_usuario_id_usuarios FOREIGN KEY  (UsuarioCreacionID)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+alter table tbl_Departamentos
+add CONSTRAINT PK_tbldepartamento_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Depto_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+
+alter table [dbo].[tbl_Ciudades]
+add CONSTRAINT PK_tblciudad_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(Ciudad_UsuarioCreacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+alter table [dbo].[tbl_Ciudades]
+add CONSTRAINT PK_tblciudad_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Ciudad_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+
+Alter table tbl_Empleados
+add CONSTRAINT PK_Empleos_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(Empleado_UsuarioCreacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+Alter table tbl_Empleados
+add CONSTRAINT PK_empleados_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Empleado_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+Alter table tbl_Cliente
+add CONSTRAINT PK_Cliente_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(Cliente_UsuarioCreacionId)REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+Alter table tbl_Cliente
+add CONSTRAINT PK_Cliente_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (Cliente_UsuarioModificacionId)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+Alter table tbl_TipoDeTrabajo
+add CONSTRAINT PK_TipoDeTrabajo_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(UsuarioCreacion)REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+Alter table tbl_TipoDeTrabajo
+add CONSTRAINT PK_TipoDeTrabajo_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (UsuarioModificacion)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+Alter table tbl_Producto
+add CONSTRAINT PK_Producto_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(UsuarioCreacion)REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+Alter table tbl_Producto
+add CONSTRAINT PK_Producto_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (UsuarioModificacion)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+Alter table tbl_Reparación
+add CONSTRAINT PK_tbl_Reparación_UsuarioCreacionID_tbl_usuario_id_usuarios FOREIGN KEY(UsuarioCreacion)REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+Alter table tbl_Reparación
+add CONSTRAINT PK_tbl_Reparación_UsuarioModificacion_usuario_id_usuarios FOREIGN KEY  (UsuarioModificacion)  REFERENCES tbl_Usuarios(Usuario_UsuarioId)
+
+-- *** ALTERACIONES *** --
+ALTER TABLE tbl_EstadoCivil
+ADD Estado BIT
+DEFAULT NULL;
+
+ALTER TABLE tbl_EstadoCivil
+ADD Accion VARCHAR(1)
+DEFAULT NULL;
+
+UPDATE	[dbo].[tbl_EstadoCivil]
+SET		[Accion] = 'C' , [Estado] = 1
