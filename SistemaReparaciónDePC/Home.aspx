@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaster.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="SistemaReparaciónDePC.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+ 
         <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Página Principal</h1>
+            <h1 class="m-1">¡Bienvenido!</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#"> Ir a Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -83,17 +83,91 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
+                  <div class="col-sm-3"></div>
+                    <h2><strong>Tienda de reparaciones "New-Tech"</strong></h2>
+                    </div>
+                  <div class="row">
+                      <div class="col-sm-4"></div>
+                      <img src="https://cdn-icons-png.flaticon.com/512/1802/1802913.png" style="width: 350px; text-align: center;">
+                  </div>
+                  </div>
+                </div>
+              
+              <div class="row">
                   <div class="col-sm-1"></div>
-                  <img src="Content/dist/img/4d668cd14fe2bd473be2693ddb8efe35.png" style="width: 850px; text-align: center;">
-                <!-- /.row -->
+                  <div class="col-md-4">
+                      <!-- Widget: user widget style 2 -->
+                      <div class="card card-widget widget-user-2">
+                          <!-- Add the bg color to the header using any of the bg-* classes -->
+                          <div class="widget-user-header bg-warning">
+                              <div class="widget-user-image">
+                                  <img class="img-circle elevation-2" src="https://st3.depositphotos.com/1532932/14126/v/450/depositphotos_141260440-stock-illustration-avatar-businesswoman-portraits-in-four.jpg" alt="User Avatar">
+                              </div>
+                              <!-- /.widget-user-image -->
+                              <h3 class="widget-user-username">Angie Campos</h3>
+                              <h5 class="widget-user-desc">Web Designer</h5>
+                          </div>
+                          <div class="card-footer p-0">
+                              <ul class="nav flex-column">
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Projects <span class="float-right badge bg-primary">31</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Tasks <span class="float-right badge bg-info">5</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Completed Projects <span class="float-right badge bg-success">20</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Followers <span class="float-right badge bg-danger">800</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+                    <div class="col-sm-1"></div>
+                  <div class="col-md-4">
+                      <!-- Widget: user widget style 2 -->
+                      <div class="card card-widget widget-user-2">
+                          <!-- Add the bg color to the header using any of the bg-* classes -->
+                          <div class="widget-user-header bg-warning">
+                              <div class="widget-user-image">
+                                  <img class="img-circle elevation-2" src="https://st3.depositphotos.com/1532932/14125/v/450/depositphotos_141259424-stock-illustration-faceless-businessman-avatar-man-in.jpg" alt="User Avatar">
+                              </div>
+                              <!-- /.widget-user-image -->
+                              <h3 class="widget-user-username">Juan Centeno</h3>
+                              <h5 class="widget-user-desc">Lead Developer</h5>
+                          </div>
+                          <div class="card-footer p-0">
+                              <ul class="nav flex-column">
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Projects <span class="float-right badge bg-primary">30</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Tasks <span class="float-right badge bg-info">6</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Completed Projects <span class="float-right badge bg-success">19</span>
+                                      </a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#" class="nav-link">Followers <span class="float-right badge bg-danger">800</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.card-footer -->
               </div>
-              <!-- /.card-footer -->
-            </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
-        </div>
-
-        
-    </form>
+       
 </asp:Content>
