@@ -2216,6 +2216,7 @@
     <Content Include="Content\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\plugins\uplot\uPlot.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Toast.js\Toast.js" />
     <Content Include="Default.aspx" />
     <Content Include="Empleado_Index.aspx" />
     <Content Include="favicon.ico" />

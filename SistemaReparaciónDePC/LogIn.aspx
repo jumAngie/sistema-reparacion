@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="Content/dist/css/adminlte.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 <form runat="server">
     <body class="hold-transition login-page">
@@ -71,8 +72,11 @@
 </form>
 <!-- /.login-box -->
 
+
 <!-- jQuery -->
+<script src="Content/Toast.js/Toast.js"></script>
 <script src="Content/plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
