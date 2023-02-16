@@ -419,9 +419,8 @@ CREATE OR ALTER PROCEDURE UDP_InsertarUsuarios
 		@Usuario_UsuarioAdmin		BIT
 AS
 BEGIN
-	DECLARE @Password VARBINARY(255)
-	SET @Password = ENCRYPTBYPASSPHRASE (@Usuario_Usuario, @Usuario_Password)
-	SET @Usuario_Password = CONVERT (NVARCHAR(255), @Password, 1)
+		DECLARE @PasswordEncryp NVARCHAR(255)
+		SET @PasswordEncryp = CONVERT (NVARCHAR(255), HASHBYTES('SHA2_512', @Usuario_Password),2)
 	
 	INSERT INTO tbl_Usuarios(
 					Usuario_Usuario, 
@@ -437,7 +436,7 @@ BEGIN
 	
 					@Usuario_Usuario,
 					@Usuario_Empleado,
-					@Usuario_Password,
+					@PasswordEncryp,
 					@Usuario_UsuarioCreacionId,
 					GETDATE(),
 					NULL,
@@ -900,4 +899,18 @@ CREATE OR ALTER PROCEDURE UDP_DDLTipoDeTrabajo
 AS
 BEGIN
 		SELECT tipo_ID, tipo_Descripción FROM tbl_TipoDeTrabajo
+END
+
+------------------------------------------------ UDP PARA EL LOGIN ----------------------------------------------------------------------------
+CREATE OR ALTER PROCEDURE UDP_Login
+		@Username NVARCHAR(255),
+		@Password NVARCHAR(MAX)
+AS
+BEGIN
+		DECLARE @PasswordEncryp NVARCHAR(255)
+		SET @PasswordEncryp = CONVERT (NVARCHAR(255), HASHBYTES('SHA2_512', @Password), 2)
+
+		SELECT [Usuario_UsuarioId], [Usuario_Usuario] , [Usuario_Password] FROM tbl_Usuarios
+		WHERE  Usuario_Usuario = @Username AND Usuario_Password = @PasswordEncryp
+		
 END
