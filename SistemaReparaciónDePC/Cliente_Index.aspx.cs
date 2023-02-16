@@ -17,8 +17,9 @@ namespace SistemaReparaciónDePC
         {
             
             if(!IsPostBack)
-            { 
-            cli.CargarGriv(gvCliente,txtbuscar.Value);
+            {
+                Session["IdCliente_Editar"] = "";
+                cli.CargarGriv(gvCliente,txtbuscar.Value);
             }
             else
             {

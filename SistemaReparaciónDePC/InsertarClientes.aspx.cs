@@ -22,19 +22,25 @@ namespace SistemaReparaciónDePC
                 cli.DdlEstado(ddlestadocivil);
                 cli.ddldepto(ddlDepartamento);
 
-                string ses = Session["IdCliente_Editar"].ToString();
+                
+                if (Session.Count > 0) {
 
-                if (ses != "")
-                {
-                    llenarcampos(ses);
-                    btnEditar.Visible = true;
-                    btnGuardar.Visible = false;
+                    string ses = Session["IdCliente_Editar"].ToString();
+                    if (ses != "")
+                    {
+                        llenarcampos(ses);
+                        btnEditar.Visible = true;
+                        btnGuardar.Visible = false;
+                    }
+                    else
+                    {
+                        btnEditar.Visible = false;
+                        btnGuardar.Visible = true;
+                    }
                 }
-                else
-                {
-                    btnEditar.Visible = false;
-                    btnGuardar.Visible = true;
-                }
+               
+
+                
 
             }
             
@@ -131,7 +137,7 @@ namespace SistemaReparaciónDePC
             txttelefono.Value = ds.Tables["T"].Rows[0]["Cliente_Telefono"].ToString();
 
             cli.DdlEstado(ddlestadocivil);
-            ddlestadocivil.SelectedValue = ds.Tables["T"].Rows[0]["EstadoCivil_Descripcion"].ToString();
+            ddlestadocivil.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_EstadoCivilId"].ToString();
 
             if (ds.Tables["T"].Rows[0]["Cliente_Genero"].ToString() == "F")
             {
@@ -144,7 +150,7 @@ namespace SistemaReparaciónDePC
 
             
             cli.ddlmuni(ddlMuni, ddlDepartamento.SelectedValue);
-            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Ciudad_Descripcion"].ToString();
+            ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_CiudadId"].ToString();
 
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)

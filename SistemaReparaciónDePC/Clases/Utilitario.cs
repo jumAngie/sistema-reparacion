@@ -37,7 +37,7 @@ namespace SistemaReparaciónDePC.Clases
             }
 
             ddl.DataBind();
-            ddl.Items.Insert(0, new ListItem("seleccione una opcion", "0"));
+            ddl.Items.Insert(0, new ListItem("Seleccione una opcion", "0"));
 
         }
        

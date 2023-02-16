@@ -14,14 +14,14 @@ namespace SistemaReparaciónDePC.Clases
         {
             if(buscar == "")
             {
-                DataSet ds = util.ObtenerDatos("UDP_MostrarClientes", "t");
+                DataSet ds = util.ObtenerDatos("EXEC UDP_MostrarClientes", "t");
                 gv.DataSource = ds.Tables["t"];
                 gv.DataBind();
 
             }
             else
             {
-                string sql = "UDP_BuscarClientes'" + buscar + "'";
+                string sql = "EXEC UDP_BuscarClientes'" + buscar + "'";
                 DataSet ds = util.ObtenerDatos(sql,"t");
                 gv.DataSource = ds.Tables["t"];
                 gv.DataBind();
@@ -31,7 +31,7 @@ namespace SistemaReparaciónDePC.Clases
         public DataSet cargardatos(string id)
         {
             DataSet ds = new DataSet();
-            string SQL = "UDP_ObtenerDatos_Cliente '" + int.Parse(id) + "'";
+            string SQL = "EXEC UDP_ObtenerDatos_Cliente '" + int.Parse(id) + "'";
             ds = util.ObtenerDatos(SQL, "T");
             return ds;
         }
