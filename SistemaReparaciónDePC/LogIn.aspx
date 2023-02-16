@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>NEW TECH LOGIN</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,69 +17,57 @@
   <link rel="stylesheet" href="Content/dist/css/adminlte.min.css">
 </head>
 <form runat="server">
-<body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
+    <body class="hold-transition login-page">
+        <div class="login-box">
+            <!-- /.login-logo -->
 
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="#" class="h1"><b>Admin</b>LTE</a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Usuario" id="txtUsu">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" id="txtContra">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
+            <div class="card card-outline card-primary">
+                <div class="card-header text-center">
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                    <asp:Image ID="img" ImageUrl="~/Content/dist/img/4305686.png" Width="100px" runat="server"/>
+                        </div>
+                    <a href="#" class="h1"><b>Admin</b>N-TCH</a>
+                </div>
+                <div class="card-body">
+                    <p class="login-box-msg"><strong>Ingrese los datos de su cuenta</strong></p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Usuario" id="txtUsu">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" id="txtContra">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-block btn-info btn-lg">Entrar</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.social-auth-links -->
 
-      <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
-    </div>
+                    <p class="mb-1">
+                        <br />
+                        <a href="#">Recuperar contraseña</a>
+                    </p>
+                    <p class="mb-0">
+                        <a href="#" class="text-center">Crear nueva contraseña</a>
+                    </p>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
 </form>
 <!-- /.login-box -->
 
