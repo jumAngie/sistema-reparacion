@@ -18,11 +18,11 @@ Create table tbl_EstadoCivil
 
 
 INSERT INTO tbl_EstadoCivil
-VALUES ('c','Casado',1,GETDATE(),NULL,NULL),
-       ('s','Soltero',1,GETDATE(),NULL,NULL),
-	   ('v','Viudo',1,GETDATE(),NULL,NULL),
-	   ('u','Union Libre',1,GETDATE(),NULL,NULL),
-	   ('d','Divorciado',1,GETDATE(),NULL,NULL)
+VALUES ('C','Casado',1,GETDATE(),NULL,NULL),
+       ('S','Soltero',1,GETDATE(),NULL,NULL),
+	   ('V','Viudo',1,GETDATE(),NULL,NULL),
+	   ('U','Union Libre',1,GETDATE(),NULL,NULL),
+	   ('D','Divorciado',1,GETDATE(),NULL,NULL)
 
 
 Create table tbl_Departamentos
