@@ -71,7 +71,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="Content/dist/img/tech-support-icon-trendy-logo-concept-white-bac-background-web-hosting-collection-suitable-use-apps-mobile-print-133527592.jpg" alt="Repairs" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">TechSupport</span>
+      <span class="brand-text font-weight-light">New-Tech</span>
     </a>
 
     <!-- Sidebar -->
@@ -82,7 +82,7 @@
           <img src="Content/dist/img/4305686.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Username</a>
+          <a href="#" class="d-block"><% =Session["Usuario"] %></a>
         </div>
       </div>
 
@@ -148,6 +148,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+      <div class="col-sm-2"></div>
       <form runat="server">
           <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -165,7 +166,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
+    <br />
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2022-2023 <a href="#">TechSupport</a>.</strong>

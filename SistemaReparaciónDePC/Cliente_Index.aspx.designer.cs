@@ -15,22 +15,13 @@ namespace SistemaReparaciónDePC
     {
 
         /// <summary>
-        /// Control gvCliente.
+        /// Control btnnuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCliente;
-
-        /// <summary>
-        /// Control lb1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lb1;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnnuevo;
 
         /// <summary>
         /// Control txtbuscar.
@@ -51,15 +42,6 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlButton btnbuscar;
 
         /// <summary>
-        /// Control btnnuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnnuevo;
-
-        /// <summary>
         /// Control volver.
         /// </summary>
         /// <remarks>
@@ -67,5 +49,14 @@ namespace SistemaReparaciónDePC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton volver;
+
+        /// <summary>
+        /// Control gvCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCliente;
     }
 }
