@@ -83,16 +83,24 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-sm-3"></div>
-                    <h2><strong>Tienda de reparaciones "New-Tech"</strong></h2>
+                  <div class="col-sm-1"></div>
+                    <h2>Tienda de reparaciones para dispostivos electronicos "New-Tech"</h2>
+                    </div>
+                  <div class="row">
+                  <div class="col-sm-2"></div>
+                    <h3 style="color: olivedrab"><strong>Limpieza - Reparación - Mantenimiento - Diagnostico</strong></h3>
                     </div>
                   <div class="row">
                       <div class="col-sm-4"></div>
-                      <img src="https://cdn-icons-png.flaticon.com/512/1802/1802913.png" style="width: 350px; text-align: center;">
+                      <img src="Content/dist/img/logo-v2.png" style="width: 350px; text-align: center;">
                   </div>
                   </div>
                 </div>
-              
+              <br />
+              <div class="row">
+                  <div class="col-sm-4"></div>
+                    <h2><strong>Administradores</strong></h2>
+                    </div>
               <div class="row">
                   <div class="col-sm-1"></div>
                   <div class="col-md-4">
@@ -130,6 +138,7 @@
                       </div>
                   </div>
                   <!-- /.row -->
+                
                     <div class="col-sm-1"></div>
                   <div class="col-md-4">
                       <!-- Widget: user widget style 2 -->
@@ -170,4 +179,5 @@
             <!-- /.card -->
           </div>
        
+            
 </asp:Content>
