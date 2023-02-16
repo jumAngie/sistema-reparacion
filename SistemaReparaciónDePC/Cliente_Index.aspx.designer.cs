@@ -15,24 +15,6 @@ namespace SistemaReparaciónDePC
     {
 
         /// <summary>
-        /// Control gvCliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCliente;
-
-        /// <summary>
-        /// Control lb1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lb1;
-
-        /// <summary>
         /// Control txtbuscar.
         /// </summary>
         /// <remarks>
@@ -51,6 +33,15 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlButton btnbuscar;
 
         /// <summary>
+        /// Control volver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton volver;
+
+        /// <summary>
         /// Control btnnuevo.
         /// </summary>
         /// <remarks>
@@ -60,12 +51,12 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlButton btnnuevo;
 
         /// <summary>
-        /// Control volver.
+        /// Control gvCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton volver;
+        protected global::System.Web.UI.WebControls.GridView gvCliente;
     }
 }
