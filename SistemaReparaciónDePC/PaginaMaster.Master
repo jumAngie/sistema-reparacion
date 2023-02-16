@@ -105,7 +105,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
           <li class="nav-item">
-            <a href="MenuIndex.aspx" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Index
@@ -114,7 +114,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="MenuIndex.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Elements</p>
                 </a>

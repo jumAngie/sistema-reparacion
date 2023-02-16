@@ -52,7 +52,7 @@
                     </div>
                     <div class="row">
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-5">
                             <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
                         </div>
                         <!-- /.col -->
