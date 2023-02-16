@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <p class="login-box-msg"><strong>Ingrese los datos de su cuenta</strong></p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Usuario" id="txtUsu">
+                        <input type="text" class="form-control" placeholder="Usuario" id="txtUsu" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" id="txtContra">
+                        <input type="password" class="form-control" placeholder="Password" id="txtContra" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -50,7 +50,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-4">
-                            <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" />
+                            <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
                         </div>
                         <!-- /.col -->
                     </div>

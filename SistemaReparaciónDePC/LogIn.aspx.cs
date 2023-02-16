@@ -13,5 +13,20 @@ namespace SistemaReparaciónDePC
         {
 
         }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            string Usuario = txtUsu.Value;
+            string Password = txtContra.Value;
+
+            if (Usuario == "" || Password == "")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }
