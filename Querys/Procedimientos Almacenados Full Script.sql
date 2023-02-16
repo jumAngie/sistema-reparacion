@@ -525,12 +525,17 @@ end
 
 
 -- udp para obtener datos
-CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_ObtenerDatos_Cliente]
 		@ID  INT
 AS
 BEGIN
-		SELECT	[Cliente_Id], [Cliente_Nombre] , [Cliente_Apellido], [Cliente_Identidad],
-				T2.EstadoCivil_Descripcion, [Cliente_Genero],[Cliente_Telefono] ,T3.Ciudad_Descripcion
+		SELECT	[Cliente_Id], 
+				[Cliente_Nombre] , 
+				[Cliente_Apellido], 
+				[Cliente_Identidad], 
+				[Cliente_CiudadId], 
+				[Cliente_EstadoCivilId],
+				T2.EstadoCivil_Descripcion, [Cliente_Genero],[Cliente_Telefono] ,T3.Ciudad_Descripcion, T3.Ciudad_DepartamentoId
 		FROM	[dbo].[tbl_Cliente] T1				INNER JOIN [dbo].[tbl_EstadoCivil] T2
 		ON		T1.Cliente_EstadoCivilId = T2.EstadoCivil_ID	INNER JOIN [dbo].[tbl_Ciudades] T3
 		ON		T1.Cliente_CiudadId = T3.Ciudad_Id

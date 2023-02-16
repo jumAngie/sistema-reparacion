@@ -148,7 +148,9 @@ namespace SistemaReparaciónDePC
                 radiom.Checked = true;
             }
 
-            
+            cli.ddldepto(ddlDepartamento);
+            ddlDepartamento.SelectedValue = ds.Tables["T"].Rows[0]["Ciudad_DepartamentoId"].ToString();
+
             cli.ddlmuni(ddlMuni, ddlDepartamento.SelectedValue);
             ddlMuni.SelectedValue = ds.Tables["T"].Rows[0]["Cliente_CiudadId"].ToString();
 
