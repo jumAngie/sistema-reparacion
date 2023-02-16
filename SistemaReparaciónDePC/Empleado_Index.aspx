@@ -5,12 +5,12 @@
                       
            <asp:GridView id ="gvEmpleado" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvEmpleado_PageIndexChanging" >                  
            <columns>
-               <asp:BoundField HeaderText="Id Empleado" DataField="[Empleado_Id]" />
-               <asp:BoundField HeaderText="Nombres" DataField="[Empleado_Nombre]" />
-               <asp:BoundField HeaderText="Apellidos" DataField="[Empleado_Apellido]" />
-               <asp:BoundField HeaderText="Identidad" DataField="[Empleado_Identidad]" />
+               <asp:BoundField HeaderText="Id Empleado" DataField="Empleado_Id" />
+               <asp:BoundField HeaderText="Nombres" DataField="Empleado_Nombre" />
+               <asp:BoundField HeaderText="Apellidos" DataField="Empleado_Apellido" />
+               <asp:BoundField HeaderText="Identidad" DataField="Empleado_Identidad" />
                <asp:BoundField HeaderText="Estado civil" DataField="EstadoCivil_Descripcion" />
-               <asp:BoundField HeaderText="Sexo" DataField=" Empleado_Genero" />               
+               <asp:BoundField HeaderText="Sexo" DataField="Empleado_Genero" />               
                <asp:BoundField HeaderText="Telefono" DataField="Empleado_Telefono" />                 
                <asp:BoundField HeaderText="Ciudad" DataField="Ciudad_Descripcion" />               
                <asp:BoundField HeaderText="Puesto" DataField="Empleado_Puesto" />
@@ -43,9 +43,9 @@
         </div>
 
         
-        <div>
+        <%--<div>
         <button type="submit" class="btn btn-primary block full-width m-b" id="btnnuevo" runat ="server" onserverclick="btnnuevo_ServerClick1">Nuevo</button>
-        </div>
+        </div>--%>
    
         
         <div>
