@@ -2538,6 +2538,7 @@
     <Content Include="Content\plugins\toastr\toastr.js.map" />
     <Content Include="Home.aspx" />
     <Content Include="InsertarClientes.aspx" />
+    <Content Include="InsertarEmpleados.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="MenuIndex.aspx" />
     <Content Include="PaginaMaster.Master" />
@@ -2634,6 +2635,13 @@
     </Compile>
     <Compile Include="InsertarClientes.aspx.designer.cs">
       <DependentUpon>InsertarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarEmpleados.aspx.cs">
+      <DependentUpon>InsertarEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarEmpleados.aspx.designer.cs">
+      <DependentUpon>InsertarEmpleados.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
