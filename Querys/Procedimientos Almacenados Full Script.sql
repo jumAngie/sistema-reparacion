@@ -914,3 +914,5 @@ BEGIN
 		WHERE  Usuario_Usuario = @Username AND Usuario_Password = @PasswordEncryp
 		
 END
+
+--- contraseñas = admin, julian, angie
