@@ -910,7 +910,7 @@ BEGIN
 		DECLARE @PasswordEncryp NVARCHAR(255)
 		SET @PasswordEncryp = CONVERT (NVARCHAR(255), HASHBYTES('SHA2_512', @Password), 2)
 
-		SELECT [Usuario_UsuarioId], [Usuario_Usuario] , [Usuario_Password] FROM tbl_Usuarios
+		SELECT [Usuario_UsuarioId], [Usuario_Usuario] , [Usuario_Password], [Usuario_UsuarioAdmin] FROM [dbo].[tbl_Usuarios]
 		WHERE  Usuario_Usuario = @Username AND Usuario_Password = @PasswordEncryp
 		
 END
