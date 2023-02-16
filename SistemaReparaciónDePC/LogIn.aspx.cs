@@ -24,8 +24,22 @@ namespace SistemaReparaciónDePC
 
             if (Usuario == "" || Password == "")
             {
-                
-                
+                if (Usuario == "")
+                {
+                    lblUsu.Visible = true;
+                }
+                if (Password== "")
+                {
+                    lblContra.Visible = true;
+                }
+                if (Usuario != "")
+                {
+                    lblUsu.Visible = false;
+                }
+                if (Password != "")
+                {
+                    lblContra.Visible = false;
+                }
             }
             else
             {

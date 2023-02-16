@@ -33,6 +33,7 @@
                 <div class="card-body">
                     <p class="login-box-msg"><strong>Ingrese los datos de su cuenta</strong></p>
                     <div class="input-group mb-3">
+                         <asp:Label ID="lblUsu" runat="server" Text="*" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                         <input type="text" class="form-control" placeholder="Usuario" id="txtUsu" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -41,6 +42,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
+                        <asp:Label ID="lblContra" runat="server" Text="*" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                         <input type="password" class="form-control" placeholder="Password" id="txtContra" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
