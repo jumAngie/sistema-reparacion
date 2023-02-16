@@ -155,6 +155,8 @@
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>
                   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                  
+                  
                   </asp:ContentPlaceHolder>
               </ContentTemplate>
           </asp:UpdatePanel>
@@ -197,7 +199,23 @@
 <script src="Content/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="Content/plugins/chart.js/Chart.min.js"></script>
+
+
+
+
+
+
+
 <script>
+    $("#modal").click(function () {
+        $("#exampleModal").modal("show");
+    })
+
+    $("#modalcerrar").click(function () {
+        $("#exampleModal").modal("hide")
+    });
+
+
     function Editar(id) {
         __doPostBack("Editar", id)
     }

@@ -215,10 +215,12 @@ namespace SistemaReparaciónDePC
         }
           public  void Eliminar()
           {
+            string eliminar = Session["IdEmpleado_Editar"].ToString();
             DataSet ds = new DataSet();
-            string sql = "UDP_EliminarEmpleado  '" + Session["IdCliente_Editar"].ToString() + "','" + 1 + "' ";
+            string sql = "UDP_EliminarEmpleado  '" + eliminar + "','" + 1 + "' ";
             ds = util.ObtenerDatos(sql, "TUsu");
-          }
+         
+        }
     
     
     

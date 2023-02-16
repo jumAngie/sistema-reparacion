@@ -11,7 +11,8 @@ namespace SistemaReparaciónDePC
     public partial class Empleado_Index : System.Web.UI.Page
     {
         Empleado emp = new Empleado();
-        
+        InsertarEmpleados ins = new InsertarEmpleados();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -35,7 +36,7 @@ namespace SistemaReparaciónDePC
                 if (eventtarget == "EliminarEmpleado")
                 {
                     Session["IdEmpleado_Editar"] = eventargument;
-                    //ins.eliminar();
+                    ins.Eliminar();
                     Response.Redirect("Empleado_Index.aspx");
                 }
             }

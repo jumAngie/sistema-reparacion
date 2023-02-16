@@ -670,14 +670,20 @@ begin
 			 or T3.Ciudad_Descripcion like '%'+@buscador+'%'
 end
 
+
+
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Empleado
 		@ID INT
 AS
 BEGIN
-		SELECT Empleado_Id, Empleado_Nombre, Empleado_Apellido, Empleado_Identidad, Empleado_Genero
-				, Empleado_Telefono, Empleado_CiudadId, Empleado_Puesto FROM tbl_Empleados
+		SELECT Empleado_Id, Empleado_Nombre, Empleado_Apellido, Empleado_Identidad, Empleado_Genero,[Empleado_EstadoCivilId],[Ciudad_DepartamentoId]
+				, Empleado_Telefono, Empleado_CiudadId, Empleado_Puesto FROM tbl_Empleados t1 inner join tbl_Ciudades t2
+				on t1.Empleado_CiudadId = t2.Ciudad_Id 
 		WHERE Empleado_ID = @ID
 END
+
+
+
 
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
@@ -690,7 +696,7 @@ Create or alter Procedure UDP_EditarEmpleados
 	  @ciudad       int, 
 	  @puesto       nvarchar(250),
 	  @usuariomodifica  int 	  
-as
+as  
 begin 
       Update [dbo].[tbl_Empleados]
 	  set [Empleado_Nombre]= @Nombre,[Empleado_Apellido] =@Apellido, 
@@ -918,3 +924,6 @@ BEGIN
 END
 
 --- contraseñas = admin, julian, angie
+
+
+select * from [dbo].[tbl_Empleados]
