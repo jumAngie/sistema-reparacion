@@ -26,7 +26,7 @@
                 <div class="card-header text-center">
                     <div class="row">
                         <div class="col-sm-4"></div>
-                    <asp:Image ID="img" ImageUrl="~/Content/dist/img/4305686.png" Width="100px" runat="server"/>
+                    <asp:Image ID="img" ImageUrl="~/Content/dist/img/logo-v2.png" Width="100px" runat="server"/>
                         </div>
                     <a href="#" class="h1"><b>Admin</b>N-TCH</a>
                 </div>
@@ -52,19 +52,14 @@
                     </div>
                     <div class="row">
                         <!-- /.col -->
-                        <div class="col-5">
-                            <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
-                        </div>
+                        <div class="col-sm-4"></div>
+                            <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />  
                         <!-- /.col -->
                     </div>
                     <!-- /.social-auth-links -->
-
-                    <p class="mb-1">
-                        <br />
-                        <a href="#">Recuperar contraseña</a>
-                    </p>
                     <p class="mb-0">
-                        <a href="#" class="text-center">Crear nueva contraseña</a>
+                        <br />
+                        <a href="Restablecer_Contraseña.aspx" class="text-center">Restablecer Contraseña</a>
                     </p>
                 </div>
                 <!-- /.card-body -->

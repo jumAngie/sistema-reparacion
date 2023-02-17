@@ -2918,6 +2918,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Producto_Indez.aspx" />
     <Content Include="Reparacion_Index.aspx" />
+    <Content Include="Restablecer_Contraseña.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -3062,6 +3063,13 @@
     </Compile>
     <Compile Include="Reparacion_Index.aspx.designer.cs">
       <DependentUpon>Reparacion_Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restablecer_Contraseña.aspx.cs">
+      <DependentUpon>Restablecer_Contraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restablecer_Contraseña.aspx.designer.cs">
+      <DependentUpon>Restablecer_Contraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
