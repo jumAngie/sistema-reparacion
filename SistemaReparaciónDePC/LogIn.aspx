@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NEW TECH LOGIN</title>
+  <title>NEW-TECH LOGIN</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,10 +28,11 @@
                         <div class="col-sm-4"></div>
                     <asp:Image ID="img" ImageUrl="~/Content/dist/img/logo-v2.png" Width="100px" runat="server"/>
                         </div>
-                    <a href="#" class="h1"><b>Admin</b>N-TCH</a>
+                    <a href="#" class="h1"><b>Login</b>N-TCH</a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg"><strong>Ingrese los datos de su cuenta</strong></p>
+                    <asp:Label ID="lblDatos" runat="server" Text="*Datos Incorrectos" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                     <div class="input-group mb-3">
                          <asp:Label ID="lblUsu" runat="server" Text="*" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                         <input type="text" class="form-control" placeholder="Usuario" id="txtUsu" runat="server">

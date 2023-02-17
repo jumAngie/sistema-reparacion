@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="Content/dist/css/adminlte.min.css">
     <link href="Content/dist/css/datagridview.css" rel="stylesheet" />
 </head>
+<form runat="server">
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
@@ -48,24 +49,8 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+          
+        <asp:Button ID="btnCerrarSesion" CssClass="btn btn-secondary" OnClick="btnCerrarSesion_Click" runat="server" Text="Cerrar Sesión" />
       </li>
     </ul>
   </nav>
@@ -94,7 +79,6 @@
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -113,7 +97,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Index
+                Menú Principal
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -121,29 +105,76 @@
               <li class="nav-item">
                 <a href="MenuIndex.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Menú</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Cliente_Index.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Cliente</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Empleado_Index.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
+                  <p>Empleados</p>
                 </a>
               </li>
               <li class="nav-item">
+                <a href="Reparacion_Index" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reparaciones</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="Producto_Indez" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Productos</p>
+                </a>
+              </li>
+                 <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
+                  <p>Servicios</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="Usuarios_Index.aspx" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuarios</p>
                 </a>
               </li>
             </ul>
           </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Configuraciones Extras
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Estados Civiles</p>
+                  </a>
+              </li>
+            <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Departamentos</p>
+                  </a>
+              </li>
+            <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Ciudades</p>
+                  </a>
+              </li>
+                </ul>
+                </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -153,8 +184,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-      <div class="col-sm-2"></div>
-      <form runat="server">
+      <div class="col-sm-3"></div>
           <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>
@@ -164,7 +194,7 @@
                   </asp:ContentPlaceHolder>
               </ContentTemplate>
           </asp:UpdatePanel>
-      </form>
+      
   </div>
   <!-- /.content-wrapper -->
 
@@ -184,6 +214,7 @@
   </footer>
     
 </div>
+</form>
 <!-- ./wrapper -->
     
     <script src="Content/js/jquery-3.1.1.min.js"></script>

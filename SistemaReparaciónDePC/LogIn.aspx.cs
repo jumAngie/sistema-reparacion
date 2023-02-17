@@ -47,10 +47,15 @@ namespace SistemaReparaciónDePC
 
                 if(datas.Tables["TL"].Rows.Count > 0)
                 {
+                    lblDatos.Visible = false;
                     Session["Usuario"] = datas.Tables["TL"].Rows[0]["Usuario_Usuario"].ToString();
                     Session["Admin"] = datas.Tables["TL"].Rows[0]["Usuario_UsuarioAdmin"].ToString();
                     Session["ID"] = datas.Tables["TL"].Rows[0]["Usuario_UsuarioId"].ToString();
                     Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    lblDatos.Visible = true;
                 }
             }
         }
