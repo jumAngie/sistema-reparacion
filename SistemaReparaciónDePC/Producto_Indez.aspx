@@ -8,7 +8,7 @@
     <div class="row">
             <div class="col-sm-1"></div>
         
-        <input type="button" value="nuevo" onclick="showModal()" > 
+        <input type="button" class="btn btn-primary" value="nuevo" onclick="showModal()" > 
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            
          <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." OnClick="btnbuscar_Click" Width="177px"/>
@@ -55,7 +55,7 @@
                <div class = col-sm-12>
                  <div class = "card">                            
                             <div class = "card-header">                           
-                                <h4 style="text-align:center"> Ingrese sus datos al formulario</h4>                             
+                                <h4 style="text-align:center"> Ingrese los datos al formulario</h4>                             
                             </div>
                             <div class = "card-body">                                                                                                          
                               <div class = col-sm-6>
@@ -68,7 +68,7 @@
                </div>
            </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  id="modalcerrar">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  id="modalcerrar" onclick="hideModal()">Close</button>
                 <asp:Button id="btnguardar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Insertar"  OnClick="btnguardar_Click1"/>                            
                 <asp:Button id="btneditar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Editar"  OnClick="btneditar_Click"/>  
               

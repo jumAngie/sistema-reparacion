@@ -4,7 +4,7 @@
    
     <div class="row">
         <div class="col-sm-2"></div>
-        <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo"  Width="150px" OnClick="showModal()"/>  
+        <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo"  Width="150px" OnClick="btnuevo_Click" />  
         <div class="col-sm-1"></div>
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            

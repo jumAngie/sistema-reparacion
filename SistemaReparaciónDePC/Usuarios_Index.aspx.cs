@@ -17,7 +17,7 @@ namespace SistemaReparaciónDePC
             if (!IsPostBack)
             {
                 Session["IdUsuario_Editar"] = "";
-                usu.CargarGriv(gvUsuarios, txtbuscar.Text);
+                usu.cargarGrid(gvUsuarios, txtbuscar.Text);
             }
             else
             {
@@ -36,8 +36,8 @@ namespace SistemaReparaciónDePC
                     Session["IdUsuario_Editar"] = eventargument;
                     string usuariomodi = Session["ID"].ToString();
                     int UsuarioModi = Int32.Parse(usuariomodi);
-                    usu.BorrarUsario(eventargument, UsuarioModi);
-                    usu.CargarGriv(gvUsuarios, txtbuscar.Text);
+                    usu.BorrarUsuario(eventargument, UsuarioModi);
+                    usu.cargarGrid(gvUsuarios, txtbuscar.Text);
 
                 }
             }
@@ -46,13 +46,18 @@ namespace SistemaReparaciónDePC
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
-            usu.CargarGriv(gvUsuarios, txtbuscar.Text);
+            usu.cargarGrid(gvUsuarios, txtbuscar.Text);
         }
 
         protected void gvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvUsuarios.PageIndex = e.NewPageIndex;
-            usu.CargarGriv(gvUsuarios, txtbuscar.Text);
+            usu.cargarGrid(gvUsuarios, txtbuscar.Text);
+        }
+
+        protected void btnuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Usuarios_Admin.aspx");
         }
     }
 }

@@ -49,5 +49,11 @@ namespace SistemaReparaciónDePC.Clases
             SqlCommand cmd = new SqlCommand("EXEC UDP_InsertarUsuarios '" + Usuario + "', " + Empleado + ", '" + Contraseña + "," + Modi + "," + Admin, con.ConectarCmd());
             cmd.ExecuteNonQuery();
         }
+
+        public void BorrarUsuario(string ID, int Modi)
+        {
+            SqlCommand cmd = new SqlCommand("EXEC UDP_EliminarUsuarios " + ID + "," + Modi, con.ConectarCmd());
+            cmd.ExecuteNonQuery();
+        }
     }
 }

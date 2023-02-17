@@ -41,7 +41,7 @@ namespace SistemaReparaciónDePC
 
         protected void imgUSUARIOS_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("");
+            Response.Redirect("Usuarios_Index.aspx");
         }
     }
 }

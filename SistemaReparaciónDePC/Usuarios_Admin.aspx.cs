@@ -20,7 +20,7 @@ namespace SistemaReparaciónDePC
                 if (Session.Count > 0)
                 {
 
-                    string ses = Session["IdUsuarios_Editar"].ToString();
+                    string ses = Session["IdUsuario_Editar"].ToString();
                     if (ses != "")
                     {
                         //llenarcampos(ses);
@@ -92,7 +92,7 @@ namespace SistemaReparaciónDePC
                 try
                 {
                     lblUsuarioRepetido.Visible = false;
-                    usu.InsertarUsuario(Usuario, Emp, Contraseña, EsAdmin, Modi);
+                    usu.InsertarUsuarios(Usuario, Emp, Contraseña, EsAdmin, Modi);
                     Limpiar();
                     
                 }
