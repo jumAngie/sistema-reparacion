@@ -121,25 +121,25 @@
               <li class="nav-item">
                 <a href="MenuIndex.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
+                  <p>Menú</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Cliente_Index.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Cliente</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Empleado_Index.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
+                  <p>Empleados</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Reparacion_Index" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
+                  <p>Reparaciones</p>
                 </a>
               </li>
             </ul>
