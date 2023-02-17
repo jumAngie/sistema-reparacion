@@ -9,7 +9,7 @@ namespace SistemaReparaciónDePC.Clases
     public class CnxBD
     {
         SqlConnection cnx = new SqlConnection();
-        string con = @"data source =DESKTOP-TSV52PA\SQLEXPRESS; initial catalog=BD_Reparaciones; user id=JuanCenteno; password=juancenteno20 ";
+        string con = @"data source =DESKTOP-O1UNQNS; initial catalog=BD_Reparaciones; user id=JuanCenteno; password=juancenteno20 ";
         protected bool estado = false;
 
         public SqlConnection Obtenercnx()

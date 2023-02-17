@@ -29,6 +29,20 @@
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
+                        <asp:Label ID="lbltelefono" ForeColor="Red" runat="server" Text="*" Visible="false"></asp:Label>
+                        <label for="exampleInputEmail1">Telefono</label>
+                        <input type="text" class="form-control" id="txttelefono" placeholder="Ingrese el telefono del Cliente" runat="server">
+                    </div>
+                <!-- /.form-group -->
+              </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                  <asp:Label ID="lblapellido" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
+                    <label for="exampleInputEmail1">Apellido del Cliente</label>
+                    <input type="text" class="form-control" id="txtapellido" placeholder="Ingrese el Apellido del Cliente" runat="server">
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
                   <asp:Label ID="lblidentidad" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>     
                     <label for="exampleInputEmail1">Identidad del Cliente</label>
                     <asp:Label ID="Advertencia2" ForeColor="Red" runat="server" Text="*El ID ya existe" Visible="false" ></asp:Label>
@@ -38,67 +52,46 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                <div class="form-group">
-                  <asp:Label ID="lblapellido" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
-                    <label for="exampleInputEmail1">Apellido del Empleado</label>
-                    <input type="text" class="form-control" id="txtapellido" placeholder="Ingrese el Apellido del Empleado" runat="server">
-                </div>
+                
+                  <div class="form-group">
+                          <asp:Label ID="lblLugar" ForeColor="Red" runat="server" Text="*" Visible="false"></asp:Label>
+                          <label for="Depto">Lugar del Cliente (Departamento):</label>
+                          <asp:DropDownList ID="ddlDepartamento" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlDepartamento_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                      </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                   <asp:Label ID="lblEstado" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
                        <label for="Deportes">EstadoCivil:</label>
                       <asp:DropDownList ID="ddlestadocivil" CssClass="form-control" runat="server"></asp:DropDownList> 
                 </div>
-
-                  <div class="col-12 col-sm-6">
-                               <asp:Label ID="lblSexo" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
-                              <div class="form-group">
-                                  <label for="sexo">Sexo:</label>
-                                  <label>F</label>
-                                  <input type="radio" placeholder="Femenino" id="radiof" name="rdsexo" value="F" runat="server">
-                                  <label>M</label>
-                                  <input type="radio" placeholder="Masculino" id="radiom" name="rdsexo" value="M" runat="server">
-                              </div>
-                              <!-- /.form-group -->
-                          </div>
-                <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
             </div>
+                <!-- /.form-group -->
             <!-- /.row -->
-             <div class="col-12 col-sm-6">
-                      <div class="form-group">
-                          <asp:Label ID="lblLugar" ForeColor="Red" runat="server" Text="*" Visible="false"></asp:Label>
-                          <label for="Depto">Lugar del Cliente (Departamento, Ciudad):</label>
-                          <asp:DropDownList ID="ddlDepartamento" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlDepartamento_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-
-                      </div>
-                  </div>
-                 
-                  <div class="col-12 col-sm-6">
-                      <div class="form-group">
-                          <asp:DropDownList ID="ddlMuni" CssClass="form-control" runat="server"></asp:DropDownList>
-                      </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                          <div class="form-group">
-                              <asp:Label ID="lbltelefono" ForeColor="Red" runat="server" Text="*" Visible="false"></asp:Label>
-                              <label for="exampleInputEmail1">Telefono</label>
-                              <input type="text" class="form-control" id="txttelefono" placeholder="Ingrese el telefono del Cliente" runat="server">
-                          </div>
-                      </div>
-                      <!-- /.col -->
-                  
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-                    <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" onclick="btnGuardar_Click" Text="Guardar" />
-                    <asp:Button ID="btnEditar" CssClass="btn btn-danger" Visible="false"  runat="server" OnClick="btnEditar_Click" Text="Editar" />
-                    <asp:Button ID="btnLimpiar" CssClass="btn btn-warning" runat="server" OnClick="btnLimpiar_Click" Text="Limpiar" />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Muni">Lugar del Cliente (Ciudad):</label>
+                        <asp:DropDownList ID="ddlMuni" CssClass="form-control" runat="server"></asp:DropDownList>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblSexo" ForeColor="Red" runat="server" Text="*" Visible="false"></asp:Label>
+                        <div class="form-group">
+                            <label for="sexo">Sexo:</label><br>
+                            <label>F</label>
+                            <input type="radio" placeholder="Femenino" id="radiof" name="rdsexo" value="F" runat="server">
+                            <label>M</label>
+                            <input type="radio" placeholder="Masculino" id="radiom" name="rdsexo" value="M" runat="server">
+                        </div>
+                    </div>
+                </div> 
           </div>
         </div>
-      </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+                    <asp:Button ID="btnGuardar" CssClass="btn-lg btn-primary" runat="server" onclick="btnGuardar_Click" Text="Guardar" />
+                    <asp:Button ID="btnEditar" CssClass="btn-lg btn-danger" Visible="false"  runat="server" OnClick="btnEditar_Click" Text="Editar" />
+                    <asp:Button ID="btnLimpiar" CssClass="btn-lg btn-warning" runat="server" OnClick="btnLimpiar_Click" Text="Limpiar" Width="114px" />
+          </div>
+        </div>
   </section> 
 
 

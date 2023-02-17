@@ -66,11 +66,11 @@ namespace SistemaReparaciónDePC
             {
                 lbltelefono.Visible = true;
             }
-            if (ddlMuni.SelectedValue == "")
+            if (ddlMuni.SelectedValue == "0")
             {
                 lblLugar.Visible = true;
             }
-            if (ddlestadocivil.SelectedValue == "")
+            if (ddlestadocivil.SelectedValue == "0")
             {
                 lblEstado.Visible = true;
             }
@@ -86,6 +86,43 @@ namespace SistemaReparaciónDePC
             if (radiom.Checked == true)
             {
                 sexo = "M";
+            }
+            if (sexo == "")
+            {
+                lblSexo.Visible = true;
+            }
+            ////
+            if (txtnombre.Value != "")
+            {
+                lblNombre.Visible = false;
+            }
+            if (txtapellido.Value != "")
+            {
+                lblapellido.Visible = false;
+            }
+            if (txtIdentidad.Value != "")
+            {
+                lblidentidad.Visible = false;
+            }
+            if (txttelefono.Value != "")
+            {
+                lbltelefono.Visible = false;
+            }
+            if (ddlMuni.SelectedValue != "0")
+            {
+                lblLugar.Visible = false;
+            }
+            if (ddlestadocivil.SelectedValue != "0")
+            {
+                lblEstado.Visible = false;
+            }
+            if (txtpuesto.Value != "")
+            {
+                lblPuesto.Visible = false;
+            }
+            if (sexo != "")
+            {
+                lblSexo.Visible = false;
             }
 
             if (txtnombre.Value != "" && txtapellido.Value != "" && txtIdentidad.Value != "" && txttelefono.Value != ""
@@ -113,6 +150,11 @@ namespace SistemaReparaciónDePC
             radiof.Checked = false;
             radiom.Checked = false;
             txtpuesto.Value = "";
+
+            //labels
+            lblSexo.Visible = false;
+            lblNombre.Visible = false;
+            lblidentidad.Visible = false;
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {

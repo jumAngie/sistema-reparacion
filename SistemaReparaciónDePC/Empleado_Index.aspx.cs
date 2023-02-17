@@ -19,7 +19,7 @@ namespace SistemaReparaciónDePC
             if (!IsPostBack)
             {
                 Session["IdEmpleado_Editar"] = "";
-                emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+                emp.cargarGrid(gvEmpleado, txtbuscar.Text);
             }
             else
             {
@@ -50,18 +50,18 @@ namespace SistemaReparaciónDePC
         protected void gvEmpleado_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEmpleado.PageIndex = e.NewPageIndex;
-            emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+            emp.cargarGrid(gvEmpleado, txtbuscar.Text);
         }
 
         protected void btnbuscar_ServerClick(object sender, EventArgs e)
         {
-            emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+            emp.cargarGrid(gvEmpleado, txtbuscar.Text);
         }
 
-        protected void volver_ServerClick(object sender, EventArgs e)
+
+        protected void btnuevo_Click(object sender, EventArgs e)
         {
-            txtbuscar.Value = "";
-            emp.cargarGrid(gvEmpleado, txtbuscar.Value);
+            Response.Redirect("InsertarEmpleados.aspx");
         }
     }
 }
