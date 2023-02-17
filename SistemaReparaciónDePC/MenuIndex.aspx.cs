@@ -11,7 +11,7 @@ namespace SistemaReparaciónDePC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -26,12 +26,12 @@ namespace SistemaReparaciónDePC
 
         protected void imgREPARACIONES_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("");
+            Response.Redirect("Reparacion_Index.aspx");
         }
 
         protected void imgPRODUCTOS_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("");
+            Response.Redirect("Producto_Indez.aspx");
         }
 
         protected void imgSERVICIOS_Click(object sender, ImageClickEventArgs e)
