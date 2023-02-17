@@ -770,6 +770,9 @@ Create Or Alter Procedure UDP_EditarProducto
        @Usumodificacion   int 
 as
 
+select * from [dbo].[tbl_Producto]
+
+
 begin 
      Update [dbo].[tbl_Producto]
 	 Set pro_Descripción = @descripcion, pro_FechaIngreso=@Fecha,UsuarioModificacion=@Usumodificacion, 
