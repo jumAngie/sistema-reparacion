@@ -529,7 +529,7 @@ CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
 		@ID  INT
 AS
 BEGIN
-		SELECT	[Cliente_Id], [Cliente_Nombre] , [Cliente_Apellido], [Cliente_Identidad],
+		SELECT	[Cliente_Id], [Cliente_Nombre] , [Cliente_Apellido], [Cliente_Identidad],[EstadoCivil_ID],
 				T2.EstadoCivil_Descripcion, [Cliente_Genero],[Cliente_Telefono] ,T3.Ciudad_Descripcion
 		FROM	[dbo].[tbl_Cliente] T1				INNER JOIN [dbo].[tbl_EstadoCivil] T2
 		ON		T1.Cliente_EstadoCivilId = T2.EstadoCivil_ID	INNER JOIN [dbo].[tbl_Ciudades] T3
@@ -670,14 +670,20 @@ begin
 			 or T3.Ciudad_Descripcion like '%'+@buscador+'%'
 end
 
+
+
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Empleado
 		@ID INT
 AS
 BEGIN
-		SELECT Empleado_Id, Empleado_Nombre, Empleado_Apellido, Empleado_Identidad, Empleado_Genero
-				, Empleado_Telefono, Empleado_CiudadId, Empleado_Puesto FROM tbl_Empleados
+		SELECT Empleado_Id, Empleado_Nombre, Empleado_Apellido, Empleado_Identidad, Empleado_Genero,[Empleado_EstadoCivilId],[Ciudad_DepartamentoId]
+				, Empleado_Telefono, Empleado_CiudadId, Empleado_Puesto FROM tbl_Empleados t1 inner join tbl_Ciudades t2
+				on t1.Empleado_CiudadId = t2.Ciudad_Id 
 		WHERE Empleado_ID = @ID
 END
+
+
+
 
 Create or alter Procedure UDP_EditarEmpleados
       @id           int, 
@@ -690,7 +696,7 @@ Create or alter Procedure UDP_EditarEmpleados
 	  @ciudad       int, 
 	  @puesto       nvarchar(250),
 	  @usuariomodifica  int 	  
-as
+as  
 begin 
       Update [dbo].[tbl_Empleados]
 	  set [Empleado_Nombre]= @Nombre,[Empleado_Apellido] =@Apellido, 
@@ -710,6 +716,8 @@ begin
 	 SET	[Empleado_Estado]= 0 , [Empleado_UsuarioModificacionId] = @UsuarioModi, [Empleado_FechaModificacion]= GETDATE()
 	 where	[Empleado_Id] = @idaEliminar 
 end
+
+
 
 --------------------------------------------------------UDP'S  Producto--------------- ------------------------------------
 Create or alter procedure UDP_MostrarProducto
@@ -916,3 +924,6 @@ BEGIN
 END
 
 --- contraseñas = admin, julian, angie
+
+
+select * from [dbo].[tbl_Empleados]

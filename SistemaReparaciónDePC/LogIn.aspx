@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="Content/dist/css/adminlte.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 <form runat="server">
     <body class="hold-transition login-page">
@@ -32,6 +33,7 @@
                 <div class="card-body">
                     <p class="login-box-msg"><strong>Ingrese los datos de su cuenta</strong></p>
                     <div class="input-group mb-3">
+                         <asp:Label ID="lblUsu" runat="server" Text="*" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                         <input type="text" class="form-control" placeholder="Usuario" id="txtUsu" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -40,6 +42,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
+                        <asp:Label ID="lblContra" runat="server" Text="*" ForeColor="RoyalBlue" Visible="false"></asp:Label>
                         <input type="password" class="form-control" placeholder="Password" id="txtContra" runat="server">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -49,7 +52,7 @@
                     </div>
                     <div class="row">
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-5">
                             <asp:Button ID="btnIngresar" CssClass="btn btn-block btn-info btn-lg" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
                         </div>
                         <!-- /.col -->
@@ -71,8 +74,11 @@
 </form>
 <!-- /.login-box -->
 
+
 <!-- jQuery -->
+<script src="Content/Toast.js/Toast.js"></script>
 <script src="Content/plugins/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->

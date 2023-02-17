@@ -17,8 +17,9 @@ namespace SistemaReparaciónDePC
         {
             
             if(!IsPostBack)
-            { 
-            cli.CargarGriv(gvCliente,txtbuscar.Value);
+            {
+                Session["IdCliente_Editar"] = "";
+                cli.CargarGriv(gvCliente,txtbuscar.Text);
             }
             else
             {
@@ -36,7 +37,8 @@ namespace SistemaReparaciónDePC
                 {
                     Session["IdCliente_Editar"] = eventargument;
                     ins.eliminar();
-                    Response.Redirect("Cliente_Index.aspx");
+                    cli.CargarGriv(gvCliente, txtbuscar.Text);
+                    
                 }
             }
 
@@ -48,13 +50,13 @@ namespace SistemaReparaciónDePC
         {
 
             gvCliente.PageIndex = e.NewPageIndex;
-            cli.CargarGriv(gvCliente, txtbuscar.Value);
+            cli.CargarGriv(gvCliente, txtbuscar.Text);
         }
 
         protected void btnbuscar_ServerClick(object sender, EventArgs e)
         {
 
-            cli.CargarGriv(gvCliente, txtbuscar.Value);
+            cli.CargarGriv(gvCliente, txtbuscar.Text);
         }
 
         protected void btnnuevo_ServerClick(object sender, EventArgs e)
@@ -63,8 +65,8 @@ namespace SistemaReparaciónDePC
         }
         protected void volver_ServerClick(object sender, EventArgs e)
         {
-            txtbuscar.Value = "";
-            cli.CargarGriv(gvCliente,txtbuscar.Value);
+            txtbuscar.Text = "";
+            cli.CargarGriv(gvCliente,txtbuscar.Text);
         }
 
         protected void btnnuevo_ServerClick1(object sender, EventArgs e)

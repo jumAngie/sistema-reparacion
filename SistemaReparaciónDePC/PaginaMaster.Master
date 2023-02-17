@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Content/dist/img/logo-v2.png" />
   <title>Reparaciones NewTech</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -21,7 +22,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="Content/dist/img/tech-support-icon-trendy-logo-concept-white-bac-background-web-hosting-collection-suitable-use-apps-mobile-print-133527592.jpg" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__wobble" src="Content/dist/img/logo-v2.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -71,7 +72,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="Content/dist/img/tech-support-icon-trendy-logo-concept-white-bac-background-web-hosting-collection-suitable-use-apps-mobile-print-133527592.jpg" alt="Repairs" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">TechSupport</span>
+      <span class="brand-text font-weight-light">New-Tech</span>
     </a>
 
     <!-- Sidebar -->
@@ -82,7 +83,7 @@
           <img src="Content/dist/img/4305686.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Username</a>
+          <a href="#" class="d-block"><% =Session["Usuario"] %></a>
         </div>
       </div>
 
@@ -114,7 +115,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="MenuIndex.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Elements</p>
                 </a>
@@ -148,11 +149,14 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+      <div class="col-sm-2"></div>
       <form runat="server">
           <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>
                   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                  
+                  
                   </asp:ContentPlaceHolder>
               </ContentTemplate>
           </asp:UpdatePanel>
@@ -165,7 +169,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
+    <br />
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2022-2023 <a href="#">TechSupport</a>.</strong>
@@ -195,7 +199,23 @@
 <script src="Content/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="Content/plugins/chart.js/Chart.min.js"></script>
+
+
+
+
+
+
+
 <script>
+    $("#modal").click(function () {
+        $("#exampleModal").modal("show");
+    })
+
+    $("#modalcerrar").click(function () {
+        $("#exampleModal").modal("hide")
+    });
+
+
     function Editar(id) {
         __doPostBack("Editar", id)
     }
@@ -207,6 +227,21 @@
             __doPostBack("Eliminar", id)
         }
     }
+
+    function EditarEmpleado(id) {
+        __doPostBack("EditarEmpleado", id)
+    }
+
+    function EliminarEmpleado(id) {
+        var result = confirm("esta seguro que desea elimnar el registro?");
+        if (result) {
+            alert(id);
+            __doPostBack("EliminarEmpleado", id)
+        }
+    }
+
+
+
 </script>
 
 
