@@ -1,0 +1,27 @@
+﻿.datagrid {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .datagrid th, .datagrid td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .datagrid th {
+        background-color: darkblue;
+    }
+
+    .datagrid tr:nth-child(even) {
+        background-color: #000000;
+    }
+
+    .datagrid tr:hover {
+        background-color: #000000;
+    }
+
+.header-style {
+    text-align: center;
+}
