@@ -29,23 +29,22 @@
             <div class="row">
                 <div class="col-md-12 col-lg-6 col-xl-4">
                     <div class="card mb-2">
-                        <img class="card-img-top" src="Content/dist/img/PRODUCTOS.png" alt="Reparaciones">
+                        <asp:ImageButton ID="imgPRODUCTOS" CssClass="card-img-top" runat="server" ImageUrl="Content/dist/img/PRODUCTOS.png" OnClick="imgPRODUCTOS_Click"/>
                         </div>
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-4">
                     <div class="card mb-2">
-                        <img class="card-img-top" src="Content/dist/img/SERVICIOS.png" alt="Reparaciones">
+                        <asp:ImageButton ID="imgSERVICIOS" CssClass="card-img-top" runat="server" ImageUrl="Content/dist/img/SERVICIOS.png" OnClick="imgSERVICIOS_Click"/>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-4">
                     <div class="card mb-2">
-                        <img class="card-img-top" src="Content/dist/img/USUARIOS.png" alt="Reparaciones">
+                        <asp:ImageButton ID="imgUSUARIOS" CssClass="card-img-top" runat="server" ImageUrl="Content/dist/img/USUARIOS.png" OnClick="imgUSUARIOS_Click"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script>
-    
+<script>   
 </script>
 </asp:Content>

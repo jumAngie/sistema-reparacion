@@ -28,5 +28,20 @@ namespace SistemaReparaciónDePC
         {
             Response.Redirect("");
         }
+
+        protected void imgPRODUCTOS_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("");
+        }
+
+        protected void imgSERVICIOS_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("");
+        }
+
+        protected void imgUSUARIOS_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("");
+        }
     }
 }
