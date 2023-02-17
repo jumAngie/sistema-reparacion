@@ -23,12 +23,12 @@
                 <asp:BoundField HeaderText="Puesto" DataField="Empleado_Puesto" />
                 <asp:TemplateField HeaderText="Editar">
                     <ItemTemplate>
-                        <a class="btn-sm btn-warning" style="color: black" onclick="EditarEmpleado('<%#Eval("Empleado_Id")%>')">Editar</a>
+                        <a class="btn-sm btn-warning" style="color: black" onclick="EditarProducto('<%#Eval("Empleado_Id")%>')">Editar</a>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Eliminar">
                     <ItemTemplate>
-                        <a class="btn-sm btn-danger" style="color: black" onclick="EliminarEmpleado('<%#Eval("Empleado_Id")%>')">Eliminar</a>
+                        <a class="btn-sm btn-danger" style="color: black" onclick="EliminarProducto('<%#Eval("Empleado_Id")%>')">Eliminar</a>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

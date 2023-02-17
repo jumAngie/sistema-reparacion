@@ -7,8 +7,8 @@
    
     <div class="row">
             <div class="col-sm-1"></div>
-         <asp:Button id="btnmodal" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" data-bs-toggle="modal" OnClick="btnmodal_Click" Width="187px"  data-bs-target="#ModalProducto" />  
         
+        <input type="button" value="nuevo" onclick="showModal()" > 
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            
          <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." OnClick="btnbuscar_Click" Width="177px"/>
@@ -24,17 +24,17 @@
                     <asp:BoundField HeaderText="Descripcion" DataField="pro_Descripción" />
                     <asp:BoundField HeaderText="Fecha" DataField="pro_FechaIngreso" />
                     
-                    <%--<asp:TemplateField HeaderText="Editar">
+                    <asp:TemplateField HeaderText="Editar">
                         <ItemTemplate>
-                            <a class="fa fa-pencil btn btn-warning" style="color: black" onclick="Editar ('<%# Eval("Id Producto")%>')">Editar</a>
+                            <a class="fa fa-pencil btn btn-warning" style="color: black"  onclick="Editar  ('<%# Eval("pro_ID")%>')">Editar</a>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Eliminar">
                         <ItemTemplate>
-                            <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("Id Producto")%>')">Eliminar</a>
+                            <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("pro_ID")%>')">Eliminar</a>
                         </ItemTemplate>
 
-                    </asp:TemplateField>--%>
+                    </asp:TemplateField>
 
                 </Columns>
             </asp:GridView>
@@ -60,12 +60,7 @@
                             <div class = "card-body">                                                                                                          
                               <div class = col-sm-6>
                               <a> Ingrese un nuevo producto </a>
-                              <input type="text" placeholder="Nuevo Producto" class="form-control" <%--class="color"--%>  id="txtproducto"   required autofocus />
-                              </div>
-                              <div class = col-sm-6>
-                              <input type="Date" placeholder="Fecha" class="form-control" <%--class="color" --%> id="txtfecha"   required autofocus />
-                              </div>
-                                                     
+                              <asp:TextBox ID="txtproducto" placeholder="Nuevo Producto"  runat="server" Width="418px"></asp:TextBox>                                                      
                             </div>    
                         </div>                               
                       </div>
@@ -74,7 +69,9 @@
            </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  id="modalcerrar">Close</button>
-                <input type="button" class="btn btn-primary" value="guardar" id="btnguardar" >
+                <asp:Button id="btnguardar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Insertar"  OnClick="btnguardar_Click1"/>                            
+                <asp:Button id="btneditar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Editar"  OnClick="btneditar_Click"/>  
+              
               </div>          
      </div>        
   </div>
@@ -95,6 +92,7 @@
              window.location.href = "Productos_Index.aspx";
          }
 
-      
-     </script> 
+        
+
+    </script> 
 </asp:Content>

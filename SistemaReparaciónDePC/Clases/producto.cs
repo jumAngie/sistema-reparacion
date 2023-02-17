@@ -29,7 +29,13 @@ namespace SistemaReparaciónDePC.Clases
 
         }
 
-
+        public DataSet cargardatos(string id)
+        {
+            DataSet ds = new DataSet();
+            string SQL = "UDP_ObtenerDatosProductos'" + int.Parse(id) + "'";
+            ds = util.ObtenerDatos(SQL, "T");
+            return ds;
+        }
 
     }
 }

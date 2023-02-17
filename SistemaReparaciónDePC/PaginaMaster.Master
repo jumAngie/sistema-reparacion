@@ -244,7 +244,17 @@
         }
     }
 
+    function EditarProducto(id) {
+        __doPostBack("EditarProducto", id)
+    }
 
+    function EliminarProducto(id) {
+        var result = confirm("esta seguro que desea elimnar el registro?");
+        if (result) {
+            alert(id);
+            __doPostBack("EliminarProducto", id)
+        }
+    }
 
 </script>
 
