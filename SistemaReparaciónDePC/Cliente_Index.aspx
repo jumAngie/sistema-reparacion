@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-md-2">
-            <asp:GridView ID="gvCliente" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvCliente_PageIndexChanging">
+            <asp:GridView ID="gvCliente" CssClass="table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvCliente_PageIndexChanging">
                 <Columns>
                     <asp:BoundField HeaderText="Id Cliente" DataField="Cliente_Id" />
                     <asp:BoundField HeaderText="Nombres" DataField="Cliente_Nombre" />
