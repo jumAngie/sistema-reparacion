@@ -38,7 +38,7 @@ namespace SistemaReparaciónDePC
                     Session["IdCliente_Editar"] = eventargument;
                     ins.eliminar();
                     cli.CargarGriv(gvCliente, txtbuscar.Text);
-                    
+                    Response.Redirect("Cliente_Index.aspx");
                 }
             }
 

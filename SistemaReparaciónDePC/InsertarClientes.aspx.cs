@@ -39,10 +39,7 @@ namespace SistemaReparaciónDePC
                     
                     }
                 }
-               
-
-                
-
+          
             }
             
         }
@@ -133,11 +130,12 @@ namespace SistemaReparaciónDePC
                     try
                     {
                         string sql = "UDP_InsertCliente '" + txtnombre.Value + "','" + txtapellido.Value + "'" +
-                ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
+                       ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
                         ds = util.ObtenerDatos(sql, "TUsu");
                         Advertencia.Visible = false;
                         Advertencia2.Visible = false;
                         Limpiar();
+                        Response.Redirect("Cliente_Index.aspx");
                     }
                     catch (Exception)
                     {
@@ -270,6 +268,7 @@ namespace SistemaReparaciónDePC
                     ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "' ,'" + 1 + "' ";
                     ds = util.ObtenerDatos(sql, "TUsu");
                     Limpiar();
+                    Response.Redirect("Cliente_Index.aspx");
                 }
             }
             else
@@ -287,7 +286,7 @@ namespace SistemaReparaciónDePC
         }
      
       
-    
+ 
     
     
     
