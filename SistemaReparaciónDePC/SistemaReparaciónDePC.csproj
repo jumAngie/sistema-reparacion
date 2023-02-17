@@ -2968,6 +2968,7 @@
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\producto.cs" />
     <Compile Include="Clases\Reparacion.cs" />
+    <Compile Include="Clases\RestablecerLogIn.cs" />
     <Compile Include="Clases\Utilitario.cs" />
     <Compile Include="Cliente_Index.aspx.cs">
       <DependentUpon>Cliente_Index.aspx</DependentUpon>

@@ -42,6 +42,15 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtUsuario;
 
         /// <summary>
+        /// Control lblContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseña;
+
+        /// <summary>
         /// Control lbl1.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.Label lbl1;
 
         /// <summary>
-        /// Control Text1.
+        /// Control txtContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtContraseña;
 
         /// <summary>
         /// Control btnRestablecer.

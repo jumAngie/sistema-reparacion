@@ -28,10 +28,10 @@
       <a href="#" class="h1"><b>Admin</b>N-TECH</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Ingrese su Usuario para restablecer su contraseña:</p>
-     
+      <p class="login-box-msg"><strong>Ingrese su Usuario para restablecer su contraseña:</strong></p>
+        
+        <asp:Label ID="lblErrorUsuario" runat="server" Text="* Usuario no existente" ForeColor="Red" Visible="false"></asp:Label>
         <div class="input-group mb-3">
-            <asp:Label ID="lblErrorUsuario" runat="server" Text="* Usuario no existente" ForeColor="Red" Visible="false"></asp:Label>
           <input type="text" class="form-control" runat="server" id="txtUsuario" placeholder="Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -39,13 +39,15 @@
             </div>
           </div>
         </div>
+            <asp:Label ID="lblContraseña" runat="server" Text="*" ForeColor="Red" Visible="false"></asp:Label>
+          <asp:Label ID="lbl1" runat="server" Text="Ingrese una nueva contraseña:"></asp:Label>
           <div class="input-group mb-3">
               <br />
-           <asp:Label ID="lbl1" runat="server" Text="Ingrese una nueva contraseña:"></asp:Label>
-          <input type="text" class="form-control" runat="server" id="Text1" placeholder="Usuario">
+         
+          <input type="text" class="form-control" runat="server" id="txtContraseña" placeholder="Contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-key"></span>
             </div>
           </div>
         </div>

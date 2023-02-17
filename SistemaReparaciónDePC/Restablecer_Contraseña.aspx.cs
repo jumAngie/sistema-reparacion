@@ -12,6 +12,7 @@ namespace SistemaReparaciónDePC
     public partial class Restablecer_Contraseña : System.Web.UI.Page
     {
         Utilitario util = new Utilitario();
+        RestablecerLogIn log = new RestablecerLogIn();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +26,19 @@ namespace SistemaReparaciónDePC
             if (ds.Tables["T"].Rows.Count > 0)
             {
                 lblErrorUsuario.Visible = false;
+                string contraseña = txtContraseña.Value;
+                if (contraseña == "")
+                {
+                    lblContraseña.Visible = true;
+                }
+                else
+                {
+                    log.EditarContraseña(Usuario, contraseña);
+                    txtContraseña.Value = "";
+                    txtUsuario.Value = "";
+                    lblContraseña.Visible = false;
+                    lblErrorUsuario.Visible = false;
+                }
             }
             else
             {

@@ -88,11 +88,11 @@
                     </div>
                   <div class="row">
                   <div class="col-sm-2"></div>
-                    <h3 style="color: olivedrab"><strong>Limpieza - Reparación - Mantenimiento - Diagnostico</strong></h3>
+                   
                     </div>
                   <div class="row">
                       <div class="col-sm-4"></div>
-                      <img src="Content/dist/img/logo-v2.png" style="width: 350px; text-align: center;">
+                      <img src="Content/dist/img/logo-v2.png" style="width: 300px; text-align: center;">
                   </div>
                   </div>
                 </div>
