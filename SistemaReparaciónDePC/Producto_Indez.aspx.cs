@@ -29,24 +29,26 @@ namespace SistemaReparaciónDePC
                 string eventtarget = Request["__EVENTTARGET"];
                 string eventargument = Request["__EVENTARGUMENT"];
 
-                if (eventtarget == "EditarProducto")
+                if (eventtarget == "Editar")
                 {
                     llenardatos(eventargument);
                     btneditar.Visible = true;
                     btnguardar.Visible = false;
                     Session["idproducto_Editar"] = eventargument;
-                    //Response.Redirect("InsertarEmpleados.aspx");
+
+                  
+
+                    Response.Write("<script src='Content/js/jquery-3.1.1.min.js'></script>");
+                    Response.Write("<script src='Content/js/bootstrap.js'></script>");
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "showModal();", true);
+
                 }
 
-                if (eventtarget == "EliminarProducto")
+                if (eventtarget == "Eliminar")
                 {
-                    Session["idproducto_Editar"] = eventargument;
-                    ////ins.Eliminar();
-                    //Response.Redirect("Empleado_Index.aspx");
-                }
-                                  
-
+                    Session["idproducto_Eliminar"] = eventargument;
+                    eliminar();
+                }                                  
         }
 
 
@@ -72,11 +74,13 @@ namespace SistemaReparaciónDePC
         
         protected void btnguardar_Click1(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet();
-            string sql = "UDP_InsertarProducto '" + txtproducto.Text + "','" + 1 + "'";
-            ds = util.ObtenerDatos(sql, "TUsu");
-            Response.Redirect("Producto_Indez.aspx");
-        
+            if (txtproducto.Text != "")
+            {
+                DataSet ds = new DataSet();
+                string sql = "UDP_InsertarProducto '" + txtproducto.Text + "','" + 1 + "'";
+                ds = util.ObtenerDatos(sql, "TUsu");
+                Response.Redirect("Producto_Indez.aspx");
+            }
         }
         public void llenardatos(string id)
         {
@@ -87,15 +91,26 @@ namespace SistemaReparaciónDePC
         }
         protected void btneditar_Click(object sender, EventArgs e)
         {
-
+                       
+            if(txtproducto.Text != "")
+            { 
+            string eliminar = Session["idproducto_Editar"].ToString();
+            DataSet ds = new DataSet();
+            string sql = "UDP_EditarProducto '" + eliminar + "','" + txtproducto.Text + "','" + 1 + "' ";
+            ds = util.ObtenerDatos(sql, "TUsu");
+            txtproducto.Text = "";
+            Response.Redirect("Producto_Indez.aspx");
+            }
         }
    
         public void eliminar()
         {
-            string eliminar = Session["idproducto_Editar"].ToString();
+            string eliminar = Session["idproducto_Eliminar"].ToString();
             DataSet ds = new DataSet();
             string sql = "UDP_EliminarProducto  '" + eliminar + "','" + 1 + "' ";
             ds = util.ObtenerDatos(sql, "TUsu");
+            Response.Redirect("Producto_Indez.aspx");
+
         }
     
     

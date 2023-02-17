@@ -29,8 +29,32 @@ namespace SistemaReparaciónDePC.Clases
             }
 
         }
+        public DataSet cargardatos(string id)
+        {
+            DataSet ds = new DataSet();
+            string SQL = "UDP_Obtener_Reparacio '" + int.Parse(id) + "'";
+            ds = util.ObtenerDatos(SQL, "T");
+            return ds;
+        }
+        public void DDLTipodetrabajo(DropDownList ddl)
+        {
+            util.cargarDDL("select [tipo_ID],[tipo_Descripción] from [dbo].[tbl_TipoDeTrabajo]", null, ddl);
 
+        }
 
+        public void DDLproducto(DropDownList ddl)
+        {
+            util.cargarDDL("select [pro_ID],[pro_Descripción]  from [dbo].[tbl_Producto]", null, ddl);
+        }
+
+        public void DDLcliente(DropDownList ddl)
+        {
+            util.cargarDDL("select [Cliente_Id],[Cliente_Nombre]  from [dbo].[tbl_Cliente]",null,ddl);
+        }
+        public void DDempleado(DropDownList ddl)
+        {
+            util.cargarDDL("select [Empleado_Id],[Empleado_Nombre] from [dbo].[tbl_Empleados]", null, ddl);
+        }
 
 
     }
