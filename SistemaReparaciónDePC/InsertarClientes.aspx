@@ -38,8 +38,8 @@
                 <div class="col-md-6">
                 <div class="form-group">
                   <asp:Label ID="lblapellido" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label>
-                    <label for="exampleInputEmail1">Apellido del Empleado</label>
-                    <input type="text" class="form-control" id="txtapellido" placeholder="Ingrese el Apellido del Empleado" runat="server">
+                    <label for="exampleInputEmail1">Apellido del Cliente</label>
+                    <input type="text" class="form-control" id="txtapellido" placeholder="Ingrese el Apellido del Cliente" runat="server">
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
