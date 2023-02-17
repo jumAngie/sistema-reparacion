@@ -207,13 +207,7 @@
 
 
 <script>
-    $("#modal").click(function () {
-        $("#exampleModal").modal("show");
-    })
-
-    $("#modalcerrar").click(function () {
-        $("#exampleModal").modal("hide")
-    });
+    
 
 
     function Editar(id) {

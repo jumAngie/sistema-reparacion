@@ -238,7 +238,9 @@ BEGIN
 		WHERE	[EstadoCivil_ID] = @ID
 END
 
-
+select [rep_ID],[tipo_Descripción],[pro_Descripción],[Cliente_Nombre] from [dbo].[tbl_Reparación] t1 inner join [dbo].[tbl_TipoDeTrabajo] t2
+on t1.rep_TipodeTrabajo = t2.tipo_ID inner join [dbo].[tbl_Producto] t3 on t1.rep_Producto = t3.pro_ID inner join tbl_Cliente t4
+on t1.rep_Empleado = t4.Cliente_Id
 
 ------------------------------------------------------------ REPARACIÓN ---------------------------------------------------
 CREATE OR ALTER PROCEDURE UDP_MostarReparación
@@ -257,9 +259,22 @@ BEGIN
 		ON		T1.rep_Empleado = T5.Empleado_ID
 		WHERE	T1.Estado = 1
 END
-
-
-
+------------------------------------------------------------
+Create or Alter Procedure UDP_Mostrarrepa
+as
+begin 
+select [rep_ID],
+       [tipo_Descripción],
+       [pro_Descripción],
+	   Cliente_Nombre,
+       Empleado_Nombre,
+	   rep_EstadoReparacion
+	   from [dbo].[tbl_Reparación] t1 inner join [dbo].[tbl_TipoDeTrabajo] t2
+on t1.rep_TipodeTrabajo = t2.tipo_ID inner join [dbo].[tbl_Producto] t3 on t1.rep_Producto = t3.pro_ID inner join tbl_Cliente t4
+on t1.rep_Empleado = t4.Cliente_Id inner join [dbo].[tbl_Empleados] t5 on t5.Empleado_Id = t1.rep_Empleado 
+end 
+-----------------------------------------------------------------
+select * from 
 
 ---- udp buscar por texto
 CREATE OR ALTER PROCEDURE UDP_BuscarReparación
@@ -285,6 +300,28 @@ BEGIN
 		OR	 T5.Empleado_Nombre LIKE    @Texto + '%'
 		OR   T5.Empleado_Apellido LIKE  @Texto + '%'
 END
+
+Create or alter procedure UDP_BuscarReparacio
+    @buscador      nvarchar(250)
+as
+begin 
+     select [rep_ID],
+       [tipo_Descripción],
+       [pro_Descripción],
+	   Cliente_Nombre,
+       Empleado_Nombre,
+	   rep_EstadoReparacion
+	   from [dbo].[tbl_Reparación] t1 inner join [dbo].[tbl_TipoDeTrabajo] t2
+on t1.rep_TipodeTrabajo = t2.tipo_ID inner join [dbo].[tbl_Producto] t3 on t1.rep_Producto = t3.pro_ID inner join tbl_Cliente t4
+on t1.rep_Empleado = t4.Cliente_Id inner join [dbo].[tbl_Empleados] t5 on t5.Empleado_Id = t1.rep_Empleado 
+Where tipo_Descripción  like '%'+ @buscador +'%' or pro_Descripción like '%'+ @buscador +'%' or rep_EstadoReparacion like '%'+ @buscador +'%'
+or Empleado_Nombre like '%'+ @buscador +'%' or Empleado_Nombre like '%'+ @buscador +'%'
+
+end
+
+
+
+
 
 
 
@@ -725,16 +762,11 @@ as
 begin 
    Select  pro_ID, 
            pro_Descripción, 
-		   pro_FechaIngreso, 
-		   UsuarioCreacion, 
-		   UsuarioModificacion, 
-		   FechaCreacion, 
-		   FechaModificacion,
-		   Estado,
-		   Accion
+		   pro_FechaIngreso 		  
    from		[dbo].[tbl_Producto]
    WHERE	[Estado] = 1
 end 
+
 
 
 Create or Alter procedure UDP_BuscarProducto
@@ -743,13 +775,8 @@ as
 begin 
     Select  pro_ID, 
            pro_Descripción, 
-		   pro_FechaIngreso, 
-		   UsuarioCreacion, 
-		   UsuarioModificacion, 
-		   FechaCreacion, 
-		   FechaModificacion,
-		   Estado,
-		   Accion
+		   pro_FechaIngreso
+		   
    from  [dbo].[tbl_Producto]
    Where pro_ID like '%'+@buscador+'%' or pro_Descripción like'%'+@buscador+'%' or pro_FechaIngreso like '%'+@buscador+'%' 
 end 
