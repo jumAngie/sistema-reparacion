@@ -14,5 +14,19 @@ namespace SistemaReparaciónDePC
 
         }
 
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Cliente_Index.aspx");
+        }
+
+        protected void imgEmpleados_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Empleado_Index.aspx");
+        }
+
+        protected void imgREPARACIONES_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("");
+        }
     }
 }
