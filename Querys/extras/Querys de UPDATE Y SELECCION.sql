@@ -36,3 +36,5 @@ BEGIN
  ON			T1.Usuario_Empleado = T2.Empleado_Id
  WHERE		[Usuario_Estado] = 1
 END
+
+EXEC UDP_MostrarUsuarios
