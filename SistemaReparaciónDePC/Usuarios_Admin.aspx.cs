@@ -36,6 +36,11 @@ namespace SistemaReparaciónDePC
             }
         }
 
+        public void LlenarCampos(string ID)
+        {
+
+        }
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             string Contraseña = txtContraseña.Value;
