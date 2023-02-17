@@ -63,11 +63,6 @@ namespace SistemaReparaciónDePC
         {
 
         }
-        protected void volver_ServerClick(object sender, EventArgs e)
-        {
-            txtbuscar.Text = "";
-            cli.CargarGriv(gvCliente,txtbuscar.Text);
-        }
 
         protected void btnnuevo_ServerClick1(object sender, EventArgs e)
         {
