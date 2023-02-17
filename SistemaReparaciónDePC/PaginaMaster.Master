@@ -182,9 +182,13 @@
       <b>Version</b> 3.2.0
     </div>
   </footer>
+    
 </div>
 <!-- ./wrapper -->
-
+    
+    <script src="Content/js/jquery-3.1.1.min.js"></script>
+    
+    <script src="Content/js/bootstrap.js"></script>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="Content/plugins/jquery/jquery.min.js"></script>

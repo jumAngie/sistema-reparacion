@@ -36,6 +36,7 @@ namespace SistemaReparaciónDePC
                     {
                         btnEditar.Visible = false;
                         btnGuardar.Visible = true;
+                    
                     }
                 }
                

@@ -10,6 +10,7 @@ BEGIN
 END
 
 
+
 -- udp para insertar ciudades --
 CREATE OR ALTER PROCEDURE UDP_InsertarCiudades
 		@Descripción		NVARCHAR (255),
@@ -260,6 +261,11 @@ BEGIN
 		WHERE	T1.Estado = 1
 END
 ------------------------------------------------------------
+select * from [dbo].[tbl_Reparación]
+
+
+
+
 Create or Alter Procedure UDP_Mostrarrepa
 as
 begin 
@@ -300,7 +306,7 @@ BEGIN
 		OR	 T5.Empleado_Nombre LIKE    @Texto + '%'
 		OR   T5.Empleado_Apellido LIKE  @Texto + '%'
 END
-
+------------------------------------------------------------
 Create or alter procedure UDP_BuscarReparacio
     @buscador      nvarchar(250)
 as
@@ -318,11 +324,14 @@ Where tipo_Descripción  like '%'+ @buscador +'%' or pro_Descripción like '%'+ @b
 or Empleado_Nombre like '%'+ @buscador +'%' or Empleado_Nombre like '%'+ @buscador +'%'
 
 end
+-----------------------------------------------------------------
+
+select [tipo_ID],[tipo_Descripción] from [dbo].[tbl_TipoDeTrabajo]
 
 
+select [pro_ID],[pro_Descripción]  from [dbo].[tbl_Producto]
 
-
-
+select [Cliente_Id],[Cliente_Nombre]  from [dbo].[tbl_Cliente]
 
 
 
@@ -363,7 +372,7 @@ BEGIN
 			'C')
 END
 
-
+select * from [dbo].[tbl_Reparación]
 
 -- udp para obtener datos de reparacion
 
@@ -385,8 +394,29 @@ BEGIN
 		WHERE	T1.Estado = 1 AND [rep_ID] = @ID
 END
 
+---------------------------------------------------------
+   Create or alter Procedure UDP_Obtener_Reparacio
+   @id   int 
+as 
+
+begin 
+       SELECT	rep_ID, 
+				T1.rep_TipodeTrabajo, 
+				T1.rep_Producto, 
+				T1.rep_Cliente ,
+				T1.rep_Empleado,
+				rep_EstadoReparacion
+		FROM	[dbo].[tbl_Reparación] T1			INNER JOIN [dbo].[tbl_TipoDeTrabajo]	T2
+		ON		T1.rep_TipodeTrabajo = T2.tipo_ID	INNER JOIN [dbo].[tbl_Producto]			T3
+		ON		T1.rep_Producto = T3.pro_ID			INNER JOIN [dbo].[tbl_Cliente]			T4
+		ON		T1.rep_Cliente = T4.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados]		T5
+		ON		T1.rep_Empleado = T5.Empleado_ID
+		WHERE	T1.Estado = 1 AND [rep_ID] = @ID
+end 
 
 
+
+---------------------------------------------------------
 -- udp para editar datos de la tabla reparacion
 
 CREATE OR ALTER PROCEDURE UDP_EditarReparacion
@@ -559,7 +589,7 @@ begin
 end 
 
 
-
+select [Empleado_Id],[Empleado_Nombre] from [dbo].[tbl_Empleados]
 
 -- udp para obtener datos
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
@@ -768,7 +798,6 @@ begin
 end 
 
 
-
 Create or Alter procedure UDP_BuscarProducto
     @buscador     nvarchar(250)
 as 
@@ -793,7 +822,6 @@ END
 Create Or Alter Procedure UDP_EditarProducto
        @id                int, 
 	   @descripcion       nvarchar(250),
-       @Fecha             Date, 
        @Usumodificacion   int 
 as
 
@@ -802,7 +830,7 @@ select * from [dbo].[tbl_Producto]
 
 begin 
      Update [dbo].[tbl_Producto]
-	 Set pro_Descripción = @descripcion, pro_FechaIngreso=@Fecha,UsuarioModificacion=@Usumodificacion, 
+	 Set pro_Descripción = @descripcion, pro_FechaIngreso=getdate(),UsuarioModificacion=@Usumodificacion, 
 	     [FechaModificacion] = GETDATE() , [Accion] = 'M'
 	WHERE [pro_ID] = @id
 end 
@@ -817,6 +845,17 @@ begin
      insert into [dbo].[tbl_Producto]
 	 values(@descripcion,@fecha,@usuariocreacion,null,GETDATE(),null,1,'C')
 end 
+-----------------------------------------------------------
+create or ALTER   Procedure [dbo].[UDP_InsertarProducto]
+       @descripcion     nvarchar(250), 
+       @usuariocreacion int 
+
+as
+begin 
+     insert into [dbo].[tbl_Producto]
+	 values(@descripcion,GETDATE(),@usuariocreacion,null,GETDATE(),null,1,'C')
+end 
+-----------------------------------------------------------
 
 
 

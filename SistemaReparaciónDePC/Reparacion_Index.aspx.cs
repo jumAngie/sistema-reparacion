@@ -11,12 +11,36 @@ namespace SistemaReparaciónDePC
     public partial class Reparacion_Index : System.Web.UI.Page
     {
         Reparacion rep = new Reparacion();
+        Insertar_Reparaciones ir = new Insertar_Reparaciones();
         protected void Page_Load(object sender, EventArgs e)
         {
            if(!IsPostBack)
-            { 
-            rep.CargarGriv(gvReparacion, txtbuscar.Text);
+            {
+                Session["IdReparacion_Editar"] = "";
+                rep.CargarGriv(gvReparacion, txtbuscar.Text);
+             
             }
+            else
+            {
+                string eventtarget = Request["__EVENTTARGET"];
+                string eventargument = Request["__EVENTARGUMENT"];
+
+                if (eventtarget == "Editar")
+                {
+                    Session["IdReparacion_Editar"] = eventargument;
+                    Response.Redirect("Insertar_Reparaciones.aspx");
+                }
+
+                if (eventtarget == "Eliminar")
+                {
+                    Session["IdReparacion_Editar"] = eventargument;
+                    ir.ELIMINAR();
+                    Response.Redirect("Reparacion_Index.aspx");
+                }
+            }
+
+
+
         }
 
         protected void gvReparacion_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -29,10 +53,10 @@ namespace SistemaReparaciónDePC
         {
             rep.CargarGriv(gvReparacion, txtbuscar.Text);
         }
-
-        protected void btnuevo_Click(object sender, EventArgs e)
+       
+        protected void btnuevo_Click1(object sender, EventArgs e)
         {
-
+            Response.Redirect("Insertar_Reparaciones.aspx");
         }
     }
 }

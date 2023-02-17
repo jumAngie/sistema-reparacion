@@ -26,7 +26,7 @@
                     
                     <asp:TemplateField HeaderText="Editar">
                         <ItemTemplate>
-                            <a class="fa fa-pencil btn btn-warning" style="color: black"  onclick="Editar  ('<%# Eval("pro_ID")%>')">Editar</a>
+                            <a class="fa fa-pencil btn btn-warning" style="color: black"  onclick="Editar('<%# Eval("pro_ID")%>')">Editar</a>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Eliminar">
@@ -76,9 +76,12 @@
      </div>        
   </div>
 </div>   
+       </div>
 
-    <script src="Content/js/bootstrap.js"></script>
-    <script src="Content/js/jquery-3.1.1.min.js"></script>
+  
+
+        <script src='Content/js/jquery-3.1.1.min.js'></script>
+                 <script src='Content/js/bootstrap.js'></script>
     
     <script>
          function showModal() {            
