@@ -26,12 +26,12 @@
                     <asp:BoundField HeaderText="Ciudad" DataField="Ciudad_Descripcion" />
                     <asp:TemplateField HeaderText="Editar">
                         <ItemTemplate>
-                            <a class="fa fa-pencil btn btn-warning" style="color: black" onclick="Editar ('<%# Eval("Cliente_Id")%>')">Editar</a>
+                            <a class="btn btn-warning" style="color: black" onclick="Editar('<%# Eval("Cliente_Id")%>')">Editar</a>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Eliminar">
                         <ItemTemplate>
-                            <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("Cliente_Id")%>')">Eliminar</a>
+                            <a class="btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("Cliente_Id")%>')">Eliminar</a>
                         </ItemTemplate>
 
                     </asp:TemplateField>
