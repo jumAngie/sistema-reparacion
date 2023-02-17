@@ -15,22 +15,13 @@ namespace SistemaReparaciónDePC
     {
 
         /// <summary>
-        /// Control gvEmpleado.
+        /// Control btnuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmpleado;
-
-        /// <summary>
-        /// Control lb1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lb1;
+        protected global::System.Web.UI.WebControls.Button btnuevo;
 
         /// <summary>
         /// Control txtbuscar.
@@ -39,7 +30,7 @@ namespace SistemaReparaciónDePC
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtbuscar;
+        protected global::System.Web.UI.WebControls.TextBox txtbuscar;
 
         /// <summary>
         /// Control btnbuscar.
@@ -48,15 +39,15 @@ namespace SistemaReparaciónDePC
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnbuscar;
+        protected global::System.Web.UI.WebControls.Button btnbuscar;
 
         /// <summary>
-        /// Control volver.
+        /// Control gvEmpleado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton volver;
+        protected global::System.Web.UI.WebControls.GridView gvEmpleado;
     }
 }
