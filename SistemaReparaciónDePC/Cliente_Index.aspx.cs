@@ -15,11 +15,11 @@ namespace SistemaReparaciónDePC
         InsertarClientes ins = new InsertarClientes();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 Session["IdCliente_Editar"] = "";
-                cli.CargarGriv(gvCliente,txtbuscar.Text);
+                cli.CargarGriv(gvCliente, txtbuscar.Text);
             }
             else
             {
@@ -39,6 +39,12 @@ namespace SistemaReparaciónDePC
                     ins.eliminar();
                     cli.CargarGriv(gvCliente, txtbuscar.Text);
                     Response.Redirect("Cliente_Index.aspx");
+                }
+
+                if (eventtarget == "Ticket")
+                {
+                    Session["IdCliente_Editar"] = eventargument;
+                    Response.Redirect("TicketsDeCliente.aspx");
                 }
             }
 
