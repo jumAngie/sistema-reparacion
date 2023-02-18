@@ -456,10 +456,15 @@ END
 
 
 -- udp para mostrar los usuarios
-CREATE OR ALTER PROCEDURE UDP_MostrarUsuarios
+CREATE OR ALTER  PROCEDURE [dbo].[UDP_MostrarUsuarios]
 AS
 BEGIN
- SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado'  FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
+ SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado', 
+			CASE [Usuario_UsuarioAdmin] 
+			WHEN 1 THEN 'Sí'
+			WHEN 0 THEN 'No'
+			END AS 'Es Admin' 
+			FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
  ON			T1.Usuario_Empleado = T2.Empleado_Id
  WHERE		[Usuario_Estado] = 1
 END
@@ -625,7 +630,7 @@ begin
 	 [Cliente_UsuarioModificacionId]=@UsuarioModificacionId, [Cliente_FechaModificacion]=getdate()
 	 where [Cliente_Id]=@id
 end 
-
+------------------------------------------------
 
 Create or Alter Procedure UDP_InsertCliente
    @Nombre                      nvarchar(250),
@@ -642,7 +647,7 @@ begin
    Insert into [dbo].[tbl_Cliente]
    values (@Nombre,@Apellido,@identidad,@EstadoCivil,@genero,@telefono,@ciudad, @usuariocreacion,GEtdate(),null,null,1)
 end 
-
+--------------------------------------------------------
 Create or Alter Procedure UDP_EliminarCliente     
     @idAeliminar  int ,
 	@UsuarioModi  int
@@ -796,7 +801,7 @@ begin
    from		[dbo].[tbl_Producto]
    WHERE	[Estado] = 1
 end 
-
+------------------------------------------
 
 Create or Alter procedure UDP_BuscarProducto
     @buscador     nvarchar(250)
@@ -835,15 +840,14 @@ begin
 	WHERE [pro_ID] = @id
 end 
 
-Create or Alter Procedure UDP_InsertarProducto
-       @descripcion     nvarchar(250),
-	   @fecha           date, 
+Create or ALTER   Procedure [dbo].[UDP_InsertarProducto]
+       @descripcion     nvarchar(250), 
        @usuariocreacion int 
 
 as
 begin 
      insert into [dbo].[tbl_Producto]
-	 values(@descripcion,@fecha,@usuariocreacion,null,GETDATE(),null,1,'C')
+	 values(@descripcion,GETDATE(),@usuariocreacion,null,GETDATE(),null,1,'C')
 end 
 -----------------------------------------------------------
 create or ALTER   Procedure [dbo].[UDP_InsertarProducto]
@@ -856,8 +860,6 @@ begin
 	 values(@descripcion,GETDATE(),@usuariocreacion,null,GETDATE(),null,1,'C')
 end 
 -----------------------------------------------------------
-
-
 
 CREATE OR ALTER Procedure  UDP_EliminarProducto 
       @idAusar   int,
@@ -993,6 +995,52 @@ BEGIN
 END
 
 --- contraseñas = admin, julian, angie
+EXEC UDP_InsertarUsuarios 'AngieCC',2,'angie',1,0
+
+----------------------------------
+CREATE OR ALTER PROCEDURE UDP_VerificarUsuario
+		@Usuario		NVARCHAR(255)
+AS
+BEGIN
+		SELECT [Usuario_Usuario] FROM tbl_Usuarios
+		WHERE	[Usuario_Usuario] = @Usuario
+END
+------------------------------
+CREATE OR ALTER PROCEDURE UDP_RestablecerContraseña
+		@Usuario		NVARCHAR(255),
+		@Contraseña		NVARCHAR(MAX)
+AS
+BEGIN
+		DECLARE @PasswordEncryp NVARCHAR(MAX)
+		SET @PasswordEncryp = CONVERT (NVARCHAR(MAX), HASHBYTES('SHA2_512', @Contraseña), 2)
+
+		UPDATE	tbl_Usuarios
+		SET		[Usuario_Password] = @PasswordEncryp
+		WHERE	[Usuario_Usuario] = @Usuario
+END
+----------------------------
+CREATE OR ALTER PROCEDURE UDP_MostrarTickectCliente
+		@ID NVARCHAR(100)
+AS
+BEGIN
+	SELECT	rep_Cliente, T1.Cliente_Nombre + ' ' + t1.Cliente_Apellido AS 'Cliente', T2.Empleado_Nombre + ' ' + T2.Empleado_Apellido AS 'Empleado', T3.pro_Descripción, rep_EstadoReparacion 
+	FROM	tbl_Reparación T0					INNER JOIN [dbo].[tbl_Cliente] T1
+	ON		T0.rep_Cliente = t1.Cliente_Id		INNER JOIN [dbo].[tbl_Empleados] T2
+	ON		T0.rep_Empleado = T2.Empleado_Id	INNER JOIN [dbo].[tbl_Producto]  T3
+	ON		T0.rep_Producto = T3.pro_ID
+	WHERE	rep_Cliente = @ID
+END
+
+-----------------------------
+CREATE OR ALTER PROCEDURE UDP_MostrarTickecktEmpleado
+		@ID NVARCHAR(100)
+AS
+BEGIN
+		SELECT	rep_Empleado,  T2.Empleado_Nombre + ' ' + T2.Empleado_Apellido AS 'Empleado', T3.pro_Descripción, rep_EstadoReparacion
+		FROM	tbl_Reparación T1				INNER JOIN [dbo].[tbl_Empleados] T2
+		ON		T1.rep_ID = T2.Empleado_Id		INNER JOIN [dbo].[tbl_Producto] T3
+		ON		T1.rep_Producto = T3.pro_ID
+		WHERE	rep_Empleado = @ID
+END
 
 
-select * from [dbo].[tbl_Empleados]
