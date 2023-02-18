@@ -1038,9 +1038,10 @@ AS
 BEGIN
 		SELECT	rep_Empleado,  T2.Empleado_Nombre + ' ' + T2.Empleado_Apellido AS 'Empleado', T3.pro_Descripción, rep_EstadoReparacion
 		FROM	tbl_Reparación T1				INNER JOIN [dbo].[tbl_Empleados] T2
-		ON		T1.rep_ID = T2.Empleado_Id		INNER JOIN [dbo].[tbl_Producto] T3
+		ON		T1.rep_Empleado = T2.Empleado_Id		INNER JOIN [dbo].[tbl_Producto] T3
 		ON		T1.rep_Producto = T3.pro_ID
-		WHERE	rep_Empleado = @ID
+		WHERE	rep_Empleado = 2
 END
 
 
+SELECT * FROM tbl_Reparación

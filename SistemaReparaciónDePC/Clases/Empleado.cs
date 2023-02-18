@@ -36,6 +36,16 @@ namespace SistemaReparaciónDePC.Clases
             ds = util.ObtenerDatos(SQL, "T");
             return ds;
         }
+
+        public void CargarTicket(GridView gv, string ID)
+        {
+
+            DataSet ds = util.ObtenerDatos("EXEC UDP_MostrarTickecktEmpleado '" + ID + "' ", "T");
+            gv.DataSource = ds.Tables["T"];
+            gv.DataBind();
+
+        }
+
         public void DdlEstado(DropDownList ddl)
         {
             util.cargarDDL("Select EstadoCivil_ID,EstadoCivil_Descripcion from  [dbo].[tbl_EstadoCivil]", null, ddl);

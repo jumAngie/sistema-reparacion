@@ -39,6 +39,12 @@ namespace SistemaReparaciónDePC
                     ins.Eliminar();
                     Response.Redirect("Empleado_Index.aspx");
                 }
+
+                if (eventtarget == "Ticket")
+                {
+                    Session["IdEmpleado_Editar"] = eventargument;
+                    Response.Redirect("TicketdeEmpleado.aspx");
+                }
             }
 
 

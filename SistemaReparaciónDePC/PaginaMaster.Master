@@ -91,7 +91,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
           <li class="nav-item">
-            <a href="MenuIndex.aspx" class="nav-link">
+            <a href="MenuPrincipal.aspx" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Menú Principal

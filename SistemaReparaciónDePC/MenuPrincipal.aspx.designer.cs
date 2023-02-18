@@ -11,7 +11,7 @@ namespace SistemaReparaciónDePC
 {
 
 
-    public partial class MenuIndex
+    public partial class MenuPrincipal
     {
 
         /// <summary>

@@ -45,6 +45,11 @@
                                 <a class="btn-sm btn-danger" style="color: black" onclick="EliminarEmpleado('<%#Eval("Empleado_Id")%>')">Eliminar</a>
                             </ItemTemplate>
                         </asp:TemplateField>
+                          <asp:TemplateField HeaderText="Producto">
+                            <ItemTemplate>
+                                <a class="btn-sm btn-secondary" style="color: black" onclick="Ticket('<%#Eval("Empleado_Id")%>')">Mostrar Producto</a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>
