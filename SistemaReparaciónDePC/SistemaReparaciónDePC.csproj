@@ -2947,7 +2947,9 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Servicios_Index.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="TickectDeServicio.aspx" />
     <Content Include="TicketdeEmpleado.aspx" />
     <Content Include="TikcetsDeCliente.aspx" />
     <Content Include="Usuarios_Admin.aspx" />
@@ -2973,6 +2975,7 @@
     <Compile Include="Clases\producto.cs" />
     <Compile Include="Clases\Reparacion.cs" />
     <Compile Include="Clases\RestablecerLogIn.cs" />
+    <Compile Include="Clases\Servicios.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Utilitario.cs" />
     <Compile Include="Cliente_Index.aspx.cs">
@@ -3077,6 +3080,13 @@
     <Compile Include="Restablecer_Contraseña.aspx.designer.cs">
       <DependentUpon>Restablecer_Contraseña.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Servicios_Index.aspx.cs">
+      <DependentUpon>Servicios_Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicios_Index.aspx.designer.cs">
+      <DependentUpon>Servicios_Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3090,6 +3100,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TickectDeServicio.aspx.cs">
+      <DependentUpon>TickectDeServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TickectDeServicio.aspx.designer.cs">
+      <DependentUpon>TickectDeServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="TicketdeEmpleado.aspx.cs">
       <DependentUpon>TicketdeEmpleado.aspx</DependentUpon>
