@@ -142,107 +142,6 @@ BEGIN
 		WHERE	[Departamento_ID] = @ID
 END
 
-
-
-
-
------------------------------------------------------------- ESTADO CIVIL ---------------------------------------------------
---- udp para mostrar los estados civiles
-CREATE OR ALTER PROCEDURE UDP_MostrarEstadoCivil
-AS
-BEGIN
-		SELECT [EstadoCivil_ID], [EstadoCivil_Descripcion] FROM [dbo].[tbl_EstadoCivil]
-		WHERE	[Estado] = 1
-END
-
-
-
-
--- udp para buscar estados civiles por texto
-CREATE OR ALTER PROCEDURE UDP_BuscarEstadoCivil
-		@Texto		NVARCHAR(MAX)
-AS
-BEGIN
-		SELECT	[EstadoCivil_ID], [EstadoCivil_Descripcion] FROM [dbo].[tbl_EstadoCivil]
-		WHERE	[EstadoCivil_Descripcion] LIKE @Texto + '%' AND [Estado] = 1
-END
-
-
-
---- udp para Obtener Estados Civiles
-CREATE OR ALTER PROCEDURE UDP_ObtenerEstadoCivil
-			@ID	CHAR(1)
-AS
-BEGIN
-		SELECT	[EstadoCivil_ID], [EstadoCivil_Descripcion] FROM [dbo].[tbl_EstadoCivil]
-		WHERE	[EstadoCivil_ID] = @ID
-END
-
-
-
-
--- udp para Editar Estados Civiles
-CREATE OR ALTER PROCEDURE UDP_EditarEstadosCiviles
-		@ID				CHAR,
-		@Descr			NVARCHAR(150),
-		@UsuarioMod		INT
-AS
-BEGIN
-		UPDATE	[dbo].[tbl_EstadoCivil]
-		SET		[EstadoCivil_Descripcion] = @Descr, [EstadoCivil_UsuarioModificacionId] = @UsuarioMod,
-				[EstadoCivil_FechaModificacion] = GETDATE() , [Accion] = 'M'
-		WHERE	[EstadoCivil_ID] = @ID
-END
-
-
-
-
---- UDP PARA INSERTAR ESTADOS CIVILES
-CREATE OR ALTER PROCEDURE UDP_Insertar_EstadosCiviles
-			@ID					CHAR(1),
-			@Descripcion		NVARCHAR(150),
-			@UsuarioCreacion	INT
-AS
-BEGIN
-			INSERT INTO tbl_EstadoCivil(
-								EstadoCivil_ID, 
-								EstadoCivil_Descripcion, 
-								EstadoCivil_UsuarioCreacionID, 
-								EstadoCivil_FechaCreacion,
-								EstadoCivil_UsuarioModificacionId, 
-								EstadoCivil_FechaModificacion, 
-								Estado, 
-								Accion)
-			VALUES  (			@ID,
-								@Descripcion,
-								@UsuarioCreacion,
-								GETDATE(),
-								NULL,
-								NULL,
-								1,
-								'C')
-END
-
-
-
-
-
--- udp para borrar estados civiles
-CREATE OR ALTER PROCEDURE UDP_BorrarEstadoCivil
-		@ID CHAR(1),
-		@UsuarioMod INT
-AS
-BEGIN
-		UPDATE	[dbo].[tbl_EstadoCivil]
-		SET		[Estado] = 0, [EstadoCivil_UsuarioModificacionId] = @UsuarioMod, [EstadoCivil_FechaModificacion] = GETDATE(),
-				[Accion] = 'E'
-		WHERE	[EstadoCivil_ID] = @ID
-END
-
-select [rep_ID],[tipo_Descripción],[pro_Descripción],[Cliente_Nombre] from [dbo].[tbl_Reparación] t1 inner join [dbo].[tbl_TipoDeTrabajo] t2
-on t1.rep_TipodeTrabajo = t2.tipo_ID inner join [dbo].[tbl_Producto] t3 on t1.rep_Producto = t3.pro_ID inner join tbl_Cliente t4
-on t1.rep_Empleado = t4.Cliente_Id
-
 ------------------------------------------------------------ REPARACIÓN ---------------------------------------------------
 CREATE OR ALTER PROCEDURE UDP_MostarReparación
 AS
@@ -476,7 +375,10 @@ CREATE OR ALTER PROCEDURE UDP_BuscarUsuarios
 		@Texto nvarchar(max)
 AS
 BEGIN
-		 SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado'  FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
+		 SELECT		[Usuario_UsuarioId],[Usuario_Usuario], T2.Empleado_Nombre +' '+T2.Empleado_Apellido AS 'Empleado' , CASE [Usuario_UsuarioAdmin] 
+			WHEN 1 THEN 'Sí'
+			WHEN 0 THEN 'No'
+			END AS 'Es Admin'  FROM tbl_Usuarios T1 INNER JOIN [dbo].[tbl_Empleados] T2
  ON			T1.Usuario_Empleado = T2.Empleado_Id
  WHERE		[Usuario_Estado] = 1 AND [Usuario_Usuario] LIKE @Texto + '%' OR T2.Empleado_Nombre LIKE @Texto + '%' OR
 			T2.Empleado_Apellido LIKE @Texto + '%'
@@ -538,18 +440,16 @@ BEGIN
 END
 ---
 --- udp para editar los datos de un usuario
-CREATE OR ALTER PROCEDURE UDP_EditarUsuarios
+CREATE OR ALTER   PROCEDURE [dbo].[UDP_EditarUsuarios]
 			@ID INT,
 			@Usuario NVARCHAR(255),
-			@Empleado INT,
 			@UsuModi INT
 AS
 BEGIN
    UPDATE tbl_Usuarios
-   SET	   [Usuario_Usuario] = @Usuario, [Usuario_Empleado] = @Empleado, [Usuario_UsuarioModificacionId]=@UsuModi
+   SET	   [Usuario_Usuario] = @Usuario, [Usuario_UsuarioModificacionId]=@UsuModi
    WHERE   [Usuario_UsuarioId] = @ID
 END
-
 
 
 ------------------------------------------------------- CLIENTES -------------------------------------------
@@ -898,7 +798,7 @@ CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_TipoDeTrabajo
 		@ID INT
 AS
 BEGIN
-			SELECT tipo_ID, tipo_Descripción FROM tbl_TipoDeTrabajo
+			SELECT tipo_ID, tipo_Descripción FROM tbl_TipoDeTrabajo WHERE [tipo_ID] = @ID
 END
 
 Create or Alter Procedure UDP_EditarTipoDeTrabajo
@@ -1040,8 +940,19 @@ BEGIN
 		FROM	tbl_Reparación T1				INNER JOIN [dbo].[tbl_Empleados] T2
 		ON		T1.rep_Empleado = T2.Empleado_Id		INNER JOIN [dbo].[tbl_Producto] T3
 		ON		T1.rep_Producto = T3.pro_ID
-		WHERE	rep_Empleado = 2
+		WHERE	rep_Empleado = @ID
 END
 
 
 SELECT * FROM tbl_Reparación
+-----------------------------------------
+CREATE OR ALTER  PROCEDURE UDP_MostrarTicketServicios
+		@ID NVARCHAR(20)
+AS
+BEGIN
+	SELECT T3.tipo_Descripción,T2.pro_Descripción, rep_EstadoReparacion FROM tbl_Reparación T1
+	INNER JOIN	[dbo].[tbl_Producto] T2 
+	ON	T1.rep_Producto = T2.pro_ID INNER JOIN [dbo].[tbl_TipoDeTrabajo] T3
+	ON	T1.rep_TipodeTrabajo = t3.tipo_ID
+	WHERE	T1.rep_TipodeTrabajo = @ID AND T1.Estado = 1
+END
