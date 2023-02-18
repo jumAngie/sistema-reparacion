@@ -3,12 +3,12 @@
     <br />
    
     <div class="row">
-        <div class="col-sm-2"></div>
-        <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" OnClick="btnnuevo_ServerClick1" Width="150px" />  
         <div class="col-sm-1"></div>
+        <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" OnClick="btnnuevo_ServerClick1" Width="150px" />  
+        <div class="col-sm-2"></div>
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            
-         <asp:Button ID="btnbuscar" CssClass="fa-duotone fa-magnifying-glass" runat="server" Text="Buscar.." OnClick="btnbuscar_ServerClick" Width="83px"/>
+         <asp:Button ID="btnbuscar" CssClass="btn btn-primary" runat="server" Text="Buscar.." OnClick="btnbuscar_ServerClick" Width="150px"/>
             </div>
             <br />
     <div class="row">

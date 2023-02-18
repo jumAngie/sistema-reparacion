@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <asp:GridView ID="gvReparacion" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvReparacion_PageIndexChanging">
+                    <asp:GridView ID="gvReparacion" CssClass="table table-bordered table-hover" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvReparacion_PageIndexChanging">
                         <Columns>
                             <asp:BoundField HeaderText="Reparacion ID" DataField="rep_ID" />
                             <asp:BoundField HeaderText="Tipo de Trabajo" DataField="tipo_Descripción" />
@@ -37,12 +37,12 @@
 
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
-                                    <a class="fa fa-pencil btn btn-warning" style="color: black" onclick="Editar ('<%# Eval("rep_ID")%>')">Editar</a>
+                                    <a class="btn-sm btn-warning" style="color: black" onclick="Editar ('<%# Eval("rep_ID")%>')">Editar</a>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Eliminar">
                                 <ItemTemplate>
-                                    <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("rep_ID")%>')">Eliminar</a>
+                                    <a class="btn-sm btn-danger" style="color: black" onclick="Eliminar('<%# Eval("rep_ID")%>')">Eliminar</a>
                                 </ItemTemplate>
 
                             </asp:TemplateField>
