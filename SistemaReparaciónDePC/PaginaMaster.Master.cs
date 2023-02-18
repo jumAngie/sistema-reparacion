@@ -32,6 +32,7 @@ namespace SistemaReparaciónDePC
             Session.Remove("Usuario");
             Session.Remove("ID");
             Session.Remove("Admin");
+            Session.Remove("IdCliente_Editar");
             Response.Redirect("LogIn.aspx");
         }
     }

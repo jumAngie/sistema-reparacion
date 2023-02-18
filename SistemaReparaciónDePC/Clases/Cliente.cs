@@ -10,9 +10,9 @@ namespace SistemaReparaciónDePC.Clases
     public class Cliente
     {
         Utilitario util = new Utilitario();
-       public void CargarGriv(GridView gv, string buscar)
+        public void CargarGriv(GridView gv, string buscar)
         {
-            if(buscar == "")
+            if (buscar == "")
             {
                 DataSet ds = util.ObtenerDatos("EXEC UDP_MostrarClientes", "t");
                 gv.DataSource = ds.Tables["t"];
@@ -22,7 +22,7 @@ namespace SistemaReparaciónDePC.Clases
             else
             {
                 string sql = "EXEC UDP_BuscarClientes'" + buscar + "'";
-                DataSet ds = util.ObtenerDatos(sql,"t");
+                DataSet ds = util.ObtenerDatos(sql, "t");
                 gv.DataSource = ds.Tables["t"];
                 gv.DataBind();
             }
@@ -36,7 +36,14 @@ namespace SistemaReparaciónDePC.Clases
             return ds;
         }
 
+        public void CargarTicket(GridView gv, string ID)
+        {
 
+            DataSet ds = util.ObtenerDatos("EXEC UDP_MostrarTickectCliente '" + ID + "' ", "T");
+            gv.DataSource = ds.Tables["T"];
+            gv.DataBind();
+        
+        }
 
 
 

@@ -2948,6 +2948,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="TikcetsDeCliente.aspx" />
+    <Content Include="Usuarios_Admin.aspx" />
+    <Content Include="Usuarios_Index.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -2969,6 +2972,7 @@
     <Compile Include="Clases\producto.cs" />
     <Compile Include="Clases\Reparacion.cs" />
     <Compile Include="Clases\RestablecerLogIn.cs" />
+    <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Utilitario.cs" />
     <Compile Include="Cliente_Index.aspx.cs">
       <DependentUpon>Cliente_Index.aspx</DependentUpon>
@@ -3085,6 +3089,27 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TikcetsDeCliente.aspx.cs">
+      <DependentUpon>TikcetsDeCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TikcetsDeCliente.aspx.designer.cs">
+      <DependentUpon>TikcetsDeCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Admin.aspx.cs">
+      <DependentUpon>Usuarios_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios_Admin.aspx.designer.cs">
+      <DependentUpon>Usuarios_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Index.aspx.cs">
+      <DependentUpon>Usuarios_Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios_Index.aspx.designer.cs">
+      <DependentUpon>Usuarios_Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -15,9 +15,6 @@ namespace SistemaReparaciónDePC
         Utilitario util = new Utilitario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
             if (!IsPostBack)
             {
 

@@ -16,12 +16,12 @@
         <div class="col-md-2">
             <asp:GridView ID="gvReparacion" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvReparacion_PageIndexChanging">
                 <Columns>
-                    <asp:BoundField HeaderText="ReparacionID" DataField="rep_ID" />
+                    <asp:BoundField HeaderText="Reparacion ID" DataField="rep_ID" />
                     <asp:BoundField HeaderText="Tipo de Trabajo" DataField="tipo_Descripción" />
                     <asp:BoundField HeaderText="Producto" DataField="pro_Descripción" />
                     <asp:BoundField HeaderText="Cliente" DataField="Cliente_Nombre" />
                     <asp:BoundField HeaderText="Técnico Encargado" DataField="Empleado_Nombre" />
-                    <asp:BoundField HeaderText="rep_EstadoReparacion" DataField="rep_EstadoReparacion" />
+                    <asp:BoundField HeaderText="Estado de la Reparación" DataField="rep_EstadoReparacion" />
                   
                     <asp:TemplateField HeaderText="Editar">
                         <ItemTemplate>

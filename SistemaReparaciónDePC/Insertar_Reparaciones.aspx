@@ -47,7 +47,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <asp:Label ID="Lblempleado" ForeColor="Red" runat="server" Text="*" Visible="false" ></asp:Label> 
-                        <label for="Muni">Cliente:</label>
+                        <label for="Muni">Técnico Encargado:</label>
                         <asp:DropDownList ID="ddlempleado" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>           
                 </div> 
