@@ -44,7 +44,7 @@ namespace SistemaReparaciónDePC
                 if (eventtarget == "Ticket")
                 {
                     Session["IdCliente_Editar"] = eventargument;
-                    Response.Redirect("TicketsDeCliente.aspx");
+                    Response.Redirect("TikcetsDeCliente.aspx");
                 }
             }
 

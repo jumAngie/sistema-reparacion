@@ -17,8 +17,9 @@
             <br />
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-md-2">
-            <asp:GridView ID="gvProducto" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvProducto_PageIndexChanging">
+        <div class="col-sm-2">
+             <div class="card-body">
+            <asp:GridView ID="gvProducto" CssClass="table table-bordered table-hover" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvProducto_PageIndexChanging">
                 <Columns>
                     <asp:BoundField HeaderText="Id Producto" DataField="pro_ID" />
                     <asp:BoundField HeaderText="Descripcion" DataField="pro_Descripción" />
@@ -38,6 +39,7 @@
 
                 </Columns>
             </asp:GridView>
+        </div>
         </div>
         </div>    
 
