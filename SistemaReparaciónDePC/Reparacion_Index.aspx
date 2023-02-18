@@ -5,7 +5,7 @@
     <div class="row">
             <div class="col-sm-1"></div>
          <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" OnClick="btnuevo_Click1" Width="187px"/> 
-        <div class="col-sm-1"></div>
+        <div class="col-sm-2"></div>
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            
          <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." OnClick="btnbuscar_Click" Width="177px"/>

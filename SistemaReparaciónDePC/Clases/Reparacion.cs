@@ -44,16 +44,16 @@ namespace SistemaReparaciónDePC.Clases
 
         public void DDLproducto(DropDownList ddl)
         {
-            util.cargarDDL("select [pro_ID],[pro_Descripción]  from [dbo].[tbl_Producto]", null, ddl);
+            util.cargarDDL("select [pro_ID],[pro_Descripción]  from [dbo].[tbl_Producto] where Estado=1", null, ddl);
         }
 
         public void DDLcliente(DropDownList ddl)
         {
-            util.cargarDDL("select [Cliente_Id],[Cliente_Nombre]  from [dbo].[tbl_Cliente]",null,ddl);
+            util.cargarDDL("select [Cliente_Id],[Cliente_Nombre]  from [dbo].[tbl_Cliente] where Cliente_Estado=1",null,ddl);
         }
         public void DDempleado(DropDownList ddl)
         {
-            util.cargarDDL("select [Empleado_Id],[Empleado_Nombre] from [dbo].[tbl_Empleados]", null, ddl);
+            util.cargarDDL("select [Empleado_Id],[Empleado_Nombre] from [dbo].[tbl_Empleados] where Empleado_Estado=1", null, ddl);
         }
 
 

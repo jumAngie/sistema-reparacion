@@ -6,7 +6,7 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
-            <h3 class="card-title">Datos de : <strong>Repraciones</strong></h3><br />
+            <h3 class="card-title">Datos de : <strong>Reparaciones</strong></h3><br />
             <asp:Label ID="Advertencia" ForeColor="Red" runat="server" Text="*No se pudieron ingresar los datos" Visible="false" ></asp:Label>
              
             <div class="card-tools">

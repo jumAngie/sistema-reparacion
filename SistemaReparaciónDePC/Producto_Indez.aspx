@@ -81,7 +81,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  id="modalcerrar" onclick="hideModal()">Cerrar</button>
                 <asp:Button id="btnguardar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Insertar"  OnClick="btnguardar_Click1"/>                            
-                <asp:Button id="btneditar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Editar"  OnClick="btneditar_Click"/>  
+                <asp:Button id="btneditar" runat="server" CssClass="btn btn-w-m btn-primary" Text="Editar" Visible="false" OnClick="btneditar_Click"/>  
               
               </div>          
      </div>        
