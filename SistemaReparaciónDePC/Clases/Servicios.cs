@@ -31,6 +31,15 @@ namespace SistemaReparaciónDePC.Clases
 
         }
 
+        public void CargarTicket(GridView gv, string ID)
+        {
+
+            DataSet ds = util.ObtenerDatos("EXEC UDP_MostrarTicketServicios '" + ID + "' ", "T");
+            gv.DataSource = ds.Tables["T"];
+            gv.DataBind();
+
+        }
+
         public DataSet cargardatos(string id)
         {
             DataSet ds = new DataSet();

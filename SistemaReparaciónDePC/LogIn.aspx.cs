@@ -14,7 +14,9 @@ namespace SistemaReparaciónDePC
         Utilitario util = new Utilitario();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["ID_Servicios"] = "";
+            Session["IdCliente_Editar"] = "";
+            Session["IdEmpleado_Editar"] = "";
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)

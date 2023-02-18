@@ -47,6 +47,12 @@ namespace SistemaReparaciónDePC
                     Session["ID_Servicios"] = eventargument;
                     eliminar();
                 }
+
+                if (eventtarget == "Ticket")
+                {
+                    Session["ID_Servicios"] = eventargument;
+                    Response.Redirect("TickectDeServicio.aspx");
+                }
             }
         }
         protected void btnguardar_Click1(object sender, EventArgs e)
