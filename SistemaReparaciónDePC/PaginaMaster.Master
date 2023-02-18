@@ -288,6 +288,11 @@
         }
     }
 
+    function Ticket(id) {
+
+        __doPostBack("Ticket", id)
+    }
+
 </script>
 
 
