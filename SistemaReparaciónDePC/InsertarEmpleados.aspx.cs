@@ -134,7 +134,7 @@ namespace SistemaReparaciónDePC
                     string sql = "UDP_InsertarEmpleados '" + txtnombre.Value + "','" + txtapellido.Value + "'" +
                     ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "','" + txtpuesto.Value + "' ,'" + 1 + "' ";
                     ds = util.ObtenerDatos(sql, "TUsu");
-                    //Limpiar();
+                    Limpiar();
                 }
             }
         }
@@ -146,7 +146,7 @@ namespace SistemaReparaciónDePC
             txttelefono.Value = "";
             ddlestadocivil.SelectedValue = "0";
             ddlDepartamento.SelectedValue = "0";
-            ddlMuni.SelectedValue = "";
+            ddlMuni.SelectedValue = "0";
             radiof.Checked = false;
             radiom.Checked = false;
             txtpuesto.Value = "";
@@ -155,6 +155,11 @@ namespace SistemaReparaciónDePC
             lblSexo.Visible = false;
             lblNombre.Visible = false;
             lblidentidad.Visible = false;
+            lblLugar.Visible = false;
+            lblPuesto.Visible = false;
+            lbltelefono.Visible = false;
+            lblapellido.Visible = false;
+            lblEstado.Visible = false;
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -251,7 +256,8 @@ namespace SistemaReparaciónDePC
                     string sql = "UDP_EditarEmpleados '" + ideditar + "','" + txtnombre.Value + "','" + txtapellido.Value + "'" +
                     ",'" + txtIdentidad.Value + "','" + ddlestadocivil.SelectedValue + "','" + sexo + "','" + txttelefono.Value + "','" + ddlMuni.SelectedValue + "','" + txtpuesto.Value + "' ,'" + 1 + "' ";
                     ds = util.ObtenerDatos(sql, "TUsu");
-                    //Limpiar();
+                    Limpiar();
+                    Response.Redirect("Empleado_Index.aspx");
                 }
             }
         }

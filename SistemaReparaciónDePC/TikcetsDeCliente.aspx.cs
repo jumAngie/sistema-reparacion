@@ -44,5 +44,10 @@ namespace SistemaReparaciónDePC
             gvTickets.PageIndex = e.NewPageIndex;
             cl.CargarTicket(gvTickets, id);
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Cliente_Index.aspx");
+        }
     }
 }

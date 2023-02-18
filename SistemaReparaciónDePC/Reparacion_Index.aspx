@@ -4,7 +4,8 @@
    
     <div class="row">
             <div class="col-sm-1"></div>
-         <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" OnClick="btnuevo_Click1" Width="187px"/>  
+         <asp:Button ID="btnuevo" runat="server" CssClass="btn btn-w-m btn-primary" Text="Nuevo" OnClick="btnuevo_Click1" Width="187px"/> 
+        <div class="col-sm-1"></div>
         <asp:TextBox ID="txtbuscar" runat="server" Width="418px"></asp:TextBox>   
            
          <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." OnClick="btnbuscar_Click" Width="177px"/>
@@ -13,31 +14,44 @@
             <br />
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-md-2">
-            <asp:GridView ID="gvReparacion" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvReparacion_PageIndexChanging">
-                <Columns>
-                    <asp:BoundField HeaderText="Reparacion ID" DataField="rep_ID" />
-                    <asp:BoundField HeaderText="Tipo de Trabajo" DataField="tipo_Descripción" />
-                    <asp:BoundField HeaderText="Producto" DataField="pro_Descripción" />
-                    <asp:BoundField HeaderText="Cliente" DataField="Cliente_Nombre" />
-                    <asp:BoundField HeaderText="Técnico Encargado" DataField="Empleado_Nombre" />
-                    <asp:BoundField HeaderText="Estado de la Reparación" DataField="rep_EstadoReparacion" />
-                  
-                    <asp:TemplateField HeaderText="Editar">
-                        <ItemTemplate>
-                            <a class="fa fa-pencil btn btn-warning" style="color: black" onclick="Editar ('<%# Eval("rep_ID")%>')">Editar</a>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Eliminar">
-                        <ItemTemplate>
-                            <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("rep_ID")%>')">Eliminar</a>
-                        </ItemTemplate>
+            <div class="card">
+                <div class="card-header" style="background-color: darkgoldenrod">
+                    <div class="row">
+                        <div class="col-sm-5"></div>
+                        <asp:Image ID="Image1" ImageUrl="Content/dist/img/logo-v2.png" runat="server" Height="80px" Width="80px" />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <h3><strong>Tabla de Reparaciones</strong></h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <asp:GridView ID="gvReparacion" CssClass="col-12 table-responsive-md table table-bordered table-striped" runat="server" AllowPaging="true" AutoGenerateColumns="false" OnPageIndexChanging="gvReparacion_PageIndexChanging">
+                        <Columns>
+                            <asp:BoundField HeaderText="Reparacion ID" DataField="rep_ID" />
+                            <asp:BoundField HeaderText="Tipo de Trabajo" DataField="tipo_Descripción" />
+                            <asp:BoundField HeaderText="Producto" DataField="pro_Descripción" />
+                            <asp:BoundField HeaderText="Cliente" DataField="Cliente_Nombre" />
+                            <asp:BoundField HeaderText="Técnico Encargado" DataField="Empleado_Nombre" />
+                            <asp:BoundField HeaderText="Estado de la Reparación" DataField="rep_EstadoReparacion" />
 
-                    </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Editar">
+                                <ItemTemplate>
+                                    <a class="fa fa-pencil btn btn-warning" style="color: black" onclick="Editar ('<%# Eval("rep_ID")%>')">Editar</a>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Eliminar">
+                                <ItemTemplate>
+                                    <a class="fa fa-trash btn btn-danger" style="color: black" onclick="Eliminar('<%# Eval("rep_ID")%>')">Eliminar</a>
+                                </ItemTemplate>
 
-                </Columns>
-            </asp:GridView>
+                            </asp:TemplateField>
+
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
         </div>
-        </div>
+    </div>
 
 </asp:Content>

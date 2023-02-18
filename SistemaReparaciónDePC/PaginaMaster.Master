@@ -259,7 +259,7 @@
     function Eliminar(id) {
         var result = confirm("esta seguro que desea elimnar el registro?");
         if (result) {
-            alert(id);
+            
             __doPostBack("Eliminar", id)
         }
     }
@@ -271,7 +271,7 @@
     function EliminarEmpleado(id) {
         var result = confirm("esta seguro que desea elimnar el registro?");
         if (result) {
-            alert(id);
+            
             __doPostBack("EliminarEmpleado", id)
         }
     }
@@ -283,7 +283,7 @@
     function EliminarProducto(id) {
         var result = confirm("esta seguro que desea elimnar el registro?");
         if (result) {
-            alert(id);
+            
             __doPostBack("EliminarProducto", id)
         }
     }
