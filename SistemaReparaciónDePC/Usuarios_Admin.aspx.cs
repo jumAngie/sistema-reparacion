@@ -47,7 +47,7 @@ namespace SistemaReparaciónDePC
             string Usuario = txtUsuario.Value;
             int EsAdmin;
             string Empleado = ddlEmpleado.SelectedValue;
-            string sesion = Session["Usuario"].ToString();
+            string sesion = Session["ID"].ToString();
             if (ckAdmin.Checked)
             {
                 EsAdmin = 1;
