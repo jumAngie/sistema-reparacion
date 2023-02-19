@@ -38,6 +38,7 @@ namespace SistemaReparaciónDePC
                     Response.Write("<script src='Content/js/jquery-3.1.1.min.js'></script>");
                     Response.Write("<script src='Content/js/bootstrap.js'></script>");
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "script", "showModal();", true);
+                    
                     btneditar.Visible = true;
 
                 }

@@ -42,22 +42,40 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// Control gvProducto.
+        /// Control gvDeptos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProducto;
+        protected global::System.Web.UI.WebControls.GridView gvDeptos;
 
         /// <summary>
-        /// Control txtproducto.
+        /// Control txtDepto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtproducto;
+        protected global::System.Web.UI.WebControls.TextBox txtDepto;
+
+        /// <summary>
+        /// Control modalcerrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton modalcerrar;
+
+        /// <summary>
+        /// Control btnCerrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrar;
 
         /// <summary>
         /// Control btnguardar.

@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI.WebControls;
+using SistemaReparaciónDePC.Clases;
+
+namespace SistemaReparaciónDePC.Clases
+{
+    public class Departamentos
+    {
+        Utilitario util = new Utilitario();
+        public void CargarGriv(GridView gv, string buscar)
+        {
+            
+            if (buscar == "")
+            {
+                DataSet ds = util.ObtenerDatos("EXEC UDP_MostarDeptos", "t");
+                gv.DataSource = ds.Tables["t"];
+                gv.DataBind();
+
+            }
+            else
+            {
+                string sql = "EXEC UDP_BuscarDeptos'" + buscar + "'";
+                DataSet ds = util.ObtenerDatos(sql, "t");
+                gv.DataSource = ds.Tables["t"];
+                gv.DataBind();
+            }
+
+        }
+
+        public DataSet cargardatos(string id)
+        {
+            DataSet ds = new DataSet();
+            string SQL = "EXEC UDP_ObtenerDatos_Deptos '" + int.Parse(id) + "'";
+            ds = util.ObtenerDatos(SQL, "T");
+            return ds;
+        }
+    }
+}

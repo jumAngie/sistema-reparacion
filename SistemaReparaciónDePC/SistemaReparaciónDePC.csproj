@@ -2978,8 +2978,10 @@
     <Compile Include="Ciudades_Index.aspx.designer.cs">
       <DependentUpon>Ciudades_Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Ciudades.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\CnxBD.cs" />
+    <Compile Include="Clases\Departamentos.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\producto.cs" />
     <Compile Include="Clases\Reparacion.cs" />
