@@ -62,7 +62,7 @@
           <!-- /.col -->
         </div>
     <div class="row">
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
         <div class="card">
             <div class="card-header" style="background-color: teal">
                 <div class="row">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-3"></div>
-                    <h3><strong>Sistema de Reparación:</strong> Computadoras, Tablets y Celulares</h3>
+                    <h3><strong>Sistema de Reparación "New-Tech"  </strong> Computadoras, Tabletas y Celulares</h3>
                 </div>
             </div>
             <div class="card-body">
