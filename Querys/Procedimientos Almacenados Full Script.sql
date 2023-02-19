@@ -6,10 +6,12 @@
 CREATE OR ALTER  PROCEDURE UDP_MostrarCiudades
 AS
 BEGIN
-		SELECT [Ciudad_Id], [Ciudad_Descripcion] FROM [dbo].[tbl_Ciudades]
+		SELECT [Ciudad_Id], T2.Departamento_Descripcion, [Ciudad_Descripcion] 
+		FROM [dbo].[tbl_Ciudades] T1 INNER JOIN [dbo].[tbl_Departamentos] T2
+		ON	T1.Ciudad_DepartamentoId = T2.Departamento_ID
 END
 
-
+go
 
 -- udp para insertar ciudades --
 CREATE OR ALTER PROCEDURE UDP_InsertarCiudades
@@ -33,7 +35,7 @@ BEGIN
 							NULL,
 							NULL)
 END
-
+go
 -- udp para buscar ciudades
 CREATE OR ALTER PROCEDURE UDP_BuscarCiudades
 		@TextoBuscar	NVARCHAR(MAX)
@@ -44,19 +46,19 @@ BEGIN
 END
 
 
-
+go
 -- udp para Obtener los datos de una Ciudad especifica
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Ciudad
 		@Id  INT
 AS
 BEGIN
-		SELECT [Ciudad_Id], [Ciudad_Descripcion] FROM [dbo].[tbl_Ciudades]
+		SELECT [Ciudad_Id], [Ciudad_Descripcion], [Ciudad_DepartamentoId] FROM [dbo].[tbl_Ciudades]
 		WHERE	[Ciudad_Id] = @Id
 END
 
 
 
-
+go
 --udp para editar los datos de una ciudad especifica
 CREATE OR ALTER PROCEDURE UDP_EditarDatos_Ciudad
 			@ID						INT,
@@ -160,10 +162,6 @@ BEGIN
 		WHERE	T1.Estado = 1
 END
 ------------------------------------------------------------
-select * from [dbo].[tbl_Reparación]
-
-
-
 
 Create or Alter Procedure UDP_Mostrarrepa
 as
@@ -179,7 +177,6 @@ on t1.rep_TipodeTrabajo = t2.tipo_ID inner join [dbo].[tbl_Producto] t3 on t1.re
 on t1.rep_Empleado = t4.Cliente_Id inner join [dbo].[tbl_Empleados] t5 on t5.Empleado_Id = t1.rep_Empleado 
 end 
 -----------------------------------------------------------------
-select * from 
 
 ---- udp buscar por texto
 CREATE OR ALTER PROCEDURE UDP_BuscarReparación
@@ -224,15 +221,6 @@ or Empleado_Nombre like '%'+ @buscador +'%' or Empleado_Nombre like '%'+ @buscad
 
 end
 -----------------------------------------------------------------
-
-select [tipo_ID],[tipo_Descripción] from [dbo].[tbl_TipoDeTrabajo]
-
-
-select [pro_ID],[pro_Descripción]  from [dbo].[tbl_Producto]
-
-select [Cliente_Id],[Cliente_Nombre]  from [dbo].[tbl_Cliente]
-
-
 
 -- udp para  insertar reparaciones 
 
@@ -471,7 +459,7 @@ BEGIN
 		  where Cliente_Estado=1
 END 
 
-
+----------------------------------------------------
 
 CREATE OR ALTER pROCEDURE UDP_BuscarClientes
    @buscador  nvarchar(max)
@@ -493,8 +481,6 @@ begin
 		  '%'+@buscador+'%' or Cliente_EstadoCivilId = '%'+@buscador+'%' or T3.Ciudad_Descripcion = '%'+@buscador+'%' 
 end 
 
-
-select [Empleado_Id],[Empleado_Nombre] from [dbo].[tbl_Empleados]
 
 -- udp para obtener datos
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Cliente
@@ -618,7 +604,7 @@ VALUES  (@Empleado_Nombre,
 		NULL,
 		1)
 END
-
+----------------------------------------------
 cREATE OR aLTER pROCEDURE UDP_BuscarEmpleados
       @buscador    nvarchar(max)
 as 
@@ -642,7 +628,7 @@ begin
 			 or T3.Ciudad_Descripcion like '%'+@buscador+'%'
 end
 
-
+----------------
 
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_Empleado
 		@ID INT
@@ -782,7 +768,7 @@ begin
     FROM	[dbo].[tbl_TipoDeTrabajo]
 	WHERE	[Estado] = 1
 end
-
+-----------------------------------
 
 Create or Alter Procedure UDP_BuscarTipoDeTrabajo
     @buscador    nvarchar(250)
@@ -793,14 +779,14 @@ begin
       fROM  [dbo].[tbl_TipoDeTrabajo]
 	  Where tipo_Descripción like '%'+@buscador+'%' and   [Estado]  = 1
 end 
-
+------------------------------------------------------------
 CREATE OR ALTER PROCEDURE UDP_ObtenerDatos_TipoDeTrabajo
 		@ID INT
 AS
 BEGIN
 			SELECT tipo_ID, tipo_Descripción FROM tbl_TipoDeTrabajo WHERE [tipo_ID] = @ID
 END
-
+----------------------------------------------------------------------
 Create or Alter Procedure UDP_EditarTipoDeTrabajo
      @id              int, 
 	 @descripcion     nvarchar(250),
@@ -813,7 +799,7 @@ begin
 	 from	[dbo].[tbl_TipoDeTrabajo]
 	 Where	[tipo_ID]=@id
 end 
-
+--------------------------------------------------------------------
 Create or Alter Procedure UDP_insertTipoDeTrabajo
        @descripcion       nvarchar(250),
        @usuariocreacion   int
@@ -822,7 +808,7 @@ begin
      insert into tbl_TipoDeTrabajo
 	 VALUES(@descripcion,@usuariocreacion,null,getdate(),null,1,'C')
 end 
-
+------------------------------------------------------------
 Create or Alter Procedure UDP_EliminarTipoDeTrabajo
         @id int ,
 		@UsuarioModi INT
@@ -894,7 +880,7 @@ BEGIN
 		
 END
 
---- contraseñas = admin, julian, angie
+--- contraseñas = angie
 EXEC UDP_InsertarUsuarios 'AngieCC',2,'angie',1,0
 
 ----------------------------------
@@ -942,9 +928,6 @@ BEGIN
 		ON		T1.rep_Producto = T3.pro_ID
 		WHERE	rep_Empleado = @ID
 END
-
-
-SELECT * FROM tbl_Reparación
 -----------------------------------------
 CREATE OR ALTER  PROCEDURE UDP_MostrarTicketServicios
 		@ID NVARCHAR(20)

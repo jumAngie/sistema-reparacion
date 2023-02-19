@@ -1,7 +1,7 @@
 -- **** CREACION DE BD ***** --
---CREATE DATABASE BD_Reparaciones
---GO
---USE	BD_Reparaciones
+CREATE DATABASE BD_Reparaciones2
+GO
+USE	BD_Reparaciones2
 
 -- *** TABLAS E INSERTS ** --
 
