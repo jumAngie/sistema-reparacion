@@ -58,7 +58,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="Content/dist/img/logo-v2.png" alt="Repairs" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">New-Tech</span>
+      <span class="brand-text font-weight-light"><strong>New-Tech</strong></span>
     </a>
 
     <!-- Sidebar -->
@@ -74,15 +74,7 @@
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -101,7 +93,7 @@
               <li class="nav-item">
                 <a href="Cliente_Index.aspx" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cliente</p>
+                  <p>Clientes</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -149,7 +141,7 @@
                   </a>
               </li>
             <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="Ciudades_Index.aspx" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Ciudades</p>
                   </a>

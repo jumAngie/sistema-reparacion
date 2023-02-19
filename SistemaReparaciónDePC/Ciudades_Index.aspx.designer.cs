@@ -42,22 +42,49 @@ namespace SistemaReparaciónDePC
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// Control gvProducto.
+        /// Control gvCiudades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProducto;
+        protected global::System.Web.UI.WebControls.GridView gvCiudades;
 
         /// <summary>
-        /// Control txtproducto.
+        /// Control txtCiudades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtproducto;
+        protected global::System.Web.UI.WebControls.TextBox txtCiudades;
+
+        /// <summary>
+        /// Control ddlDepto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepto;
+
+        /// <summary>
+        /// Control modalcerrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton modalcerrar;
+
+        /// <summary>
+        /// Control btnCerrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrar;
 
         /// <summary>
         /// Control btnguardar.

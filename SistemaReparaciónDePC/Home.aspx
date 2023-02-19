@@ -64,7 +64,7 @@
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="card">
-            <div class="card-header" style="background-color: darkgoldenrod">
+            <div class="card-header" style="background-color: teal">
                 <div class="row">
                     <div class="col-sm-5"></div>
                    

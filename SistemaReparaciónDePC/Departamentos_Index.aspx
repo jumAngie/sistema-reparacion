@@ -4,17 +4,17 @@
     <br />
 
     <div class="row">
-        <div class="col-sm-4"></div>
+        <div class="col-sm-3"></div>
 
         <input type="button" class="btn btn-primary" value="Nuevo" onclick="showModal()" style="width: 100px">
         <div class="col-sm-1"></div>
-        <asp:TextBox ID="txtbuscar" runat="server" Width="115px"></asp:TextBox>
+        <asp:TextBox ID="txtbuscar" runat="server" Width="170px"></asp:TextBox>
 
-        <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." Width="85px" OnClick="btnbuscar_Click" />
+        <asp:Button ID="btnbuscar" CssClass="btn btn-w-m btn-primary" runat="server" Text="Buscar.." Width="100px" OnClick="btnbuscar_Click" />
     </div>
     <br />
     <div class="row">
-        <div class="col-sm-4"></div>
+        <div class="col-sm-3"></div>
         <div class="card">
             <div class="card-header" style="background-color: darkgoldenrod" text-align: center>
                 <div class="row">
@@ -22,7 +22,7 @@
                     <asp:Image ID="Image1" ImageUrl="Content/dist/img/logo-v2.png" runat="server" Height="80px" Width="80px" />
                 </div>
                 <div class="row">
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2"></div>
                     <h3 ><strong>Tabla de Departamentos</strong></h3>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <asp:BoundField HeaderText="Departamento" DataField="Departamento_Descripcion" />
                         <asp:TemplateField HeaderText="Editar">
                             <ItemTemplate>
-                                <a class="btn-sm btn-warning" style="color: black" onclick="Editar('<%# Eval("Departamento_ID")%>')">Editar</a>
+                                <a class="btn btn-warning" style="color: black" onclick="Editar('<%# Eval("Departamento_ID")%>')">Editar</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -60,7 +60,7 @@
                                     <div class="card-body">
                                         <div class="col-sm-6">
                                             <a>Ingrese el Departamento</a>
-                                            <asp:TextBox ID="txtDepto" placeholder="Nuevo Departamento" runat="server" Width="418px"></asp:TextBox>
+                                            <asp:TextBox ID="txtDepto" CssClass="form-control" placeholder="Nuevo Departamento" runat="server" Width="418px"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
